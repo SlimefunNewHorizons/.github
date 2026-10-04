@@ -112,7 +112,7 @@
 | SimpleUtils-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SlimeChem-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SlimeFrame-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| SlimeHUD-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SlimeHUD-drake | maven | ✅ sí | ✅ sí (rama `port-26x` f23b2c0: Lombok en annotationProcessorPaths) | sin tests | **No corre** en staging Paper 26.2: `NoClassDefFoundError` `com/github/drakescraft_labs/slimefun4/api/SlimefunAddon` (core universal usa `io.github.thebusybiscuit`). En 26.x la función ya vive como módulo `slimehud` de DrakesUtility, que sí carga. |
 | SlimeTinker-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Slimefun-Disc-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Slimefun4-Drake | maven | ⏳ pendiente | ✅ sí | ❌ fallan | Rama `feat/universal-slimefun-abi` a08023b2: JAR universal compila y carga en staging Paper 26.2; MockBukkit falla al inicializar `org.bukkit.Registry` en Java 25. |
