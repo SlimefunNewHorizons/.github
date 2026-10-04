@@ -12,9 +12,10 @@
 ~/ai-hub/scripts/build_seguro.sh 21 <repo> mvn -B -fae package
 # 26.x (JDK 25) — compila sin tests
 ~/ai-hub/scripts/build_seguro.sh 25 <repo> mvn -B -fae -DskipTests \
-    -Dpaper.version=26.2.build.129-stable -Djava.version=25 -Dmaven.compiler.release=25 package
+    -Dpaper.version=26.2.build.129-stable -Djava.version=25 -Dmaven.compiler.release=25 clean package
 ```
 
+* El build 26.x lleva `clean`: sin él, el compilador incremental reutiliza las clases del build JDK 21 («Nothing to compile») y el resultado no prueba nada. Desde 2026-10-04 `check_ports.sh` lo incluye y marca `NO_MEDIDO` si no recompiló.
 * Siempre vía `build_seguro.sh` (un solo build a la vez en todo el VPS, `nice`/`ionice`, espera si la carga ≥ 5). Máximo ~450 s de presupuesto por pasada.
 * `indeterminado` = el build falló sin llegar a compilar (p. ej. no resolvió dependencias): **no es un no-compila**, hay que repetirlo.
 * Los cambios propios de 26.x van a la rama `port-26x` de cada repo, nunca directo a `main`.
@@ -36,22 +37,22 @@
 | ArcanaDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (paper.version parametrizado y shade 3.6.2 para clases Java 25 en c5c5f65) |
 | BentoBox-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | BreweryX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| ChestTerminal-drake | maven | ✅ sí | ✅ sí | ⚠️ indeterminado | sin bloqueo |
+| ChestTerminal-drake | maven | ✅ sí | ✅ sí | ⚠️ indeterminado | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 (bytecode 69) |
 | ColoredEnderChests-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | CompressionCraft-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
 | DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-03 `1a33d22`: paper-api `${paper.version}`, Lombok en annotationProcessorPaths (JDK 25), Particle.DUST/EntityType.ITEM; solo compila, sin arranque en staging |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
 | Drakes-Suites | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
+| DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 (bytecode 69) |
 | DrakesCore | maven | — archivado | — archivado | — | repo archivado en GitHub (solo lectura); sustituido por Drakes-Suites y Odysseia, se omite |
 | DrakesCrates | maven | ✅ sí | ✅ sí | ✅ ok (3/3 JDK 21 y JDK 25) | sin bloqueo (paper.version parametrizado, Material.CHAIN→IRON_CHAIN y test sin registro de ítems en 536ecc4); solo compila, no arrancado en staging 26.x |
 | DrakesLabPresence-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DrakesMotd | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en 4b2c0a6) |
 | DrakesNanotech | maven | ✅ sí | ✅ sí (rama `port-26x`, PR #1) | ✅ ok (7/7 en 21 y 25) | 2026-10-03: `paper.version` parametrizada + `jsr305` provided (paper-api 26.2 ya no trae `@Nonnull`). Compila; sin prueba de ejecución en staging. |
 | DrakesRanks | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en c718cfc); solo compila, no arrancado en staging 26.x |
-| DrakesRankup | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
-| DrakesSlimeMarket | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| DrakesRankup | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 (bytecode 69, árbol con cambios locales de #21) |
+| DrakesSlimeMarket | maven | ✅ sí | ✅ sí | ✅ ok (19/19 en 21 y 25) | 2026-10-04 `3660685`: `paper.version` parametrizada (antes fija; el 26.x previo no era válido). JDK 25 `clean package` → bytecode 69. Solo compila; sin arranque en staging |
 | DrakesTab | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en f34e343) |
 | DrakesTech | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | DrakesTranslate | maven | ✅ sí | ✅ sí | sin tests | d2ac01b: compila JDK 21/Paper 1.21.11 y JDK 25/Paper 26.2 (bytecode 69); no arrancado aún en staging |
@@ -62,7 +63,7 @@
 | ElectricSpawners-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | EssentialsX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | ExcellentEnchants-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
+| ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 contra Paper 26.2 (bytecode 65: el pom fija source/target 21) |
 | ExtraGear-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ExtraHeads-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | FlowerPower-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
