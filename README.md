@@ -1,21 +1,21 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/DrakesCraft-Labs/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons — Modernizing Slimefun for the next generation of Minecraft" width="100%" />
+<img src="https://raw.githubusercontent.com/SlimefunNewHorizons/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons — Modernizing Slimefun for the next generation of Minecraft" width="100%" />
 
 # Slimefun: New Horizons
 
 ### Modernizing Slimefun for the next generation of Minecraft
 
 [![Paper](https://img.shields.io/badge/Production-Paper_1.21.11-38BDF8?style=for-the-badge&logo=minecraft&logoColor=white)](https://papermc.io/)
-[![26.2](https://img.shields.io/badge/StarSuites-compile_on_Paper_26.2-8B5CF6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/DrakesCraft-Labs/Drakes-Suites)
+[![26.2](https://img.shields.io/badge/StarSuites-compile_on_Paper_26.2-8B5CF6?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SlimefunNewHorizons/Drakes-Suites)
 [![Java](https://img.shields.io/badge/Java-21_·_25-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjdk.org/)
-[![Rust](https://img.shields.io/badge/Rust-Off--Heap_SIMD-DEA584?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/DrakesCraft-Labs/Slimefun-Rust)
+[![Rust](https://img.shields.io/badge/Rust-Off--Heap_SIMD-DEA584?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/SlimefunNewHorizons/Slimefun-Rust)
 [![Discord](https://img.shields.io/badge/Discord-Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/rv3vtXZTk7)
 
 [🌐 Website](https://web.drakescraft.cl) ·
 [💬 Discord](https://discord.gg/rv3vtXZTk7) ·
-[🌌 StarSuites](https://github.com/DrakesCraft-Labs/Drakes-Suites) ·
-[🧭 All repositories](https://github.com/orgs/DrakesCraft-Labs/repositories) ·
+[🌌 StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites) ·
+[🧭 All repositories](https://github.com/orgs/SlimefunNewHorizons/repositories) ·
 [📊 Verified status](docs/status/ECOSYSTEM_STATUS_2026-10-02.md) ·
 [⚖️ Rights & attribution](RIGHTS_AND_ATTRIBUTION.md) ·
 [🇪🇸 Español](README_ES.md)
@@ -139,7 +139,7 @@ Non-exhaustive list of upstream authors and projects we build on (each repositor
 
 ## Contributing
 
-1. Active development of consolidated plugins happens in [`Drakes-Suites`](https://github.com/DrakesCraft-Labs/Drakes-Suites).
+1. Active development of consolidated plugins happens in [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites).
 2. **Never break player data**: no item, inventory or purchase history may be put at risk; PDC keys are preserved.
 3. Forks and consolidations **keep their original licenses** and credit the original authors.
 4. Public READMEs are written in English; Spanish documentation lives alongside as `README_ES.md`.
@@ -147,6 +147,6 @@ Non-exhaustive list of upstream authors and projects we build on (each repositor
 <div align="center">
 
 **Slimefun: New Horizons** · built with ♥ by the DrakesCraft Labs community<br/>
-[Website](https://web.drakescraft.cl) · [Discord](https://discord.gg/rv3vtXZTk7) · [StarSuites](https://github.com/DrakesCraft-Labs/Drakes-Suites)
+[Website](https://web.drakescraft.cl) · [Discord](https://discord.gg/rv3vtXZTk7) · [StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites)
 
 </div>
