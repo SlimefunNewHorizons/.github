@@ -56,6 +56,7 @@
 | DrakesTab | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en f34e343) |
 | DrakesTech | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | DrakesTranslate | maven | ✅ sí | ✅ sí | sin tests | d2ac01b: compila JDK 21/Paper 1.21.11 y JDK 25/Paper 26.2 (bytecode 69); no arrancado aún en staging |
+| DrakesVIPPlusPlus | maven | ✅ sí | ✅ sí | sin tests | 2026-10-05 `7e66cba`: JSR-305 provided para Paper 26.2. Compila en JDK 21 y JDK 25; **corre** en staging Paper 26.2 build 129/Java 25 y alcanza `Done` (121.417 s), con DrakesVIP++ habilitado y 15 tiers cargados. |
 | DrakesWorlds | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (Biome como registro + jsr305; corregido en 003529d; carga y genera mundo en staging 26.2) |
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DynaTech-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (ExoticGarden-drake apuntaba a una versión no publicada; corregido en f0fb4e0) |
