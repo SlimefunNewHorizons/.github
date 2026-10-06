@@ -15,6 +15,7 @@
     -Dpaper.version=26.2.build.129-stable -Djava.version=25 -Dmaven.compiler.release=25 clean package
 ```
 
+* Desde 2026-10-06 `check_ports.sh` exige bytecode major 69 en `target/classes` para dar 26.x por compilado: 33 poms fijan `maven.compiler.source/target` 21 sin declarar `maven-compiler-plugin` (Maven 3.8.7 cae a 3.1, que ignora `release`), y su «✅ sí» en 26.x valida la API de Paper 26.2 pero con bytecode Java 21. Se corrigen repo a repo en `port-26x`.
 * El build 26.x lleva `clean`: sin él, el compilador incremental reutiliza las clases del build JDK 21 («Nothing to compile») y el resultado no prueba nada. Desde 2026-10-04 `check_ports.sh` lo incluye y marca `NO_MEDIDO` si no recompiló.
 * Siempre vía `build_seguro.sh` (un solo build a la vez en todo el VPS, `nice`/`ionice`, espera si la carga ≥ 5). Máximo ~450 s de presupuesto por pasada.
 * `indeterminado` = el build falló sin llegar a compilar (p. ej. no resolvió dependencias): **no es un no-compila**, hay que repetirlo.
@@ -83,7 +84,7 @@
 | Inventory-Rollback-Plus-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | KinematicCore-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | LevelledMobs-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| Liquid-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Liquid-drake | maven | ✅ sí | ✅ sí (rama `port-26x`, PR #1) | sin tests | 2026-10-06 `0b1b315`: el pom no declaraba `maven-compiler-plugin` (Maven usaba 3.1, ignora `release`) y el build 26.x salía con bytecode 65; ahora 3.13.0 + Lombok en `annotationProcessorPaths` → major 69. Solo compila; no arrancado en staging. |
 | LiteXpansion-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Magic-8-Ball-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | MapJammers-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
