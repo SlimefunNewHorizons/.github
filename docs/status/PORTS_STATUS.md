@@ -79,6 +79,7 @@
 | Geyser-Slimefun-Heads-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | HeadLimiter-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | HotbarPets-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| InfernalExpansion | maven | ⏳ pendiente | ✅ sí | sin tests | 26.x medido 2026-10-06 en el VPS (build_seguro JDK 25, Paper 26.2 build 129, major 69). `port-26x` `7bbdb0c` migra al Slimefun universal y **arranca** en staging 26.2 (ticket #98). 1.21.11 (main) sin medir en esta pasada |
 | InfinityExpansion-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | InfinityLib-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | InvSwitcher-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
