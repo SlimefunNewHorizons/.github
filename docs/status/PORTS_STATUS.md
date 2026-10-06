@@ -24,15 +24,16 @@
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 22 |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 23 |
 | Gradle | 9 | 9 |
 | Sin código fuente en el repo | 28 | 28 |
-| **Total** | **97** | **59** |
+| **Total** | **97** | **60** |
 
 ## Tabla
 
 | repo | build | 1.21.11 compila | 26.x compila | tests | bloqueo / nota |
 |---|---|---|---|---|---|
+| AdvancedTech-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo; medido 2026-10-06 en el VPS (`AdvancedTech-drake-jdk21.log` y `-jdk25.log`: `clean package`, 26.x con Paper 26.2/Java 25). `port-26x` `1c54445` migra al Slimefun universal y reporta arranque OK en staging 26.2 (addons 7→8, ítems 267→276); compila ≠ corre: falta reflejarlo en `TEMPORADA2_STAGING.md` |
 | AlchimiaVitae-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ArcanaDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (paper.version parametrizado y shade 3.6.2 para clases Java 25 en c5c5f65) |
 | BentoBox-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
