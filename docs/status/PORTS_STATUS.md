@@ -90,7 +90,7 @@
 | MapJammers-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | MiniBlocks-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | MultiverseNets | maven | ✅ sí (hotfix `441e2fe` sobre v5.0) | ⚠️ no medido (JDK 25) | ✅ ok (267 pruebas JDK 21) | El JAR 5.0 del hotfix **corre** en staging Paper 26.2 build 129/Java 25: habilita, detecta Slimefun y registra 46 recetas; no equivale aún a compilar la rama 26.x. |
-| MissileWarfare-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| MissileWarfare-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 26.x medido 2026-10-06 en el VPS (build_seguro JDK 25, `clean test package`, major 69). `port-26x` `c49c23a` migra al Slimefun universal y **arranca** en staging 26.2 (addons 7→8, ticket #96). 1.21.11 (main) sin medir en esta pasada |
 | MobCapturer-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | MoreResearches-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | NetworksV6-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
