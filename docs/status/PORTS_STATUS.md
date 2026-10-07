@@ -42,7 +42,7 @@
 | ChestTerminal-drake | maven | ✅ sí | ✅ sí | ⚠️ indeterminado | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 (bytecode 69) |
 | ColoredEnderChests-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | CompressionCraft-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
+| CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok (1/1 JDK 25) | 2026-10-07 CLT (ticket #154): rama `port-26x` `630c2e5` migra al Slimefun universal (`io.github.thebusybiscuit`, `me.mrCookieSlime`, dough del core), InfinityLib/InfinityExpansion/ExoticGarden UNIVERSAL-26x, release 25 (bytecode major 69). NetheoPlants excluido y velo de Networks por reflexión: ambos addons solo existen contra la API propietaria. Corre en staging 26.2 (273 IDs `CRY_*`); ver `TEMPORADA2_STAGING.md`. |
 | DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-07 CLT: `port-26x` `3bd9f75` migra al Slimefun universal (21 archivos); build JDK 25 major 69; **corre** en staging 26.2 (habilita, `sf versions` 15 addons, sin WARN/ERROR propios). 1.21.11 (`master`) medido el 2026-10-03 `1a33d22`, sin arranque nuevo en esta pasada |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
 | Drakes-Suites | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
