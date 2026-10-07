@@ -109,7 +109,7 @@
 | RykenSlimeCustomizer-EN-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | SFCalc-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| SFMobDrops-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SFMobDrops-drake | maven | ⏳ pendiente | ✅ sí | ❌ MockBukkit v1.21 no soporta 26.2 (`Material.CHAIN`) | 2026-10-07 CLT: rama `port-26x` `0edd3e2` migra al Slimefun universal (`io.github.thebusybiscuit`), compiler 3.14.0 con `release` y Lombok en `annotationProcessorPaths`; JDK 25/Paper 26.2 `clean package -DskipTests`, bytecode 69, 0 refs propietarias. **Corre** en staging 26.2 build 129: habilita, carga 3 drops, `sf versions` 20 addons, `/mobdrops` y `/mobdrops reload` responden. 1.21.11 (`main`) sin medir en esta pasada |
 | SMG-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SaneCrafting-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SensibleToolbox-drake | maven | ✅ sí (main `1e7e345`, ticket #4) | ✅ sí (rama `port-26x` `e09c7a7`, core universal) | ✅ 86/86 en JDK 25 perfil mc-26.2 | **corre** en staging Paper 26.2 build 129 (2026-10-03 00:16 CLT): habilita sin excepciones con Slimefun universal; antes fallaba por `ClassNotFoundException` del wrapper propietario |
