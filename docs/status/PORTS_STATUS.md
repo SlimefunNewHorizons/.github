@@ -78,7 +78,7 @@
 | Galactifun2-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Galaxyfun-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Gastronomicon-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-07 CLT (ticket #114): rama `port-26x` `ca80ae6` migra 46 fuentes al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), release 25, Lombok 1.18.46 en compiler plugin y vincula infinitylib universal y SlimeHUD universal; build JDK 25 clean package OK (bytecode major 69.0); instalado en ~/.m2 como `1.21.11-Drake.1-UNIVERSAL-26x-SNAPSHOT`. 1.21.11 no medido en esta pasada. |
-| GeneticChickengineering-Reborn-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| GeneticChickengineering-Reborn-drake | maven | ⏳ pendiente | ✅ sí | ✅ ok (2/2 JDK 25) | 2026-10-07 CLT: rama `port-26x` `2619542` migra 26 fuentes al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), release 25, shade 3.6.2, quita la relocalización a la API propietaria y cambia `Material.CHAIN` → `IRON_CHAIN`; bytecode major 69; SHA-256 `05a98f3f4494c909e95c7856879b5348a49666ce9405a48a2b4d7643b820b987`. Carga en staging 26.2 (64 pollos registrados). 1.21.11 (`main`) sin medir. |
 | Geyser-Slimefun-Heads-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | HeadLimiter-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | HotbarPets-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
