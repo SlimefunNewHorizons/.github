@@ -106,7 +106,7 @@
 | Pylon-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Quaptics-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Rebar-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| RelicsOfCthonia-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| RelicsOfCthonia-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-07 CLT (ticket #124): `main` compila con JDK 21 (major 65); rama `port-26x` `e018732` migra 48 archivos al Slimefun universal (`io.github.thebusybiscuit`, Dough del núcleo en vez de `dev.drake.dough`), compila con JDK 25 / Paper 26.2 (major 69) y CORRE en staging: habilita y registra 38 ítems `*_RELIC_*`. SHA-256 `48f00d8982b2cb0cae5aa2b8af5a8def09151a653c8805745dd9d4db9953114e` |
 | RykenSlimeCustomizer-EN-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | SFCalc-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `bfa4914`) | sin tests | 2026-10-07 CLT: rama `port-26x` (`bfa4914`) migra al Slimefun universal (`io.github.thebusybiscuit.slimefun4.*`), Lombok 1.18.46 en compiler plugin 3.14.0 y `maven.compiler.release` 25. Build JDK 25 `clean package` OK con `build_seguro.sh` (bytecode major 69.0, 0 refs propietarias). Jar SHA-256 `5bb2c5ec011c3bb123c24374c0d92c175e8a6d0d2413b6e24dbf1632054709a2` desplegado en `season2-staging/plugins/SFCalc-drake-26x.jar`. 1.21.11 pendiente de medición. |
