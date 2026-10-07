@@ -37,6 +37,7 @@
 | AlchimiaVitae-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ArcanaDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (paper.version parametrizado y shade 3.6.2 para clases Java 25 en c5c5f65) |
 | BentoBox-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
+| Better-Nuclear-Generator-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-07 04:20 CLT: rama `port-26x` `0b63314` (universaliza 13 archivos a `io.github.thebusybiscuit.slimefun4.*`, Java 25), jar major 69, SHA-256 `820e66b7…f496`. **Corre (carga)** en staging Paper 26.2 build 129/JDK 25 como plugin `BetterReactor` 1.3.0 sin WARN/ERROR; falta smoke funcional del reactor. 1.21.11 (main) sin medir. |
 | BreweryX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | ChestTerminal-drake | maven | ✅ sí | ✅ sí | ⚠️ indeterminado | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 (bytecode 69) |
 | ColoredEnderChests-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
