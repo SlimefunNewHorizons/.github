@@ -129,7 +129,7 @@
 | SoundMuffler-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SpiritsUnchained-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Supreme-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| TranscEndence-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| TranscEndence-drake | maven | ⏳ pendiente | ✅ sí | ✅ 3/3 | 2026-10-07 CLT: `port-26x` `1be9348` migra al Slimefun universal y fija maven-compiler-plugin 3.14.0 (release explícito); build JDK 25 major 69, `DaxiWorldPolicyTest` 3/3; **corre** en staging 26.2 (habilita, `sf versions` 13 addons, `/te` responde). 1.21.11 (`main`) no medido en esta pasada |
 | VillagerTrade-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | VillagerUtil-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Wildernether-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
