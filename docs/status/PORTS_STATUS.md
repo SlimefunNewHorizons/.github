@@ -69,7 +69,7 @@
 | ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 contra Paper 26.2 (bytecode 65: el pom fija source/target 21) |
 | ExtraGear-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ExtraHeads-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| FlowerPower-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
+| FlowerPower-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-06 CLT: `port-26x` `65d140a` migra al Slimefun universal y empaqueta `drakes-labs-autoupdate` (antes no iba en el jar); build JDK 25 sin avisos, major 69; **corre** en staging 26.2 (habilita, `sf versions` 11→12). El jar de `main` (1.21.11) sigue sin empaquetar el actualizador |
 | FluffyMachines-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (main no compilaba: Lombok duplicaba constructor; corregido en ce841f7) |
 | FoxyMachines-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (26.x en rama port-26x commit 7139fb5) |
 | Galactifun2-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
