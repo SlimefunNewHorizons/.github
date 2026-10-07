@@ -42,7 +42,7 @@
 | ColoredEnderChests-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | CompressionCraft-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
-| DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-03 `1a33d22`: paper-api `${paper.version}`, Lombok en annotationProcessorPaths (JDK 25), Particle.DUST/EntityType.ITEM; solo compila, sin arranque en staging |
+| DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-07 CLT: `port-26x` `3bd9f75` migra al Slimefun universal (21 archivos); build JDK 25 major 69; **corre** en staging 26.2 (habilita, `sf versions` 15 addons, sin WARN/ERROR propios). 1.21.11 (`master`) medido el 2026-10-03 `1a33d22`, sin arranque nuevo en esta pasada |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
 | Drakes-Suites | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 (bytecode 69) |
