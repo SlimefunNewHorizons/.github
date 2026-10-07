@@ -61,7 +61,7 @@
 | DrakesWorlds | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (Biome como registro + jsr305; corregido en 003529d; carga y genera mundo en staging 26.2) |
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DyedBackpacks-drake | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `371b062`: JDK 25/Paper 26.2 `clean test package`, bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: habilitado junto al núcleo Slimefun universal y servidor `Done` (115.540 s); no se midió 1.21.11 en esta pasada. |
-| DynaTech-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (ExoticGarden-drake apuntaba a una versión no publicada; corregido en f0fb4e0) |
+| DynaTech-drake | maven | ✅ sí | ❌ no | sin tests | 2026-10-07: `port-26x` `f85a5c9` migra 87 archivos al Slimefun universal (`11.0-Universal-26.x-SNAPSHOT`) pero NO compila en JDK 25 (BUILD FAILURE, 12 errores): ExoticGarden/Gastronomicon/ExtraUtils/InfinityExpansion solo existen como artefactos propietarios antiguos y sus clases no encajan con el ABI `io.github.thebusybiscuit`; hay que portar esas 4 dependencias a universal primero. 1.21.11 ✅ heredado de `main` (2026-10-03, `f0fb4e0`). Solo compila; sin arranque en staging. |
 | EMCTech-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ElectricSpawners-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | EssentialsX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
