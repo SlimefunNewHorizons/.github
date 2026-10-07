@@ -109,7 +109,7 @@
 | RelicsOfCthonia-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | RykenSlimeCustomizer-EN-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| SFCalc-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SFCalc-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `bfa4914`) | sin tests | 2026-10-07 CLT: rama `port-26x` (`bfa4914`) migra al Slimefun universal (`io.github.thebusybiscuit.slimefun4.*`), Lombok 1.18.46 en compiler plugin 3.14.0 y `maven.compiler.release` 25. Build JDK 25 `clean package` OK con `build_seguro.sh` (bytecode major 69.0, 0 refs propietarias). Jar SHA-256 `5bb2c5ec011c3bb123c24374c0d92c175e8a6d0d2413b6e24dbf1632054709a2` desplegado en `season2-staging/plugins/SFCalc-drake-26x.jar`. 1.21.11 pendiente de medición. |
 | SFMobDrops-drake | maven | ⏳ pendiente | ✅ sí | ❌ MockBukkit v1.21 no soporta 26.2 (`Material.CHAIN`) | 2026-10-07 CLT: rama `port-26x` `0edd3e2` migra al Slimefun universal (`io.github.thebusybiscuit`), compiler 3.14.0 con `release` y Lombok en `annotationProcessorPaths`; JDK 25/Paper 26.2 `clean package -DskipTests`, bytecode 69, 0 refs propietarias. **Corre** en staging 26.2 build 129: habilita, carga 3 drops, `sf versions` 20 addons, `/mobdrops` y `/mobdrops reload` responden. 1.21.11 (`main`) sin medir en esta pasada |
 | SMG-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SaneCrafting-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
