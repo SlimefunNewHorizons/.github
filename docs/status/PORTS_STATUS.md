@@ -62,12 +62,12 @@
 | Drugfun | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `45f8554`: build JDK 25/Paper 26.2 con `clean test package`, bytecode 69. **Corre** en staging Paper 26.2 build 129: habilita con Slimefun universal y servidor `Done` en 108.405 s; Dough queda relocalizado dentro del addon. 1.21.11 (`main`) no se midió en esta pasada. |
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DyedBackpacks-drake | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `cb288f7`: JDK 25/Paper 26.2 `clean test package`, bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: ciclo independiente de carga, habilitación y parada limpia; `Done` en 116.280 s. JAR probado SHA-256 `cfdec50b9168f2bf5e324a18770dcf7037e40eac2256e27804e0656821e0d2ce`; no se midió 1.21.11 en esta pasada. |
-| DynaTech-drake | maven | ✅ sí | ❌ no | sin tests | 2026-10-07: `port-26x` `f85a5c9` migra 87 archivos al Slimefun universal (`11.0-Universal-26.x-SNAPSHOT`) pero NO compila en JDK 25 (BUILD FAILURE, 12 errores): ExoticGarden/Gastronomicon/ExtraUtils/InfinityExpansion solo existen como artefactos propietarios antiguos y sus clases no encajan con el ABI `io.github.thebusybiscuit`; hay que portar esas 4 dependencias a universal primero. 1.21.11 ✅ heredado de `main` (2026-10-03, `f0fb4e0`). Solo compila; sin arranque en staging. 2026-10-07 02:48 CLT (#111): `port-26x` `e98dd0b` apunta a infinitylib/InfinityExpansion universales; desaparecen los errores de Infinity y quedan 7 en las integraciones ExoticGarden/Gastronomicon. |
+| DynaTech-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-07 CLT (ticket #114): rama `port-26x` `3ee9f3e` vincula dependencias universales `ExoticGarden-drake 1.3-UNIVERSAL-26x-SNAPSHOT` y `Gastronomicon-drake 1.21.11-Drake.1-UNIVERSAL-26x-SNAPSHOT`. Compila con éxito en JDK 25 / Paper 26.2 (101 fuentes, bytecode major 69.0), 0 referencias al core propietario. 1.21.11 ✅ heredado de `main` (`f0fb4e0`). |
 | EMCTech-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ElectricSpawners-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | EssentialsX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | ExcellentEnchants-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo; 26.x re-medido con `clean` el 2026-10-04 contra Paper 26.2 (bytecode 65: el pom fija source/target 21) |
+| ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok (11/11 JDK 25) | 2026-10-07 CLT (ticket #114): rama `port-26x` `9966ca4` migra 16 fuentes al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), release 25, Paper 26.2.build.129-stable; build JDK 25 clean test package OK (11/11 tests verdes, bytecode major 69.0); instalado en ~/.m2 como `1.3-UNIVERSAL-26x-SNAPSHOT`. |
 | ExtraGear-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ExtraHeads-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ExtraUtils-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-07 CLT: rama `port-26x` `f6a24ba` migra al Slimefun universal (io.github.thebusybiscuit y me.mrCookieSlime), release 25; compilado e instalado con JDK 25 / Paper 26.2 (bytecode major 69) para desbloquear DynaTech y FluffyMachines |
@@ -76,7 +76,7 @@
 | FoxyMachines-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (26.x en rama port-26x commit 7139fb5) |
 | Galactifun2-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Galaxyfun-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| Gastronomicon-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Gastronomicon-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-07 CLT (ticket #114): rama `port-26x` `ca80ae6` migra 46 fuentes al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), release 25, Lombok 1.18.46 en compiler plugin y vincula infinitylib universal y SlimeHUD universal; build JDK 25 clean package OK (bytecode major 69.0); instalado en ~/.m2 como `1.21.11-Drake.1-UNIVERSAL-26x-SNAPSHOT`. 1.21.11 no medido en esta pasada. |
 | GeneticChickengineering-Reborn-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Geyser-Slimefun-Heads-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | HeadLimiter-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
