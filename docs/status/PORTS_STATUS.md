@@ -24,10 +24,10 @@
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 23 |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 24 |
 | Gradle | 9 | 9 |
 | Sin código fuente en el repo | 28 | 28 |
-| **Total** | **97** | **60** |
+| **Total** | **97** | **61** |
 
 ## Tabla
 
@@ -68,6 +68,7 @@
 | EcoPower-drake | maven | ⏳ pendiente | ✅ sí (rama `port-26x` `a58119d`) | sin tests | 2026-10-08 CLT (ticket #137 / #161): rama `port-26x` `a58119d` migra al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), coord `1.20.6-Universal-26.x-SNAPSHOT`, sin `dough-core` ni autoupdate J21; jar major 69, 0 refs propietarias. **Corre** en staging Paper 26.2 build 129: carga y habilita sin WARN/ERROR, 23 claves en Items.yml, DrakesGenerators activó el módulo EcoPower Clean & Sustainable Energy Grids. SHA-256 `34139689b267a5fde52b88f6dd8495adc88462290e35a2fd1922aa600b9f7d47`. Solo staging; Dallas intacto. Desbloqueó Ticket #136. |
 | EMCTech-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ElectricSpawners-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| EquivalencyTech | maven | ⏳ pendiente | ✅ sí (`port-26x` `dddf25d`) | ✅ 28/28 JDK 25 | 2026-10-07 22:06-22:09 CLT (ticket #94): `maven-compiler-plugin` 3.13.0 con `release` 25 corrige el compilador implícito que emitía Java 21; `clean test package` por `build_seguro.sh`, bytecode major 69 y SHA-256 verificado. **Corre** en staging Paper 26.2 build 129: habilita, indexa 1707 recetas EMC y completa 1165 materiales vanilla / 183 objetos Slimefun; sin ERROR/Exception propio. Dallas intacto. |
 | EssentialsX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | ExcellentEnchants-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok (11/11 JDK 25) | 2026-10-07 CLT (ticket #114): rama `port-26x` `9966ca4` migra 16 fuentes al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), release 25, Paper 26.2.build.129-stable; build JDK 25 clean test package OK (11/11 tests verdes, bytecode major 69.0); instalado en ~/.m2 como `1.3-UNIVERSAL-26x-SNAPSHOT`. |
