@@ -33,7 +33,7 @@
 
 | repo | build | 1.21.11 compila | 26.x compila | tests | bloqueo / nota |
 |---|---|---|---|---|---|
-| AdvancedTech-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo; medido 2026-10-06 en el VPS (`AdvancedTech-drake-jdk21.log` y `-jdk25.log`: `clean package`, 26.x con Paper 26.2/Java 25). `port-26x` `1c54445` migra al Slimefun universal y **arranca** en staging 26.2 (ticket #95: `Done` 104.842 s, 554 + 276 ítems de 8 addons; ver `TEMPORADA2_STAGING.md`) |
+| AdvancedTech-drake | maven | ✅ sí | ✅ sí (`port-26x` `1f65ff4`) | sin tests | 2026-10-08 CLT (tickets #95 / #191): rama `port-26x` `1c54445` migró al Slimefun universal y `1f65ff4` fijó Paper 26.2.build.129-stable y `maven-compiler-plugin` 3.13.0 con `<release>25</release>`. Compilado con `build_seguro.sh` JDK 25 (`clean package`), emitiendo bytecode major 69 (Java 25). SHA-256 `f2d33e829f18a9fa4fc2f995fe2ab2b22005ff409b2247fff57eaf9da4a41c68`. Desplegado en `season2-staging/plugins/AdvancedTech-drake-1.0.0.jar`. Sanitizador 0 secretos. **Corre** en staging Paper 26.2 build 129 / Java 25: habilita limpio en Server thread (Done 154.678s), DrakesTech activó módulo `[AdvancedTech Quantum Compressors & Accelerators] (advancedtech)`. Certificado QA independiente por antigravity2. Solo staging 26.x; Dallas intacto. |
 | AlchimiaVitae-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ArcanaDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (paper.version parametrizado y shade 3.6.2 para clases Java 25 en c5c5f65) |
 | BentoBox-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
