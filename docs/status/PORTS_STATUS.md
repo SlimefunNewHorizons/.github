@@ -143,7 +143,7 @@
 | VillagerTrade-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | VillagerUtil-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Wildernether-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| WorldEditSlimefun-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| WorldEditSlimefun-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `d69bc35`) | sin tests | 2026-10-08 CLT (ticket #94): rama `port-26x` `d69bc35` migra 12 archivos a la API universal (`io.github.thebusybiscuit.slimefun4.*` y `me.mrCookieSlime.Slimefun.api.BlockStorage`), actualiza pom a Paper 26.2.build.129-stable y slimefun-core 11.0-Universal-26.x-SNAPSHOT, y fija maven-compiler-plugin 3.13.0 con release 25 (Java 25). Compilado con build_seguro.sh JDK 25 emitiendo bytecode major 69. SHA-256 `c25fbda2048857682237d0699eb91f8836746ec55b3e620b201ac6e96132d144`. Desplegado en `season2-staging/plugins/WorldEditSlimefun-26x.jar`. Sanitizador 0 secretos, `unzip -t` sin errores. Solo staging 26.x; Dallas intacto. |
 | WorldwideChat-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | luckyblocks-sf-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 
