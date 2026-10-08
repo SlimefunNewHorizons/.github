@@ -24,10 +24,10 @@
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 26 |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`, `RandomExpansion`) | 62 | 27 |
 | Gradle | 9 | 9 |
 | Sin código fuente en el repo | 28 | 28 |
-| **Total** | **97** | **63** |
+| **Total** | **98** | **64** |
 
 ## Tabla
 
@@ -112,6 +112,7 @@
 | Pylon-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Quaptics-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Rebar-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
+| RandomExpansion | maven | ⏳ pendiente | ✅ sí (`port-26x` `0d15b88`) | sin tests | 2026-10-08 CLT: rama `port-26x` `0d15b88` migra 10 clases a la API universal (`io.github.thebusybiscuit.slimefun4.*`), actualiza pom a Paper 26.2.build.129-stable y `slimefun-core 11.0-Universal-26.x-SNAPSHOT`, y fija `maven-compiler-plugin` 3.13.0 con `<release>25</release>`. Compilado con `build_seguro.sh` JDK 25 emitiendo bytecode major 69 (Java 25). SHA-256 `85c5720de7ccb8a6f1d757cfce44d2317dfb53e122fef283d8c3d8f74553a93f`. Desplegado en `season2-staging/plugins/RandomExpansion-26x.jar`. Sanitizador 0 secretos. **Corre** en staging Paper 26.2 build 129 / Java 25: habilita limpio en Server thread (Done 129.742s), DrakesServer activó módulo `[RandomExpansion Dynamic Server Events & Procedural Loot] (random_expansion)`. Solo staging 26.x; Dallas intacto. |
 | RelicsOfCthonia-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-07 CLT (ticket #124): `main` compila con JDK 21 (major 65); rama `port-26x` `e018732` migra 48 archivos al Slimefun universal (`io.github.thebusybiscuit`, Dough del núcleo en vez de `dev.drake.dough`), compila con JDK 25 / Paper 26.2 (major 69) y CORRE en staging: habilita y registra 38 ítems `*_RELIC_*`. SHA-256 `48f00d8982b2cb0cae5aa2b8af5a8def09151a653c8805745dd9d4db9953114e` |
 | RykenSlimeCustomizer-EN-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
@@ -143,7 +144,7 @@
 | VillagerTrade-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | VillagerUtil-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Wildernether-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| WorldEditSlimefun-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `d69bc35`) | sin tests | 2026-10-08 CLT (ticket #94): rama `port-26x` `d69bc35` migra 12 archivos a la API universal (`io.github.thebusybiscuit.slimefun4.*` y `me.mrCookieSlime.Slimefun.api.BlockStorage`), actualiza pom a Paper 26.2.build.129-stable y slimefun-core 11.0-Universal-26.x-SNAPSHOT, y fija maven-compiler-plugin 3.13.0 con release 25 (Java 25). Compilado con build_seguro.sh JDK 25 emitiendo bytecode major 69. SHA-256 `c25fbda2048857682237d0699eb91f8836746ec55b3e620b201ac6e96132d144`. Desplegado en `season2-staging/plugins/WorldEditSlimefun-26x.jar`. Sanitizador 0 secretos, `unzip -t` sin errores. Solo staging 26.x; Dallas intacto. |
+| WorldEditSlimefun-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `d69bc35`) | sin tests | 2026-10-08 CLT (ticket #94): rama `port-26x` `d69bc35` migra 12 archivos a la API universal (`io.github.thebusybiscuit.slimefun4.*` y `me.mrCookieSlime.Slimefun.api.BlockStorage`), actualiza pom a Paper 26.2.build.129-stable y slimefun-core 11.0-Universal-26.x-SNAPSHOT, y fija maven-compiler-plugin 3.13.0 con release 25 (Java 25). Compilado con build_seguro.sh JDK 25 emitiendo bytecode major 69. SHA-256 `c25fbda2048857682237d0699eb91f8836746ec55b3e620b201ac6e96132d144`. Desplegado en `season2-staging/plugins/WorldEditSlimefun-26x.jar`. Sanitizador 0 secretos, `unzip -t` sin errores. **Corre** en staging Paper 26.2 build 129 / Java 25: habilita limpio en Server thread (Done 129.742s), ACF habilitado y DrakesUtility activó el módulo `[WorldEditSlimefun Schematic & Paste Engine] (worldedit_sf)`. Solo staging 26.x; Dallas intacto. |
 | WorldwideChat-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | luckyblocks-sf-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 
