@@ -24,10 +24,10 @@
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 24 |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 61 | 26 |
 | Gradle | 9 | 9 |
 | Sin código fuente en el repo | 28 | 28 |
-| **Total** | **97** | **61** |
+| **Total** | **97** | **63** |
 
 ## Tabla
 
@@ -128,7 +128,7 @@
 | SlimeFrame-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `9582f2e`) | sin tests | 2026-10-07 CLT (ticket #152): rama `port-26x` `9582f2e` migra 65 fuentes (403 imports) al Slimefun universal (`io.github.thebusybiscuit` y `me.mrCookieSlime`), compiler con `<release>` y Lombok 1.18.46; build JDK 25/Paper 26.2 `clean package` OK, bytecode major 69, 0 refs propietarias. **Corre (carga)** en staging Paper 26.2 build 129/Java 25: habilita sin WARN/ERROR propios, 178 IDs `WF_*` en Items.yml, `/slimeframe` responde, aparece en `/sf versions` (32 addons). SHA-256 `00bef850…bb2a6`. Falta smoke funcional de máquinas/reliquias con jugador; 1.21.11 (`main`) sin medir. |
 | SlimeHUD-drake | maven | ✅ sí | ✅ sí (rama `port-26x` `0fb3a66`) | sin tests | 2026-10-07 CLT (ticket #139): `port-26x` `82bf1ca` ya migraba al Slimefun universal (`JavaPlugin` + `SlimefunAddon` de `io.github.thebusybiscuit`, sin InfinityLib); `0fb3a66` añade guardas de nulos en `PlaceholderHook`/`/slimehud toggle`. Build JDK 25/Paper 26.2 `clean package`, bytecode 69, 0 refs propietarias. **Corre** en staging Paper 26.2 build 129: habilita, registra la expansión PAPI `slimehud`, `Done` en 135 s, sin WARN/ERROR propios; antes del parche `papi parse --null %slimehud_toggle%` lanzaba NPE. Mismo parche para 1.21.11 en PR #1 (`fix/placeholder-npe`, compila JDK 21). Convive con el módulo `slimehud` de DrakesUtility sin conflictos observados. |
 | SlimeTinker-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| Slimefun-Disc-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Slimefun-Disc-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `2c3a779`) | sin tests | 2026-10-08 CLT: rama `port-26x` `2c3a779` migra al Slimefun universal (`io.github.thebusybiscuit.slimefun4.*`), actualiza a `slimefun-core 11.0-Universal-26.x-SNAPSHOT`, elimina dependencia desacoplada de `dough-core`, configura `maven-compiler-plugin` 3.14.0 con `<release>25</release>`. Compilado con `build_seguro.sh` JDK 25 / Paper 26.2 build 129 (`clean package`), emitiendo bytecode major 69 (Java 25). SHA-256 `70b652b178b64ec3a3295de02b3f682b745c20f55d01d21d676c1ae603aafaab`. Desplegado en `season2-staging/plugins/Slimefun-Disc-drake-26x.jar`. Sanitizador: 0 secretos, `unzip -t` íntegro. **Corre** en staging Paper 26.2 build 129: carga y habilita al 100% limpio en Server thread (Done 141.879s), extrae y carga 5 canciones NBS y recetas en Slimefun sin WARN ni excepciones. Solo staging 26.x; Dallas intacto. |
 | Slimefun4-Drake | maven | ⏳ pendiente | ✅ sí | ❌ fallan | Rama `feat/universal-slimefun-abi` a08023b2: JAR universal compila y carga en staging Paper 26.2; MockBukkit falla al inicializar `org.bukkit.Registry` en Java 25. |
 | SlimefunWarfare-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SlimyRepair-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
