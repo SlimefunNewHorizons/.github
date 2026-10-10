@@ -46,7 +46,7 @@
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
 | DankTech2-Drake | maven | ✅ sí | ⚠️ no medido (paper-api fija) | sin tests | pom fija paper-api 1.19-R0.1-SNAPSHOT (ignora -Dpaper.version); parametrizar paper.version |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
-| Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main |
+| Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main; 26.x en 26.x) |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesCore | maven | n/a | n/a | sin tests | repo archivado en GitHub (solo lectura; sustituido por Drakes-Suites y Odysseia) |
 | DrakesCrates | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom fija paper-api 1.20.6-R0.1-SNAPSHOT (ignora -Dpaper.version); parametrizar paper.version |
@@ -89,7 +89,7 @@
 | InfinityExpansion-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | InfinityLib-Drake | maven | ❌ no | ❌ no | ❌ fallan | /home/jack/workspace/drakescraft/InfinityLib-Drake/src/main/java/io/github/mooy1/infinitylib/common/PersistentType.java:[60;87] constructor  |
 | InvSwitcher-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
-| Inventory-Rollback-Plus-Drake | maven | ✅ sí (`main` `db7d7e4`) | ✅ sí (`port-26x` `3a455ae`) | ✅ ok (58/58) | 2026-10-10 CLT: `main` compila con JDK 21 (major 65); rama `port-26x` (`3a455ae`) parametrizada a Paper 26.2 y Java 25 con shade 3.6.2 compila con JDK 25 (major 69) y 58/58 pruebas unitarias verdes (`Version2SerializationTest`, `Version3SerializationTest`). Jar SHA-256 `cba91b78c6e9d74cc0f4835bd41bcf3e5a99cd54e2a685ceaeb25d01ac7a3e5b`. Solo staging 26.x; Dallas intacto. |
+| Inventory-Rollback-Plus-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | KinematicCore-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | LevelledMobs-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Liquid-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
@@ -103,12 +103,12 @@
 | NetworksV6-drake | maven | ❌ no | ✅ sí | ❌ fallan | Tests run: 13; Failures: 0; Errors: 13; Skipped: 0; Time elapsed: 0.782 s <<< FAILURE! -- in io.github.sefiraat.networks.slimefun.network.Ne |
 | PlayerVaultZ-Drake | maven | ⚠️ indeterminado (dependencias) | ⚠️ indeterminado (dependencias) | sin tests | Failed to execute goal on project playervaultz-drake-patch: Could not resolve dependencies for project cl.drakescraft:playervaultz-drake-pat |
 | PotionExpansion-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| ProtectionStones-Drake | maven | ❌ no | ✅ sí | sin tests | COMPILATION ERROR :  (1.21.11 en port-26x |
+| ProtectionStones-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Pylon-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Quaptics-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Rebar-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | RelicsOfCthonia-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| RykenSlimeCustomizer-EN-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main |
+| RykenSlimeCustomizer-EN-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | SFCalc-drake | maven | ❌ no | ✅ sí | sin tests | COMPILATION ERROR :  |
 | SFMobDrops-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
@@ -138,7 +138,7 @@
 | VillagerUtil-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Wildernether-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | WorldEditSlimefun-drake | maven | PENDIENTE | ✅ sí | sin tests | sin bloqueo (rama port-26x d69bc35 bytecode 69) |
-| WorldwideChat-Drake | maven | ❌ no | ❌ no | ✅ ok | Failed to execute goal org.codehaus.mojo:exec-maven-plugin:3.6.3:java (default) on project WorldwideChat-bukkit-core: An exception occurred  (1.21.11 en main |
+| WorldwideChat-Drake | maven | ❌ no | ❌ no | ✅ ok | Failed to execute goal org.codehaus.mojo:exec-maven-plugin:3.6.3:java (default) on project WorldwideChat-bukkit-core: An exception occurred  (1.21.11 en main; 26.x en main) |
 | luckyblocks-sf-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 
 ## Fuente de las mediciones
