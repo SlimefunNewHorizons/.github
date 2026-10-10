@@ -89,7 +89,7 @@
 | InfinityExpansion-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | InfinityLib-Drake | maven | ❌ no | ❌ no | ❌ fallan | /home/jack/workspace/drakescraft/InfinityLib-Drake/src/main/java/io/github/mooy1/infinitylib/common/PersistentType.java:[60;87] constructor  |
 | InvSwitcher-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
-| Inventory-Rollback-Plus-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Inventory-Rollback-Plus-Drake | maven | ✅ sí (`main` `db7d7e4`) | ✅ sí (`port-26x` `3a455ae`) | ✅ ok (58/58) | 2026-10-10 CLT: `main` compila con JDK 21 (major 65); rama `port-26x` (`3a455ae`) parametrizada a Paper 26.2 y Java 25 con shade 3.6.2 compila con JDK 25 (major 69) y 58/58 pruebas unitarias verdes (`Version2SerializationTest`, `Version3SerializationTest`). Jar SHA-256 `cba91b78c6e9d74cc0f4835bd41bcf3e5a99cd54e2a685ceaeb25d01ac7a3e5b`. Solo staging 26.x; Dallas intacto. |
 | KinematicCore-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | LevelledMobs-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Liquid-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
