@@ -49,7 +49,7 @@
 | Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main; 26.x en 26.x) |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesCore | maven | n/a | n/a | sin tests | repo archivado en GitHub (solo lectura; sustituido por Drakes-Suites y Odysseia) |
-| DrakesCrates | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom ya parametrizado (paper.version en 536ecc4 en main); pendiente re-medicion 26.x con check_ports.sh |
+| DrakesCrates | maven | ✅ sí | ✅ sí | ✅ 3 (0 fallos) | 2026-10-11 12:20 CLT: main 0710c12 `clean test package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable`, bytecode major 69, jar SHA 3041032e. **Arranca** en staging Paper 26.2-133/Java 25: Done 149,9 s, se engancha al Slimefun universal (`io.github.thebusybiscuit`), 3 crates + 3 llaves, PAPI `drakescrates` registrado; `/drakescrates reload` y `/oraculo reload` por consola sin WARN/ERROR propios. Sin jugadores: no se probó apertura de crates ni Votifier (ausente en staging). |
 | DrakesLabPresence-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DrakesMotd | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en 4b2c0a6) |
 | DrakesNanotech | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom ya parametrizado (paper.version + jsr305 en 34c77e6 port-26x); pendiente re-medicion 26.x con check_ports.sh |
