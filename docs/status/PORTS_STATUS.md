@@ -44,7 +44,7 @@
 | CompressionCraft-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Coronalis-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
-| DankTech2-Drake | maven | ✅ sí | ⚠️ no medido (paper-api fija) | sin tests | pom ya parametrizado (paper.version en 1a33d22; Slimefun universal en 3bd9f75 port-26x); pendiente re-medicion 26.x con check_ports.sh; corre en staging 26.2 el 2026-10-07 (ver TEMPORADA2_STAGING.md) |
+| DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-11 21:14 UTC: port-26x `3bd9f75` `clean package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable -Djava.version=25`, bytecode major 69 (jar 163 KB, 118 clases), compila contra Slimefun universal `11.0-Universal-26.x-SNAPSHOT`. Corre en staging 26.2 el 2026-10-07 (ver TEMPORADA2_STAGING.md) |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
 | Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main; 26.x en 26.x) |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
