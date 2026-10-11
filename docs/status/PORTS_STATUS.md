@@ -44,15 +44,15 @@
 | CompressionCraft-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Coronalis-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
-| DankTech2-Drake | maven | ✅ sí | ⚠️ no medido (paper-api fija) | sin tests | pom fija paper-api 1.19-R0.1-SNAPSHOT (ignora -Dpaper.version); parametrizar paper.version |
+| DankTech2-Drake | maven | ✅ sí | ⚠️ no medido (paper-api fija) | sin tests | pom ya parametrizado (paper.version en 1a33d22; Slimefun universal en 3bd9f75 port-26x); pendiente re-medicion 26.x con check_ports.sh; corre en staging 26.2 el 2026-10-07 (ver TEMPORADA2_STAGING.md) |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
 | Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main; 26.x en 26.x) |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesCore | maven | n/a | n/a | sin tests | repo archivado en GitHub (solo lectura; sustituido por Drakes-Suites y Odysseia) |
-| DrakesCrates | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom fija paper-api 1.20.6-R0.1-SNAPSHOT (ignora -Dpaper.version); parametrizar paper.version |
+| DrakesCrates | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom ya parametrizado (paper.version en 536ecc4 en main); pendiente re-medicion 26.x con check_ports.sh |
 | DrakesLabPresence-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DrakesMotd | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en 4b2c0a6) |
-| DrakesNanotech | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom fija paper-api 1.21.11-R0.1-SNAPSHOT (ignora -Dpaper.version); parametrizar paper.version |
+| DrakesNanotech | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom ya parametrizado (paper.version + jsr305 en 34c77e6 port-26x); pendiente re-medicion 26.x con check_ports.sh |
 | DrakesRanks | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en c718cfc) |
 | DrakesRankup | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesSlimeMarket | maven | ✅ sí | ✅ sí | ✅ ok | 2026-10-04 `3660685`: `paper.version` parametrizada (antes fija; el 26.x previo no era válido). JDK 25 `clean package` → bytecode 69. Solo compila; sin arranque en staging |
