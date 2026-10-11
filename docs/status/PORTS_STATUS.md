@@ -1,6 +1,6 @@
 # Ports status — 1.21.11 y 26.x (medición en el VPS)
 
-> Generado por `~/ai-hub/scripts/gen_ports_status.sh` el 2026-10-10 desde `~/ai-hub/log/ports/ports_status_raw.csv`.
+> Generado por `~/ai-hub/scripts/gen_ports_status.sh` el 2026-10-11 desde `~/ai-hub/log/ports/ports_status_raw.csv`.
 > **«compila» ≠ «corre».** *Compila* = `mvn -B -fae package` terminó en el VPS con el JDK indicado.
 > *Corre* = el plugin arrancó y cargó en un servidor real de esa versión; **esta página no lo certifica**.
 > Nada de aquí se llama «portado» hasta que exista prueba de ejecución (staging 26.x / producción 1.21.11).
@@ -63,7 +63,7 @@
 | DrakesWorlds | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (Biome como registro + jsr305; corregido en 003529d; carga y genera mundo en staging 26.2) |
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DyedBackpacks-drake | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `371b062`: JDK 25/Paper 26.2 `clean test package`; bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: habilitado junto al núcleo Slimefun universal y servidor `Done` (115.540 s); no se midió 1.21.11 en esta pasada. |
-| DynaTech-drake | maven | ✅ sí | ❌ no | sin tests | 2026-10-07: port-26x f85a5c9 migra 87 archivos al Slimefun universal (11.0-Universal-26.x-SNAPSHOT) pero NO compila en JDK 25 (BUILD FAILURE con 12 errores). ExoticGarden/Gastronomicon/ExtraUtils/InfinityExpansion solo existen como artefactos propietarios antiguos y sus clases no encajan con el ABI io.github.thebusybiscuit. Requiere portar esas 4 dependencias a universal primero. 1.21.11 SI heredado de main (2026-10-03 f0fb4e0) |
+| DynaTech-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-11: port-26x 47f1cb9 cablea deps universales (ExtraUtils/ExoticGarden/Gastronomicon/InfinityExpansion/InfinityLib); BUILD SUCCESS JDK25 con flags 26.2.build.129 en log 2026-10-07 + bytecode major 69 verificado en target/ (SHA 930ec9b8); 0 refs propietarias y 86 ficheros al ABI io.github.thebusybiscuit; sin tests declarados. 1.21.11 pendiente de re-medicion (ultimo log 2026-10-02 FAILURE con pom antiguo). Sin arranque en staging: NO portado |
 | EMCTech-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | EcoPower-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | ElectricSpawners-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
