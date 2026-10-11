@@ -63,7 +63,7 @@
 | DrakesWorlds | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (Biome como registro + jsr305; corregido en 003529d; carga y genera mundo en staging 26.2) |
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DyedBackpacks-drake | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `371b062`: JDK 25/Paper 26.2 `clean test package`; bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: habilitado junto al núcleo Slimefun universal y servidor `Done` (115.540 s); no se midió 1.21.11 en esta pasada. |
-| DynaTech-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-11: port-26x 47f1cb9 cablea deps universales (ExtraUtils/ExoticGarden/Gastronomicon/InfinityExpansion/InfinityLib); BUILD SUCCESS JDK25 con flags 26.2.build.129 en log 2026-10-07 + bytecode major 69 verificado en target/ (SHA 930ec9b8); 0 refs propietarias y 86 ficheros al ABI io.github.thebusybiscuit; sin tests declarados. 1.21.11 pendiente de re-medicion (ultimo log 2026-10-02 FAILURE con pom antiguo). Sin arranque en staging: NO portado |
+| DynaTech-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-11: port-26x 47f1cb9 cablea deps universales (ExtraUtils/ExoticGarden/Gastronomicon/InfinityExpansion/InfinityLib); BUILD SUCCESS JDK25 con flags 26.2.build.129 en log 2026-10-07 + bytecode major 69 verificado en target/ (SHA 930ec9b8); 0 refs propietarias y 86 ficheros al ABI io.github.thebusybiscuit; sin tests declarados. 1.21.11 pendiente de re-medicion (ultimo log 2026-10-02 FAILURE con pom antiguo). 2026-10-11 (#279): rebuild 47f1cb9 JDK25 SHA 6e210b16; arranque real en staging 26.2 Done 182 s, Enabling sin excepciones, 120 IDs DYNATECH_* registrados (carga, sin smoke funcional: NO portado) |
 | EMCTech-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | EcoPower-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | ElectricSpawners-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
@@ -81,7 +81,7 @@
 | FoxyMachines-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (26.x en rama port-26x commit 7139fb5) |
 | Galactifun2-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Galaxyfun-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| Gastronomicon-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Gastronomicon-drake | maven | ✅ sí (rama fix/dynatech-growth-chamber-ids, 2026-10-11) | ✅ sí | sin tests ejecutados (surefire 2.12.4) | 2026-10-11 (#279): port-26x 4b686b0 corrige los IDs de las Growth Chambers de DynaTech; JDK25 BUILD SUCCESS, major 69; arranque real en staging 26.2 sin WARN de integracion (carga). 1.21.11: JDK21 BUILD SUCCESS en PR borrador #1 |
 | GeneticChickengineering-Reborn-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Geyser-Slimefun-Heads-drake | maven | ✅ sí | ✅ sí | sin tests | port-26x cc623cb: 2 imports a Slimefun universal |
 | HeadLimiter-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
