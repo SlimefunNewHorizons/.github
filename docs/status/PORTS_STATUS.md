@@ -87,7 +87,7 @@
 | HeadLimiter-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | HotbarPets-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | InfinityExpansion-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| InfinityLib-Drake | maven | ❌ no | ❌ no | ❌ fallan | /home/jack/workspace/drakescraft/InfinityLib-Drake/src/main/java/io/github/mooy1/infinitylib/common/PersistentType.java:[60;87] constructor  |
+| InfinityLib-Drake | maven | ⏳ pendiente | ✅ sí | ✅ 65 (0 fallos, 3 omitidos) | 2026-10-11: port-26x 950276f (sobre aa5c297 ABI io.github.thebusybiscuit) BUILD SUCCESS con build_seguro.sh JDK25, bytecode major 69; tests adaptados a mockbukkit-v26.2 4.116.1 (constructor de pruebas sin loader). 1.21.11 pendiente de re-medicion. Sin arranque en staging: compila, NO portado. Nota: los addons usan infinitylib-drake (DrakeInfinityLib), no este repo |
 | InvSwitcher-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | Inventory-Rollback-Plus-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | KinematicCore-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
