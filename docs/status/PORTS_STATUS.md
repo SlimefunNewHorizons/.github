@@ -46,7 +46,7 @@
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
 | DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-11 21:14 UTC: port-26x `3bd9f75` `clean package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable -Djava.version=25`, bytecode major 69 (jar 163 KB, 118 clases), compila contra Slimefun universal `11.0-Universal-26.x-SNAPSHOT`. Corre en staging 26.2 el 2026-10-07 (ver TEMPORADA2_STAGING.md) |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
-| Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main; 26.x en 26.x) |
+| Drakes-Suites | maven | ❌ no | ✅ sí (`26.x`) | ✅ 50 (core + utility) | 2026-10-11 20:11 CLT: `26.x` `577a68f` compilado con `build_seguro.sh` JDK 25 (`core` + `utility`); 48 pruebas existentes de utility y 2 regresiones PDC de PortalGun en verde. **Corre** en staging Paper 26.2: DrakesUtility y its portalgun module enabled; startup completed in 133.555 s with no subsequent exception. The tested JAR (`fe63966d…581008e`) has a staging backup. Dallas was not modified. 1.21.11 requires separate measurement. |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesCore | maven | n/a | n/a | sin tests | repo archivado en GitHub (solo lectura; sustituido por Drakes-Suites y Odysseia) |
 | DrakesCrates | maven | ✅ sí | ✅ sí | ✅ 3 (0 fallos) | 2026-10-11 12:20 CLT: main 0710c12 `clean test package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable`, bytecode major 69, jar SHA 3041032e. **Arranca** en staging Paper 26.2-133/Java 25: Done 149,9 s, se engancha al Slimefun universal (`io.github.thebusybiscuit`), 3 crates + 3 llaves, PAPI `drakescrates` registrado; `/drakescrates reload` y `/oraculo reload` por consola sin WARN/ERROR propios. Sin jugadores: no se probó apertura de crates ni Votifier (ausente en staging). |
@@ -151,4 +151,4 @@
 
 * Repos Gradle: medir con su `gradlew` (no hay Gradle global en el VPS).
 * `Drakes-Suites`: reactor de 9 módulos, se mide aparte (ver `ECOSYSTEM_STATUS_2026-10-02.md` §4).
-* Ningún resultado de esta tabla certifica *ejecución*; el staging 26.x sigue sin construirse.
+* La tabla marca explícitamente los resultados que **corren** en staging; el resto solo certifica compilación.
