@@ -54,7 +54,7 @@
 | DrakesMotd | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en 4b2c0a6) |
 | DrakesNanotech | maven | ✅ sí | ✅ sí | ✅ ok | 2026-10-11 18:43 CLT: port-26x 34c77e6 `clean package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable`, bytecode major 69 (jar 0.4.0, 107 KB). El jar standalone **no se instala** en staging: su contenido corre absorbido como `NanotechModule` de DrakesTech (Drakes-Suites `26.x`), que arranca en staging 26.2 con 158 ítems, 15 máquinas y 8 multibloques. Instalar ambos duplicaría IDs. 2026-10-11 21:17 UTC: port-26x `bbdcc92` ya compila contra el core universal `11.0-Universal-26.x-SNAPSHOT` (imports remapeados), tests 7/7, 0 referencias a `com/github/drakescraft_labs` en el jar. |
 | DrakesRanks | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en c718cfc) |
-| DrakesRankup | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
+| DrakesRankup | maven | ✅ sí | ✅ sí | ✅ 11/11 (26.x) | 2026-10-13: port-26x `4153a0d` fija paper-api 26.2.build.133-stable + JDK 25 en el pom (antes mezclaba paper-api 1.21.11 con MockBukkit 26.2 sin commitear y los 11 tests fallaban con NoClassDefFoundError en org.bukkit.Registry). `mvn -B test` con build_seguro JDK 25: 11/11 verde. Solo compila + tests; sin arranque en staging (NO portado). 1.21.11 pendiente de re-medición en main |
 | DrakesSlimeMarket | maven | ✅ sí | ✅ sí | ✅ ok | 2026-10-04 `3660685`: `paper.version` parametrizada (antes fija; el 26.x previo no era válido). JDK 25 `clean package` → bytecode 69. Solo compila; sin arranque en staging |
 | DrakesTab | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en f34e343) |
 | DrakesTech | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
