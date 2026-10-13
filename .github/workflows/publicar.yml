@@ -147,13 +147,13 @@ jobs:
           set -euo pipefail
           TAG='${{ steps.datos.outputs.tag }}'
           JAR='${{ steps.datos.outputs.jar }}'
-          echo "${{ steps.datos.outputs.sha }}  $(basename "$JAR")" > "$JAR.sha256"
+          (cd dist && sha256sum *.jar > SHA256SUMS.txt)
           PRE=""; [ '${{ steps.datos.outputs.pre }}' = true ] && PRE="--prerelease"
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release edit "$TAG" --notes-file notas.md $PRE
-            gh release upload "$TAG" "$JAR" "$JAR.sha256" --clobber
+            gh release upload "$TAG" dist/*.jar dist/SHA256SUMS.txt --clobber
           else
-            gh release create "$TAG" "$JAR" "$JAR.sha256" --target "$GITHUB_SHA" \
+            gh release create "$TAG" dist/*.jar dist/SHA256SUMS.txt --target "$GITHUB_SHA" \
               --title "${{ github.event.repository.name }} ${{ steps.datos.outputs.version }}" --notes-file notas.md $PRE
           fi
 

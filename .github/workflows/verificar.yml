@@ -80,17 +80,19 @@ jobs:
             echo "::error::No se encontro pom.xml ni build.gradle"; exit 1
           fi
 
-      - name: Localizar el jar
+      - name: Localizar los jars (repos de un modulo o reactores multi-modulo)
         id: jar
         run: |
           set -euo pipefail
-          RUTA="$( { find target build/libs -maxdepth 2 -name '*.jar' \
-                  ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' ! -name '*-tests.jar' \
-                  2>/dev/null || true; } | sort | head -n1)"
-          if [ -z "$RUTA" ]; then echo "::error::No se genero ningun jar"; exit 1; fi
           mkdir -p dist
-          cp "$RUTA" dist/
-          echo "nombre=$(basename "$RUTA")" >> "$GITHUB_OUTPUT"
+          # todos los jars de salida (en reactores cada modulo tiene su target/), sin los intermedios
+          while IFS= read -r f; do
+            cp "$f" dist/
+          done < <( { find . -type f \( -path '*/target/*.jar' -o -path '*/build/libs/*.jar' \)                       ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' ! -name '*-tests.jar'                       ! -name '*-plain.jar' ! -path './_org/*' ! -path '*/node_modules/*' 2>/dev/null || true; } | sort)
+          N="$(ls dist/*.jar 2>/dev/null | wc -l)"
+          if [ "$N" = 0 ]; then echo "::error::No se genero ningun jar"; exit 1; fi
+          echo "Jars: $N"; ls dist
+          echo "nombre=$(ls dist/*.jar | head -n1 | xargs -n1 basename)" >> "$GITHUB_OUTPUT"
 
       - name: Guardar el jar
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
