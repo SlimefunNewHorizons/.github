@@ -41,3 +41,8 @@ Documento normativo para cualquier agente autónomo que opere repositorios dentr
 2. **Cero Daño a Jugadores**:
    * Cero reseteo o pérdida de datos de jugadores (`BlockStorage`, inventarios, bóvedas, economías, islas).
    * Ante cualquier duda de migración de datos, siempre se utiliza respaldo preventivo y aislamiento reversible.
+
+## 🌐 Idioma de las GUI y mensajes al jugador (decision de Jack, 2026-10-14)
+Todas las GUI (titulos, nombres y lore de items, botones) y los mensajes que ven los jugadores se escriben en **ingles**, en
+todos los plugins y addons nuevos y al tocar los existentes. El codigo, los comentarios internos y la documentacion pueden
+seguir en espanol. Los nombres de comandos no se renombran para no romper a los jugadores.
