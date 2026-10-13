@@ -84,7 +84,12 @@ jobs:
             fi
           fi
       - name: Arrancar Paper con el jar
-        run: bash _org/.github/scripts/server-smoke-test.sh "${{ matrix.v.minecraft }}" dist/*.jar $(ls deps/*.jar 2>/dev/null || true)
+        run: |
+          set -euo pipefail
+          JAR="$(ls dist/*.jar | head -n1)"
+          DEPS=()
+          while IFS= read -r f; do DEPS+=("$f"); done < <(ls deps/*.jar 2>/dev/null || true)
+          bash _org/.github/scripts/server-smoke-test.sh "${{ matrix.v.minecraft }}" "$JAR" "${DEPS[@]}"
       - name: Guardar el log del servidor
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

@@ -76,9 +76,9 @@ jobs:
         id: jar
         run: |
           set -euo pipefail
-          RUTA="$(find target build/libs -maxdepth 2 -name '*.jar' \
+          RUTA="$( { find target build/libs -maxdepth 2 -name '*.jar' \
                   ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' ! -name '*-tests.jar' \
-                  2>/dev/null | sort | head -n1)"
+                  2>/dev/null || true; } | sort | head -n1)"
           if [ -z "$RUTA" ]; then echo "::error::No se genero ningun jar"; exit 1; fi
           mkdir -p dist
           cp "$RUTA" dist/
