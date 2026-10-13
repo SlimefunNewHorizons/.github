@@ -60,10 +60,13 @@ jobs:
           cache: ${{ hashFiles('pom.xml') != '' && 'maven' || (hashFiles('**/*.gradle*') != '' && 'gradle' || '') }}
 
       - name: Preparar el repositorio Maven de la org (falla si no se puede)
-        if: ${{ hashFiles('pom.xml') != '' }}
         run: bash _org/.github/scripts/bootstrap-maven-repo.sh
 
       - name: Compilar y ejecutar los tests
+        env:
+          # Algunos repos Gradle leen paquetes publicos de GitHub Packages y exigen credenciales (USERNAME/PASSWORD).
+          USERNAME: ${{ github.actor }}
+          PASSWORD: ${{ github.token }}
         run: |
           set -euo pipefail
           if [ -f pom.xml ]; then
