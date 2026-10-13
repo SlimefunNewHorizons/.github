@@ -77,7 +77,8 @@ jobs:
           esac
           # el propio core no se descarga a si mismo
           if [ -n "$REPO" ] && [ "$LINEA" != "nucleo" ]; then
-            if gh release download --repo "SlimefunNewHorizons/$REPO" --pattern '*.jar' --dir deps 2>/dev/null; then
+            TAG="$(gh release list --repo "SlimefunNewHorizons/$REPO" --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)"
+            if [ -n "$TAG" ] && gh release download "$TAG" --repo "SlimefunNewHorizons/$REPO" --pattern '*.jar' --dir deps 2>/dev/null; then
               echo "Core descargado de $REPO"
             else
               echo "::warning::$REPO aun no tiene release con jar; la prueba arranca sin el core y puede fallar por eso."
