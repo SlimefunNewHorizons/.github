@@ -32,3 +32,13 @@ Chagui68 ya habia resuelto esto en MultiverseCreatures/MultiverseNets (`verify.y
 ## Reglas de la plantilla
 `permissions` minimos; acciones fijadas por SHA (Dependabot las actualiza); la publicacion nunca corre en PR (el token
 no se expone a forks); un fallo de test o de servidor impide publicar; scripts compartidos en `.github/scripts/`.
+
+## Dependencias extra para el smoke test
+Un plugin con softdepend puede asumir que esa API existe. Declarala en `.github/smoke-deps.txt` del repo:
+```
+modrinth:luckperms
+https://ejemplo.org/otro.jar
+```
+
+## Estado
+Primer barrido el 2026-10-14 en 134 repos: ver `docs/ESTADO_CI_ORG_20261014.md` en ai-hub (99 verdes, 48 rojos reales).
