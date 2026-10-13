@@ -20,9 +20,9 @@ on:
   workflow_call:
     inputs:
       java-version:
-        description: 'Version de Java para compilar'
+        description: 'Version de Java para compilar ("auto" la detecta del pom/gradle, 21 a 25)'
         type: string
-        default: '21'
+        default: 'auto'
       maven-args:
         description: 'Argumentos extra de Maven'
         type: string
@@ -48,10 +48,15 @@ jobs:
         with:
           repository: SlimefunNewHorizons/.github
           path: _org
+      - name: Detectar la version de Java necesaria
+        id: jv
+        run: |
+          if [ "${{ inputs.java-version }}" = "auto" ]; then V="$(python3 _org/.github/scripts/detectar-java.py)"; else V="${{ inputs.java-version }}"; fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"; echo "Java $V"
       - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
         with:
           distribution: temurin
-          java-version: ${{ inputs.java-version }}
+          java-version: ${{ steps.jv.outputs.version }}
           cache: ${{ hashFiles('pom.xml') != '' && 'maven' || (hashFiles('**/*.gradle*') != '' && 'gradle' || '') }}
 
       - name: Preparar el repositorio Maven de la org (falla si no se puede)
