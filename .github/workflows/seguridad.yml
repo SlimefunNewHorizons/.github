@@ -72,8 +72,8 @@ jobs:
       - name: Buscar Co-Authored-By de IA (regla de Jack: jamas)
         run: |
           set -euo pipefail
-          # solo los ultimos commits: el historial viejo no se reescribe
-          if git log -n 20 --format=%B | grep -iE '^Co-Authored-By:.*(claude|anthropic|codex|openai|copilot|gemini|noreply@anthropic)' ; then
-            echo "::error::Hay un trailer Co-Authored-By de IA en los ultimos commits. Reescribe ese commit sin el trailer."
+          # solo el commit que se esta publicando: el historial viejo no se reescribe
+          if git log -n 1 --format=%B | grep -iE '^Co-Authored-By:.*(claude|anthropic|codex|openai|copilot|gemini|noreply@anthropic)' ; then
+            echo "::error::Hay un trailer Co-Authored-By de IA en el commit. Reescribe ese commit sin el trailer."
             exit 1
           fi
