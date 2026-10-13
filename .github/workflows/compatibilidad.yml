@@ -55,6 +55,12 @@ jobs:
         with:
           repository: SlimefunNewHorizons/.github
           path: _org
+      - name: Lista de dependencias extra del repo (opcional)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          path: _repo
+          sparse-checkout: .github/smoke-deps.txt
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
         with:
           distribution: temurin
@@ -84,6 +90,8 @@ jobs:
               echo "::warning::$REPO aun no tiene release con jar; la prueba arranca sin el core y puede fallar por eso."
             fi
           fi
+      - name: Dependencias extra declaradas en .github/smoke-deps.txt
+        run: bash _org/.github/scripts/descargar-deps.sh _repo/.github/smoke-deps.txt deps "${{ matrix.v.minecraft }}"
       - name: Arrancar Paper con el jar
         run: |
           set -euo pipefail
