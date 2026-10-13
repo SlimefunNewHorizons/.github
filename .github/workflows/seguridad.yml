@@ -61,3 +61,19 @@ jobs:
           curl -fsSL -o gl.tgz "https://github.com/gitleaks/gitleaks/releases/download/v${V}/gitleaks_${V}_linux_x64.tar.gz"
           tar -xzf gl.tgz gitleaks
           ./gitleaks detect --source . --no-banner --redact --exit-code 1
+
+  trailers:
+    name: Sin trailers de IA en los commits nuevos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 50
+      - name: Buscar Co-Authored-By de IA (regla de Jack: jamas)
+        run: |
+          set -euo pipefail
+          # solo los ultimos commits: el historial viejo no se reescribe
+          if git log -n 20 --format=%B | grep -iE '^Co-Authored-By:.*(claude|anthropic|codex|openai|copilot|gemini|noreply@anthropic)' ; then
+            echo "::error::Hay un trailer Co-Authored-By de IA en los ultimos commits. Reescribe ese commit sin el trailer."
+            exit 1
+          fi
