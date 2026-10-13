@@ -29,4 +29,12 @@ for ruta in list(pathlib.Path(".").glob("pom.xml")) + list(pathlib.Path(".").glo
             n = int(m)
             if 8 <= n <= 30:
                 pedidas.append(n)
+# Paper API 26.x esta compilada para Java 25 ("class file has wrong version 69.0, should be 65.0" con Java 21)
+for ruta in list(pathlib.Path(".").glob("pom.xml")) + list(pathlib.Path(".").glob("*/pom.xml")) +         list(pathlib.Path(".").glob("build.gradle*")) + list(pathlib.Path(".").glob("*/build.gradle*")):
+    try:
+        t = ruta.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        continue
+    if re.search(r"paper-api</artifactId>\s*<version>\s*2[6-9]\.", t) or re.search(r"paper-api:2[6-9]\.", t)             or re.search(r"<paper\.version>\s*[\[(]?\s*2[6-9]\.", t):
+        pedidas.append(25)
 print(max([MIN] + [n for n in pedidas if n <= MAX]))
