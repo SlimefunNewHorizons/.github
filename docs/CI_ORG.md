@@ -21,9 +21,10 @@ Chagui68 ya habia resuelto esto en MultiverseCreatures/MultiverseNets (`verify.y
 
 ## Notas de cada release (que version corre, que core, por que no sirve el Slimefun 4 normal)
 `detectar-core.py` lee el codigo del repo y escribe notas VERDADERAS para ese repo:
-- **Linea Drake** (`dev.drake.dough`): necesita Slimefun4-Drake (`slimefun-core` 11.0-Drake-1.21.11). No carga con un
-  Slimefun 4 normal porque el core Drake renombro la libreria base `io.github.bakedlibs.dough` a `dev.drake.dough`: en un
-  Slimefun upstream falta ese paquete y el plugin se desactiva con `NoClassDefFoundError`. Ademas usa la Paper API
+- **Linea Drake** (`com.github.drakescraft_labs.slimefun4` y `dev.drake.dough`): necesita Slimefun4-Drake (`slimefun-core` 11.0-Drake-1.21.11). No carga con un
+  Slimefun 4 normal porque el core Drake renombro la API (`io.github.thebusybiscuit.slimefun4` -> `com.github.drakescraft_labs.slimefun4`,
+  ~3900 imports en el core) y la libreria base (`io.github.bakedlibs.dough` -> `dev.drake.dough`): en un
+  Slimefun upstream faltan esos paquetes y el plugin se desactiva con `NoClassDefFoundError`. Ademas usa la Paper API
   1.21.11 directamente.
 - **Linea Igdrassil / estandar** (`io.github.bakedlibs.dough`): compatible con Slimefun 4 upstream, Gugu e Igdrassil.
 - **Sin Slimefun**: funciona solo en Paper/Purpur.

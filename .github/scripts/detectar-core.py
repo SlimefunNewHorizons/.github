@@ -111,10 +111,11 @@ def notas(a):
               f"Necesita **Slimefun4-Drake** (`slimefun-core` **{core}**): "
               "[descargar el core](https://github.com/SlimefunNewHorizons/Slimefun4-Drake/releases).", "",
               "### Por que NO funciona con el Slimefun 4 normal", "",
-              f"Este addon importa `dev.drake.dough` ({d['imports_drake']} referencias en el codigo). Slimefun4-Drake renombro la "
-              "libreria base `io.github.bakedlibs.dough` a `dev.drake.dough` para fijar la version que usa el servidor. Un "
-              "Slimefun 4 upstream (o Slimefun-Gugu) solo trae el paquete original, asi que al cargar este plugin falta "
-              "`dev.drake.dough` y el servidor lo desactiva con `NoClassDefFoundError`.",
+              f"Este addon importa los paquetes del core Drake ({d['imports_drake']} referencias: `com.github.drakescraft_labs.slimefun4` "
+              "y/o `dev.drake.dough`). Slimefun4-Drake renombro la API de Slimefun (`io.github.thebusybiscuit.slimefun4` -> "
+              "`com.github.drakescraft_labs.slimefun4`) y su libreria base (`io.github.bakedlibs.dough` -> `dev.drake.dough`). Un "
+              "Slimefun 4 upstream (o Slimefun-Gugu) solo trae los paquetes originales, asi que al cargar este plugin faltan esas "
+              "clases y el servidor lo desactiva con `NoClassDefFoundError`.",
               "Ademas, el core Drake usa la Paper API 1.21.11 directamente (cabezas con perfiles, atributos de salud, "
               "eliminacion de API deprecada) y esta probado en Paper 1.21.11, 26.1 y 26.2."
               ""]
