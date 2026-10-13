@@ -25,7 +25,19 @@ for d in os.listdir(repo):
         continue
     for v in list(os.listdir(dp)):
         vp = os.path.join(dp, v)
-        if not os.path.isdir(vp) or v.endswith("-SNAPSHOT"):
+        if os.path.isdir(vp) and v.endswith("-SNAPSHOT"):
+            # SNAPSHOT publicado con marca de tiempo (name-1.3.1-X-20260529.143737-1.jar): Maven no lo resuelve
+            # desde ~/.m2 sin la copia sin marca (name-1.3.1-X-SNAPSHOT.jar). Se crea con la mas reciente.
+            base = v[: -len("-SNAPSHOT")]
+            for ext in ("jar", "pom"):
+                con_marca = sorted(f for f in os.listdir(vp)
+                                   if f.startswith(f"{d}-{base}-") and f.endswith("." + ext)
+                                   and f != f"{d}-{v}.{ext}")
+                destino = os.path.join(vp, f"{d}-{v}.{ext}")
+                if con_marca and not os.path.exists(destino):
+                    shutil.copy(os.path.join(vp, con_marca[-1]), destino)
+            continue
+        if not os.path.isdir(vp):
             continue
         snap_p = os.path.join(dp, v + "-SNAPSHOT")
         if os.path.exists(snap_p):
