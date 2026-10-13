@@ -36,6 +36,10 @@ on:
         description: 'El smoke test de servidor bloquea la publicacion'
         type: boolean
         default: false
+      maven-args:
+        description: 'Argumentos extra de Maven para verificar (p. ej. subconjunto estable de tests)'
+        type: string
+        default: ''
       modrinth:
         description: 'Publicar tambien en Modrinth'
         type: boolean
@@ -88,6 +92,8 @@ jobs:
     needs: decidir
     if: needs.decidir.outputs.publicar == 'true'
     uses: SlimefunNewHorizons/.github/.github/workflows/verificar.yml@main
+    with:
+      maven-args: ${{ inputs.maven-args }}
 
   compatibilidad:
     needs: verificar
