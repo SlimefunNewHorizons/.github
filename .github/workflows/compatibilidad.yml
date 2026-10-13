@@ -1,0 +1,95 @@
+# Compatibilidad binaria entre versiones de Minecraft (workflow reutilizable de la org).
+#
+# QUE HACE
+#   Descarga el jar que produjo `verificar`, detecta que core de Slimefun necesita (script detectar-core.py) y
+#   arranca un servidor Paper REAL con ESE MISMO jar en cada version indicada (por defecto 1.21.11 y 26.2).
+#   Si el addon necesita Slimefun, descarga antes el core de la ultima release de la linea correspondiente.
+#
+# POR QUE EXISTE
+#   Que el codigo compile contra una API no garantiza que el jar ya compilado funcione en ese servidor: un metodo
+#   que cambio de firma solo falla al cargar la clase. Esto sustituye la prueba manual del port 1.21.11 -> 26.x.
+#   Idea y script original: Chagui68 (MultiverseCreatures).
+name: Compatibilidad (reutilizable)
+
+on:
+  workflow_call:
+    inputs:
+      versiones:
+        description: 'JSON con las versiones de Paper'
+        type: string
+        default: '[{"minecraft":"1.21.11","java":"21"},{"minecraft":"26.2","java":"25"}]'
+      bloquea:
+        description: 'Si es false, un fallo se muestra como aviso y no bloquea la publicacion'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    outputs:
+      linea: ${{ steps.det.outputs.linea }}
+      versiones: ${{ inputs.versiones }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: SlimefunNewHorizons/.github
+          path: _org
+      - id: det
+        run: echo "linea=$(python3 _org/.github/scripts/detectar-core.py json | jq -r .linea)" >> "$GITHUB_OUTPUT"
+
+  servidor:
+    name: Paper ${{ matrix.v.minecraft }}
+    needs: preparar
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ !inputs.bloquea }}
+    strategy:
+      fail-fast: false
+      matrix:
+        v: ${{ fromJSON(needs.preparar.outputs.versiones) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: SlimefunNewHorizons/.github
+          path: _org
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.v.java }}
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: plugin-jar
+          path: dist
+      - name: Descargar el core de Slimefun si hace falta
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LINEA: ${{ needs.preparar.outputs.linea }}
+        run: |
+          set -euo pipefail
+          mkdir -p deps
+          case "$LINEA" in
+            drake|nucleo) REPO=Slimefun4-Drake ;;
+            igdrassil)    REPO=Slimefun4-Igdrassil ;;
+            *)            REPO="" ;;
+          esac
+          # el propio core no se descarga a si mismo
+          if [ -n "$REPO" ] && [ "$LINEA" != "nucleo" ]; then
+            if gh release download --repo "SlimefunNewHorizons/$REPO" --pattern '*.jar' --dir deps 2>/dev/null; then
+              echo "Core descargado de $REPO"
+            else
+              echo "::warning::$REPO aun no tiene release con jar; la prueba arranca sin el core y puede fallar por eso."
+            fi
+          fi
+      - name: Arrancar Paper con el jar
+        run: bash _org/.github/scripts/server-smoke-test.sh "${{ matrix.v.minecraft }}" dist/*.jar $(ls deps/*.jar 2>/dev/null || true)
+      - name: Guardar el log del servidor
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: server-log-${{ matrix.v.minecraft }}
+          path: server-${{ matrix.v.minecraft }}/server.log
+          if-no-files-found: ignore
+          retention-days: 7

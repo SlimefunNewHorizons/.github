@@ -1,0 +1,103 @@
+# Verificacion obligatoria de un addon/plugin (workflow reutilizable de la org).
+#
+# QUE HACE
+#   Compila con Maven o Gradle y EJECUTA LOS TESTS (sin -DskipTests), sube el jar como artefacto y el informe de
+#   tests. Si el repo hereda del parent drakes-slimefun-labs, prepara antes el repositorio Maven de la org.
+#
+# POR QUE EXISTE
+#   Antes `drake-ci.yml` hacia `exit 0` cuando el pom heredaba de drakes-slimefun-labs ("se omite el build") y
+#   `modrinth-publish.yml` compilaba con -DskipTests: un cambio podia llegar a main y publicarse sin que se
+#   compilara ni se probara nada. Chagui68 resolvio esto en MultiverseCreatures con `verify.yml` ("el job que
+#   convierte los tests en una garantia real"); aqui se generaliza a todos los repos.
+#
+# COMO SE USA (en cada repo):
+#   jobs:
+#     verificar:
+#       uses: SlimefunNewHorizons/.github/.github/workflows/verificar.yml@main
+name: Verificar (reutilizable)
+
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        description: 'Version de Java para compilar'
+        type: string
+        default: '21'
+      maven-args:
+        description: 'Argumentos extra de Maven'
+        type: string
+        default: ''
+    outputs:
+      jar-name:
+        description: 'Nombre del jar generado'
+        value: ${{ jobs.verificar.outputs.jar-name }}
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    name: Compilar y testear
+    runs-on: ubuntu-latest
+    outputs:
+      jar-name: ${{ steps.jar.outputs.nombre }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Scripts compartidos de la org
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: SlimefunNewHorizons/.github
+          path: _org
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
+        with:
+          distribution: temurin
+          java-version: ${{ inputs.java-version }}
+          cache: ${{ hashFiles('pom.xml') != '' && 'maven' || (hashFiles('**/*.gradle*') != '' && 'gradle' || '') }}
+
+      - name: Preparar el repositorio Maven de la org (falla si no se puede)
+        if: ${{ hashFiles('pom.xml') != '' }}
+        run: bash _org/.github/scripts/bootstrap-maven-repo.sh
+
+      - name: Compilar y ejecutar los tests
+        run: |
+          set -euo pipefail
+          if [ -f pom.xml ]; then
+            mvn -B -ntp verify ${{ inputs.maven-args }}
+          elif [ -f gradlew ]; then
+            chmod +x gradlew
+            ./gradlew build --no-daemon
+          elif ls build.gradle* >/dev/null 2>&1; then
+            gradle build --no-daemon
+          else
+            echo "::error::No se encontro pom.xml ni build.gradle"; exit 1
+          fi
+
+      - name: Localizar el jar
+        id: jar
+        run: |
+          set -euo pipefail
+          RUTA="$(find target build/libs -maxdepth 2 -name '*.jar' \
+                  ! -name 'original-*' ! -name '*-sources.jar' ! -name '*-javadoc.jar' ! -name '*-tests.jar' \
+                  2>/dev/null | sort | head -n1)"
+          if [ -z "$RUTA" ]; then echo "::error::No se genero ningun jar"; exit 1; fi
+          mkdir -p dist
+          cp "$RUTA" dist/
+          echo "nombre=$(basename "$RUTA")" >> "$GITHUB_OUTPUT"
+
+      - name: Guardar el jar
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: plugin-jar
+          path: dist/*.jar
+          retention-days: 14
+
+      - name: Guardar el informe de tests
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: informe-tests
+          path: |
+            target/surefire-reports/
+            build/reports/tests/
+          if-no-files-found: ignore
+          retention-days: 7

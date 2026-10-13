@@ -180,6 +180,52 @@ try {
   console.error('Fallo al subir el icono:', e.message);
 }
 
+// Cumplimiento de las normativas de Modrinth (heredado de las plantillas por repo, 2026-08):
+// 5.9 y 4 (declaracion de fuentes) y 2.1 (imagen destacada con titulo).
+// --- Declaraciones de Contenido & Metadatos (Sección 5.9 y 4) -----------------------------
+try {
+  const patchData = {
+    source_url: `https://github.com/SlimefunNewHorizons/${SLUG}`,
+    issues_url: `https://github.com/SlimefunNewHorizons/${SLUG}/issues`,
+    discord_url: 'https://discord.gg/rR7FbfCt9Y'
+  };
+  await fetch(`${V2}/project/${proyecto.id}`, {
+    method: 'PATCH',
+    headers: { ...cabeceras, 'Content-Type': 'application/json' },
+    body: JSON.stringify(patchData),
+  });
+} catch (e) {
+  console.error('Error al actualizar metadatos de origen:', e.message);
+}
+
+// --- Galeria de Imagenes & Imagen Destacada (Sección 2.1) ---------------------------------
+try {
+  const galeriaActual = Array.isArray(proyecto.gallery) ? proyecto.gallery : [];
+  const tieneDestacada = galeriaActual.some((item) => item.featured);
+
+  let bannerFile = null;
+  if (existsSync('docs/banner.png')) bannerFile = 'docs/banner.png';
+  else if (existsSync('banner.png')) bannerFile = 'banner.png';
+
+  if (bannerFile && !tieneDestacada) {
+    const bannerBytes = readFileSync(bannerFile);
+    const titulo = encodeURIComponent(`${NOMBRE} - Overview & Features`);
+    const desc = encodeURIComponent(`Official gameplay and feature banner for ${NOMBRE} on Paper 1.21.11.`);
+    const r = await fetch(`${V2}/project/${proyecto.id}/gallery?ext=png&featured=true&title=${titulo}&description=${desc}`, {
+      method: 'POST',
+      headers: { ...cabeceras, 'Content-Type': 'image/png' },
+      body: bannerBytes,
+    });
+    if (r.ok) {
+      console.log('Imagen destacada de galeria subida exitosamente (Seccion 2.1).');
+    } else {
+      console.error(`No se pudo subir la imagen de galeria (HTTP ${r.status}): ${(await r.text()).slice(0, 200)}`);
+    }
+  }
+} catch (e) {
+  console.error('Fallo al actualizar la galeria:', e.message);
+}
+
 // --- Descripcion larga ------------------------------------------------------------------
 // mc-publish v3.3 no admite modrinth-description-*: avisa de "Unexpected input" y no la toca,
 // asi que la pagina se quedaba con la descripcion de la creacion. Se sincroniza aqui con el

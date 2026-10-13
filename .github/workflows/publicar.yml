@@ -1,0 +1,207 @@
+# Publicacion de un addon/plugin: GitHub Release + Modrinth (workflow reutilizable de la org).
+#
+# QUE HACE
+#   1. decidir      : solo publica cambios que valen la pena (umbral de lineas) o hotfix ([URGENT], [HOTFIX], fix: dupe...).
+#   2. verificar    : compila Y EJECUTA LOS TESTS (verificar.yml). Si falla, no se publica nada.
+#   3. compatibilidad: arranca Paper real con el mismo jar (compatibilidad.yml).
+#   4. release      : crea la GitHub Release con el .jar, su SHA-256 y notas que explican que version corre, que core
+#                     de Slimefun necesita y POR QUE no funciona con el Slimefun 4 normal (detectar-core.py).
+#   5. modrinth     : sube el jar a Modrinth (crea el proyecto si falta; se envia a revision a mano o con MODRINTH_DRAFT).
+#
+# POR QUE ASI
+#   Antes cada repo tenia su copia de 250 lineas que compilaba con -DskipTests y publicaba sin verificar nada. Ahora
+#   hay UNA plantilla: un cambio aqui se propaga a todos los repos. Se conserva lo bueno de la anterior: umbral de
+#   lineas, deteccion de hotfix, dry_run y no publicar jamas desde un PR (el token no se expone a forks).
+name: Publicar (reutilizable)
+
+on:
+  workflow_call:
+    inputs:
+      dry_run:
+        description: 'Verificar y preparar todo pero NO publicar'
+        type: boolean
+        default: false
+      force:
+        description: 'Publicar aunque el cambio sea menor'
+        type: boolean
+        default: false
+      umbral-lineas:
+        type: string
+        default: '5'
+      game-versions:
+        description: 'Versiones de juego para Modrinth (una por linea)'
+        type: string
+        default: '1.21.x'
+      smoke-bloquea:
+        description: 'El smoke test de servidor bloquea la publicacion'
+        type: boolean
+        default: false
+      modrinth:
+        description: 'Publicar tambien en Modrinth'
+        type: boolean
+        default: true
+    secrets:
+      MODRINTH_TOKEN:
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  decidir:
+    runs-on: ubuntu-latest
+    outputs:
+      publicar: ${{ steps.evaluar.outputs.publicar }}
+      motivo: ${{ steps.evaluar.outputs.motivo }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 2
+      - id: evaluar
+        env:
+          UMBRAL: ${{ inputs.umbral-lineas }}
+          FORCE: ${{ inputs.force }}
+          EVENTO: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENTO" = "workflow_dispatch" ] && [ "$FORCE" = "true" ]; then
+            echo "publicar=true" >> "$GITHUB_OUTPUT"; echo "motivo=disparo manual con force" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          MENSAJE="$(git log -1 --pretty=%B || true)"
+          if echo "$MENSAJE" | grep -qiE '\[URGENT\]|\[HOTFIX\]|fix: *dupe|fix: *crash|dupe|exploit'; then
+            echo "publicar=true" >> "$GITHUB_OUTPUT"; echo "motivo=hotfix detectado en el mensaje del commit" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            LINEAS="$(git diff --numstat HEAD~1 HEAD -- 'src/**' pom.xml build.gradle build.gradle.kts \
+                      | awk '{ s += $1 + $2 } END { print s + 0 }')"
+          else
+            LINEAS=9999
+          fi
+          echo "Lineas de codigo cambiadas: $LINEAS (umbral $UMBRAL)"
+          if [ "$LINEAS" -ge "$UMBRAL" ]; then
+            echo "publicar=true" >> "$GITHUB_OUTPUT"; echo "motivo=cambio de $LINEAS lineas (>= $UMBRAL)" >> "$GITHUB_OUTPUT"
+          else
+            echo "publicar=false" >> "$GITHUB_OUTPUT"; echo "motivo=cambio menor de $LINEAS lineas; no se publica" >> "$GITHUB_OUTPUT"
+          fi
+
+  verificar:
+    needs: decidir
+    if: needs.decidir.outputs.publicar == 'true'
+    uses: SlimefunNewHorizons/.github/.github/workflows/verificar.yml@main
+
+  compatibilidad:
+    needs: verificar
+    uses: SlimefunNewHorizons/.github/.github/workflows/compatibilidad.yml@main
+    with:
+      bloquea: ${{ inputs.smoke-bloquea }}
+
+  release:
+    name: Release en GitHub y Modrinth
+    needs: [decidir, verificar, compatibilidad]
+    if: ${{ !inputs.dry_run && needs.verificar.result == 'success' && (needs.compatibilidad.result == 'success' || !inputs.smoke-bloquea) }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: SlimefunNewHorizons/.github
+          path: _org
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: plugin-jar
+          path: dist
+
+      - name: Datos de la release
+        id: datos
+        env:
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          set -euo pipefail
+          JAR="$(ls dist/*.jar | head -n1)"
+          VER="$(unzip -p "$JAR" plugin.yml | sed -n "s/^version:[[:space:]]*['\"]\{0,1\}\([^'\"[:space:]]*\).*/\1/p" | head -n1)"
+          case "$VER" in ''|*'$'*) VER="0.0.0";; esac
+          SHA256="$(sha256sum "$JAR" | awk '{print $1}')"
+          if echo "$VER" | grep -qi snapshot; then
+            TAG="build-$(date -u +%Y%m%d)-${GITHUB_SHA::7}"; PRE=true
+          else
+            TAG="v$VER"; PRE=false
+          fi
+          python3 _org/.github/scripts/detectar-core.py notas --version "$VER" --jar "$JAR" --sha256 "$SHA256" --repo "$REPO" > notas.md
+          {
+            echo "jar=$JAR"; echo "version=$VER"; echo "tag=$TAG"; echo "pre=$PRE"; echo "sha=$SHA256"
+          } >> "$GITHUB_OUTPUT"
+          cat notas.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Crear o actualizar la release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG='${{ steps.datos.outputs.tag }}'
+          JAR='${{ steps.datos.outputs.jar }}'
+          echo "${{ steps.datos.outputs.sha }}  $(basename "$JAR")" > "$JAR.sha256"
+          PRE=""; [ '${{ steps.datos.outputs.pre }}' = true ] && PRE="--prerelease"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file notas.md $PRE
+            gh release upload "$TAG" "$JAR" "$JAR.sha256" --clobber
+          else
+            gh release create "$TAG" "$JAR" "$JAR.sha256" --target "$GITHUB_SHA" \
+              --title "${{ github.event.repository.name }} ${{ steps.datos.outputs.version }}" --notes-file notas.md $PRE
+          fi
+
+      - name: Preparar Node (assets vectoriales de Modrinth)
+        if: ${{ inputs.modrinth }}
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '20'
+
+      - name: Renderizar banner e icono PNG
+        if: ${{ inputs.modrinth }}
+        run: |
+          set -euo pipefail
+          npm install --no-save @resvg/resvg-js puppeteer@23 || true
+          mkdir -p docs
+          [ -f docs/icon.svg ] && [ ! -f docs/icon.png ] && node _org/.github/scripts/svg-to-png.mjs docs/icon.svg docs/icon.png 512 512 || true
+          if [ -f docs/banner.svg ] && [ ! -f docs/banner.png ]; then node _org/.github/scripts/svg-to-png.mjs docs/banner.svg docs/banner.png 1280 640 || true
+          elif [ -f banner.svg ] && [ ! -f docs/banner.png ]; then node _org/.github/scripts/svg-to-png.mjs banner.svg docs/banner.png 1280 640 || true; fi
+
+      - name: Asegurar que el proyecto existe en Modrinth
+        id: cfg
+        if: ${{ inputs.modrinth }}
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
+          PROJECT_SLUG: ${{ github.event.repository.name }}
+          PROJECT_NAME: ${{ github.event.repository.name }}
+          PROJECT_SUMMARY: ${{ github.event.repository.description }}
+          MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
+          PROJECT_LICENSE: ${{ vars.MODRINTH_LICENSE }}
+        run: node _org/.github/scripts/modrinth-ensure-project.mjs
+
+      - name: Publicar en Modrinth
+        if: ${{ inputs.modrinth }}
+        uses: Kir-Antipov/mc-publish@52307b03863581dec6b652b83e597aec02ebb075 # v3.3
+        with:
+          modrinth-id: ${{ steps.cfg.outputs.project_id }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          files: ${{ steps.datos.outputs.jar }}
+          version: ${{ steps.datos.outputs.version }}
+          name: ${{ github.event.repository.name }} ${{ steps.datos.outputs.version }}
+          version-type: release
+          loaders: |
+            paper
+            purpur
+            spigot
+          game-versions: ${{ inputs.game-versions }}
+          changelog-file: notas.md
+          modrinth-featured: false
+
+      - name: Enviar el proyecto a revision de Modrinth
+        if: ${{ inputs.modrinth }}
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_PROJECT_ID: ${{ steps.cfg.outputs.project_id }}
+          MODRINTH_DRAFT: ${{ vars.MODRINTH_DRAFT }}
+        run: node _org/.github/scripts/modrinth-submit-review.mjs

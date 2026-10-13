@@ -1,0 +1,63 @@
+# Seguridad automatica de un repo (workflow reutilizable de la org).
+#
+# QUE HACE
+#   - CodeQL para Java (sin compilar: build-mode none), con consultas de seguridad y calidad.
+#   - dependency-review en PRs: bloquea dependencias nuevas con vulnerabilidades altas.
+#   - gitleaks sobre todo el historial: avisa de secretos subidos por error.
+#
+# POR QUE EXISTE
+#   La auditoria de CI (2026-10-14) encontro 0 workflows con analisis de seguridad en 139 repos con codigo,
+#   y varios jobs publican con MODRINTH_TOKEN. Esto es barato (gratis en repos publicos) y automatico.
+name: Seguridad (reutilizable)
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  codeql:
+    name: CodeQL (Java)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: github/codeql-action/init@9f759ee644a3e7c15c1390abf49868036c00067b # v3
+        with:
+          languages: java-kotlin
+          build-mode: none
+          queries: security-extended
+      - uses: github/codeql-action/analyze@9f759ee644a3e7c15c1390abf49868036c00067b # v3
+        with:
+          category: /language:java-kotlin
+
+  dependencias:
+    name: Revision de dependencias (solo PR)
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
+        with:
+          fail-on-severity: high
+
+  secretos:
+    name: gitleaks (secretos en el historial)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+      - name: Ejecutar gitleaks
+        run: |
+          set -euo pipefail
+          V=8.21.2
+          curl -fsSL -o gl.tgz "https://github.com/gitleaks/gitleaks/releases/download/v${V}/gitleaks_${V}_linux_x64.tar.gz"
+          tar -xzf gl.tgz gitleaks
+          ./gitleaks detect --source . --no-banner --redact --exit-code 1
