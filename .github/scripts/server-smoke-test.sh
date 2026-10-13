@@ -16,7 +16,8 @@ set -euo pipefail
 VERSION="$1"
 PLUGIN_JAR="$(realpath "$2")"
 shift 2
-DEPS=("$@")
+DEPS=()
+for d in "$@"; do [ -n "$d" ] && DEPS+=("$(realpath "$d")"); done   # antes del cd: las rutas relativas dejarian de valer
 WORK="server-$VERSION"
 START_TIMEOUT="${START_TIMEOUT:-600}"
 SETTLE_SECONDS="${SETTLE_SECONDS:-30}"
@@ -42,7 +43,7 @@ echo "$SHA  paper.jar" | sha256sum -c -
 echo "::endgroup::"
 
 for dep in "${DEPS[@]:-}"; do
-    [ -n "$dep" ] && cp "$(realpath "$dep")" plugins/
+    [ -n "$dep" ] && cp "$dep" plugins/
 done
 cp "$PLUGIN_JAR" plugins/
 echo "eula=true" > eula.txt
