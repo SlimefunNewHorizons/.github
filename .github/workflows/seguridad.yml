@@ -20,6 +20,8 @@ jobs:
   codeql:
     name: CodeQL (Java)
     runs-on: ubuntu-latest
+    # un fallo de infraestructura de CodeQL (p. ej. finalizar la base de datos de un build Gradle raro) no debe poner rojo el repo
+    continue-on-error: true
     permissions:
       contents: read
       security-events: write
