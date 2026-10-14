@@ -10,6 +10,15 @@ import re
 import sys
 
 MIN, MAX = 21, 25
+# Override explicito del repo: `.github/java-version` con un numero (p. ej. 25), para los que dependen de jars compilados
+# para Java 25 (worldguard-core 7.0.18, invui 2.3.0...) sin que el pom lo diga.
+_override = pathlib.Path(".github/java-version")
+if _override.is_file():
+    try:
+        print(int(_override.read_text().strip()))
+        sys.exit(0)
+    except ValueError:
+        pass
 pedidas = []
 patrones = [
     r"<(?:maven\.compiler\.(?:release|source|target)|java\.version|release|source|target|jdk\.version|java-version)>\s*(\d+)\s*<",
