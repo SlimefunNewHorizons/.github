@@ -53,6 +53,11 @@
 | **EssentialsSpawn** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 2.22.0 |  SÍ | Manejo de spawn |
 | **ProtocolLib** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 5.4.0 |  SÍ | Interceptor de paquetes activo |
 | **packetevents** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 2.13.0 |  SÍ | Inicializado para Paper 26.2 |
+| **nLogin** | Staging | 2.0.24 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: habilita y cierra limpiamente en Paper 26.2 build 133/JDK 25. Queda un aviso de compatibilidad de `perform-username-validation`; no impidió la carga. |
+| **nAntiBot** | Staging | 2.0.8 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: habilita y cierra limpiamente en Paper 26.2 build 133/JDK 25. |
+| **ViaVersion** | Staging | 5.12.1 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: detecta protocolo del servidor 26.2 y finaliza el mapeo sin excepción. |
+| **ViaBackwards / ViaRewind** | Staging | 5.12.1 / 4.2.0 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: ambos habilitan y se cierran limpiamente junto a ViaVersion. |
+| **CoreProtect CE** | Dallas (JAR 24.0) | 24.0 | NO | Prueba real 2026-10-14 16:04–16:08 CLT: alcanza `Enabling`, pero declara que Minecraft 26.2 no está soportado y se auto-desactiva; mantener fuera de Temporada 2. |
 | **QuickShop-Hikari** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 6.2.0.11 |  SÍ | Base de datos SQLite inicializada, gancho Vault OK |
 | **DecentHolograms** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 2.10.1 |  SÍ | Adaptador NMS v26_2 inicializado |
 | **CMILib** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 1.5.9.3 |  SÍ | Detección Mojang Mappings v26_2_0 OK |
