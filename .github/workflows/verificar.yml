@@ -92,7 +92,7 @@ jobs:
           N="$(ls dist/*.jar 2>/dev/null | wc -l)"
           if [ "$N" = 0 ]; then echo "::error::No se genero ningun jar"; exit 1; fi
           echo "Jars: $N"; ls dist
-          echo "nombre=$(ls dist/*.jar | head -n1 | xargs -n1 basename)" >> "$GITHUB_OUTPUT"
+          echo "nombre=$(basename "$(ls dist/*.jar | head -n1)")" >> "$GITHUB_OUTPUT"
 
       - name: Guardar el jar
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
