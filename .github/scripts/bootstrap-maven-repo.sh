@@ -34,8 +34,13 @@ for d in os.listdir(repo):
                                    if f.startswith(f"{d}-{base}-") and f.endswith("." + ext)
                                    and f != f"{d}-{v}.{ext}")
                 destino = os.path.join(vp, f"{d}-{v}.{ext}")
-                if con_marca and not os.path.exists(destino):
+                # SIEMPRE se sobrescribe: la cache de Maven (setup-java cache) puede traer un SNAPSHOT viejo ya resuelto
+                # y `cp -rn` no lo pisa; asi SaneCrafting compilaba contra un dough-core antiguo sin `updater`.
+                if con_marca:
                     shutil.copy(os.path.join(vp, con_marca[-1]), destino)
+            for basura in os.listdir(vp):
+                if basura in ("_remote.repositories", "resolver-status.properties") or basura.endswith(".lastUpdated"):
+                    os.remove(os.path.join(vp, basura))
             continue
         if not os.path.isdir(vp):
             continue
