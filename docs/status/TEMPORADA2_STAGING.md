@@ -152,6 +152,15 @@
 - Verificación 2026-10-13 01:36–01:39 CEST (hora del log del VPS, servicio `saori-staging-s2.service` EN MARCHA por otro agente — observación solo-lectura, sin tocar el servidor ni Dallas): Paper 26.2 build 129 con JDK 25 alcanzó `Done (156.767s)` con 0 fallos de carga/habilitado (0 `Could not load`, 0 `Could not enable`, 0 `NoClassDefFoundError`, 0 `NoSuchMethodError`, 0 `Exception`; el único «ERROR» del conteo es el falso positivo `Terror` de la línea HorrorNight de Odysseia y el único «Could not» es el WARN ya conocido de DeluxeMenus sin hook NMS en 26.2). `NetworksV6-drake-26x.jar` (rama `port-26x` `13a883ef`, ABI Slimefun/Dough universal, SHA-256 verificado en staging `81fe5e61…4711f4f6`, idéntico al de `PORTS_STATUS.md`) carga y habilita sin excepciones y completa el reindex inicial (`Startup network reindex added 0 node(s)`); DrakesTech activa el módulo `[Networks Digital Transport] (networks)`. Post-arranque sano: eventos Coronalis y autoguardados DankTech2/CrystamaeHistoria sin excepciones; avisos ya conocidos (Mojang 429 en skins `dough`, 1 timeout de spark). Estado: «carga», no «portado» (pendiente smoke funcional de máquinas/redes in-game, ticket #310). Carga del VPS ~5 impide builds en esta pasada. Servicio dejado en marcha; Dallas sin cambios.
 
 
+### Validación de compatibilidad — CoreProtect CE 24.0 (ticket #361, 2026-10-14 16:04–16:08 CLT)
+
+El JAR de producción se copió únicamente al staging para una prueba de arranque
+con Paper 26.2 build 133 y JDK 25. El plugin alcanzó `Loading` y `Enabling`,
+pero informó explícitamente `Minecraft 26.2 is not supported` y se deshabilitó.
+El servidor terminó su apagado ordenado tras `save-all flush`; no se alteró
+Dallas. Resultado: **no compatible**, mantener fuera del conjunto de Temporada
+2 hasta disponer de una versión de CoreProtect que soporte 26.2.
+
 ## 5. Próximos Pasos (Fase 2 de Temporada 2)
 1. Absorción y verificación de addons secundarios de Slimefun pendientes en las StarSuites (manteniendo invariantes de IDs y claves PDC).
 2. Sincronización de configuraciones de modalidades de juego (SkyBlock, OneBlock, Clásico, Survival) en solo-lectura desde producción.
