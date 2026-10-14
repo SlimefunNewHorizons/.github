@@ -57,7 +57,8 @@
 | **nAntiBot** | Staging | 2.0.8 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: habilita y cierra limpiamente en Paper 26.2 build 133/JDK 25. |
 | **ViaVersion** | Staging | 5.12.1 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: detecta protocolo del servidor 26.2 y finaliza el mapeo sin excepción. |
 | **ViaBackwards / ViaRewind** | Staging | 5.12.1 / 4.2.0 | SÍ | Prueba real 2026-10-14 16:04–16:08 CLT: ambos habilitan y se cierran limpiamente junto a ViaVersion. |
-| **CoreProtect CE** | Dallas (JAR 24.0) | 24.0 | NO | Prueba real 2026-10-14 16:04–16:08 CLT: alcanza `Enabling`, pero declara que Minecraft 26.2 no está soportado y se auto-desactiva; mantener fuera de Temporada 2. |
+| **CoreProtect CE 24.0** | Dallas (JAR 24.0) | 24.0 | NO | Prueba real 2026-10-14 16:04–16:08 CLT: alcanza `Enabling`, pero declara que Minecraft 26.2 no está soportado y se auto-desactiva. No usar esta versión en Temporada 2. |
+| **CoreProtect CE 24.1** | Upstream `v24.1` (`0af209a`) | 24.1-development | SÍ, solo staging | Prueba real 2026-10-14 21:39–21:42 CEST (19:39–19:42 CLT): habilita en Paper 26.2 build 133/JDK 25, inicializa SQLite y el registro de WorldEdit, y cierra limpiamente. Es un build de desarrollo: no es candidato para Dallas. |
 | **QuickShop-Hikari** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 6.2.0.11 |  SÍ | Base de datos SQLite inicializada, gancho Vault OK |
 | **DecentHolograms** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 2.10.1 |  SÍ | Adaptador NMS v26_2 inicializado |
 | **CMILib** | Dallas (`BASE_PLUGINS_TO_SYNC`) | 1.5.9.3 |  SÍ | Detección Mojang Mappings v26_2_0 OK |
@@ -157,14 +158,16 @@
 - Verificación 2026-10-13 01:36–01:39 CEST (hora del log del VPS, servicio `saori-staging-s2.service` EN MARCHA por otro agente — observación solo-lectura, sin tocar el servidor ni Dallas): Paper 26.2 build 129 con JDK 25 alcanzó `Done (156.767s)` con 0 fallos de carga/habilitado (0 `Could not load`, 0 `Could not enable`, 0 `NoClassDefFoundError`, 0 `NoSuchMethodError`, 0 `Exception`; el único «ERROR» del conteo es el falso positivo `Terror` de la línea HorrorNight de Odysseia y el único «Could not» es el WARN ya conocido de DeluxeMenus sin hook NMS en 26.2). `NetworksV6-drake-26x.jar` (rama `port-26x` `13a883ef`, ABI Slimefun/Dough universal, SHA-256 verificado en staging `81fe5e61…4711f4f6`, idéntico al de `PORTS_STATUS.md`) carga y habilita sin excepciones y completa el reindex inicial (`Startup network reindex added 0 node(s)`); DrakesTech activa el módulo `[Networks Digital Transport] (networks)`. Post-arranque sano: eventos Coronalis y autoguardados DankTech2/CrystamaeHistoria sin excepciones; avisos ya conocidos (Mojang 429 en skins `dough`, 1 timeout de spark). Estado: «carga», no «portado» (pendiente smoke funcional de máquinas/redes in-game, ticket #310). Carga del VPS ~5 impide builds en esta pasada. Servicio dejado en marcha; Dallas sin cambios.
 
 
-### Validación de compatibilidad — CoreProtect CE 24.0 (ticket #361, 2026-10-14 16:04–16:08 CLT)
+### Validación de compatibilidad — CoreProtect CE (ticket #361, 2026-10-14 CLT)
 
-El JAR de producción se copió únicamente al staging para una prueba de arranque
-con Paper 26.2 build 133 y JDK 25. El plugin alcanzó `Loading` y `Enabling`,
+El JAR de producción 24.0 se copió únicamente al staging para una prueba de
+arranque con Paper 26.2 build 133 y JDK 25. Alcanzó `Loading` y `Enabling`,
 pero informó explícitamente `Minecraft 26.2 is not supported` y se deshabilitó.
-El servidor terminó su apagado ordenado tras `save-all flush`; no se alteró
-Dallas. Resultado: **no compatible**, mantener fuera del conjunto de Temporada
-2 hasta disponer de una versión de CoreProtect que soporte 26.2.
+En una prueba independiente, el tag upstream `v24.1` (`0af209a`) compiló y su
+artefacto marcado `development` habilitó, inicializó SQLite y WorldEdit y cerró
+limpiamente. El servidor se apagó ordenadamente tras `save-all flush`; Dallas
+no fue alterado. Resultado: 24.0 sigue **no compatible**; 24.1-development
+solo acredita carga en staging y no autoriza un despliegue de producción.
 
 ## 5. Próximos Pasos (Fase 2 de Temporada 2)
 1. Absorción y verificación de addons secundarios de Slimefun pendientes en las StarSuites (manteniendo invariantes de IDs y claves PDC).
