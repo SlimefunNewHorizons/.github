@@ -48,21 +48,30 @@ jobs:
         with:
           repository: SlimefunNewHorizons/.github
           path: _org
+      - name: Aviso - CI omitido por decision del repo
+        if: ${{ hashFiles('.github/ci-skip') != '' }}
+        run: |
+          echo "::notice title=CI omitido::$(cat .github/ci-skip)"
+          echo "### CI omitido" >> "$GITHUB_STEP_SUMMARY"; cat .github/ci-skip >> "$GITHUB_STEP_SUMMARY"
       - name: Detectar la version de Java necesaria
+        if: ${{ hashFiles('.github/ci-skip') == '' }}
         id: jv
         run: |
           if [ "${{ inputs.java-version }}" = "auto" ]; then V="$(python3 _org/.github/scripts/detectar-java.py)"; else V="${{ inputs.java-version }}"; fi
           echo "version=$V" >> "$GITHUB_OUTPUT"; echo "Java $V"
       - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
+        if: ${{ hashFiles('.github/ci-skip') == '' }}
         with:
           distribution: temurin
           java-version: ${{ steps.jv.outputs.version }}
           cache: ${{ hashFiles('pom.xml') != '' && 'maven' || (hashFiles('**/*.gradle*') != '' && 'gradle' || '') }}
 
       - name: Preparar el repositorio Maven de la org (falla si no se puede)
+        if: ${{ hashFiles('.github/ci-skip') == '' }}
         run: bash _org/.github/scripts/bootstrap-maven-repo.sh
 
       - name: Compilar y ejecutar los tests
+        if: ${{ hashFiles('.github/ci-skip') == '' }}
         env:
           # Algunos repos Gradle leen paquetes publicos de GitHub Packages y exigen credenciales (USERNAME/PASSWORD).
           USERNAME: ${{ github.actor }}
@@ -81,6 +90,7 @@ jobs:
           fi
 
       - name: Localizar los jars (repos de un modulo o reactores multi-modulo)
+        if: ${{ hashFiles('.github/ci-skip') == '' }}
         id: jar
         run: |
           set -euo pipefail
@@ -96,13 +106,14 @@ jobs:
 
       - name: Guardar el jar
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: ${{ hashFiles('.github/ci-skip') == '' }}
         with:
           name: plugin-jar
           path: dist/*.jar
           retention-days: 14
 
       - name: Guardar el informe de tests
-        if: always()
+        if: ${{ (always()) && hashFiles('.github/ci-skip') == '' }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
           name: informe-tests
