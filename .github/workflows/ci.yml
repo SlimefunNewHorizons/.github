@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  seguridad:
+    permissions:
+      contents: read
+      security-events: write
+      pull-requests: write
+    uses: SlimefunNewHorizons/.github/.github/workflows/seguridad.yml@main
