@@ -74,8 +74,30 @@ jobs:
       - name: 'Buscar Co-Authored-By de IA (regla de Jack, jamas)'
         run: |
           set -euo pipefail
-          # solo el commit que se esta publicando: el historial viejo no se reescribe
-          if git log -n 1 --format=%B | grep -iE '^Co-Authored-By:.*(claude|anthropic|codex|openai|copilot|gemini|noreply@anthropic)' ; then
-            echo "::error::Hay un trailer Co-Authored-By de IA en el commit. Reescribe ese commit sin el trailer."
+          RANGE=""
+          BEFORE="${{ github.event.before }}"
+          BASE_REF="${{ github.base_ref }}"
+          EVENT="${{ github.event_name }}"
+
+          if [ "$EVENT" = "pull_request" ] && [ -n "$BASE_REF" ]; then
+            if git rev-parse --verify "origin/$BASE_REF" >/dev/null 2>&1; then
+              RANGE="origin/$BASE_REF..HEAD"
+            fi
+          elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            if git rev-parse --verify "$BEFORE" >/dev/null 2>&1; then
+              RANGE="$BEFORE..HEAD"
+            fi
+          fi
+
+          if [ -n "$RANGE" ]; then
+            echo "Comprobando trailers en rango: $RANGE"
+            COMMITS=$(git log "$RANGE" --format=%B)
+          else
+            echo "Comprobando trailers en commit HEAD"
+            COMMITS=$(git log -n 1 --format=%B)
+          fi
+
+          if echo "$COMMITS" | grep -iE '^Co-Authored-By:.*(claude|anthropic|codex|openai|copilot|gemini|noreply@anthropic)' ; then
+            echo "::error::Hay un trailer Co-Authored-By de IA en los commits. Reescribe el commit sin el trailer."
             exit 1
           fi
