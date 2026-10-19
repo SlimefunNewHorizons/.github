@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/DrakesCraft-Labs/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons — Modernizando Slimefun para la próxima generación de Minecraft" width="100%" />
+<img src="https://raw.githubusercontent.com/SlimefunNewHorizons/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons — Modernizando Slimefun para la próxima generación de Minecraft" width="100%" />
 
 # Slimefun: New Horizons
 
@@ -8,10 +8,11 @@
 
 [🌐 Web](https://web.drakescraft.cl) ·
 [💬 Discord](https://discord.gg/rv3vtXZTk7) ·
-[🌌 StarSuites](https://github.com/DrakesCraft-Labs/Drakes-Suites) ·
-[📊 Estado verificado](docs/status/ECOSYSTEM_STATUS_2026-10-02.md) ·
-[⚖️ Derechos y atribución](RIGHTS_AND_ATTRIBUTION_ES.md) ·
-[🇬🇧 English](README.md)
+[🌌 StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites) ·
+[🧭 Todos los repositorios](https://github.com/orgs/SlimefunNewHorizons/repositories) ·
+[📊 Estado verificado](https://github.com/SlimefunNewHorizons/.github/blob/main/docs/status/README.md) ·
+[⚖️ Derechos y atribución](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md) ·
+[🇬🇧 English](https://github.com/SlimefunNewHorizons)
 
 </div>
 
@@ -32,7 +33,7 @@ de Minecraft, y creció alrededor de una red de producción real, **DrakesCraft*
 | 🌠 **Multiverse** | La suite independiente de **Chagui68**, interoperable con Slimefun pero autónoma. |
 
 > ℹ️ **Crédito e independencia.** Slimefun es obra de **TheBusyBiscuit** y la comunidad de Slimefun (GPL-3.0). **No somos sus autores originales** ni estamos **afiliados ni respaldados** por el equipo oficial.
-> Modernizamos y rescatamos; las licencias y créditos originales siempre se conservan — ver [Derechos y atribución](RIGHTS_AND_ATTRIBUTION_ES.md).
+> Modernizamos y rescatamos; las licencias y créditos originales siempre se conservan — ver [Derechos y atribución](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md).
 
 ---
 
@@ -121,7 +122,7 @@ Lo que aún no se absorbe sigue publicándose como ports `-drake` individuales, 
 - **Temporada 2 en Paper 26.x** — validación en ejecución de cada suite sobre un servidor 26.x real y luego despliegue atómico.
 - **DrakesID** — identidad de cuenta propia (una cuenta, varias identidades Java/Bedrock, alcance por modalidad) para simplificar compras, rollbacks y rangos.
 - **3D basado en displays** — tuberías y cables dibujados con entidades `ItemDisplay`/`BlockDisplay`, inspirado en [PylonMC/Rebar](https://github.com/pylonmc/rebar) (LGPL-3.0, con atribución).
-- **Plan de derechos y licencias** — un bloque de licencia y créditos en cada repositorio ([política](RIGHTS_AND_ATTRIBUTION_ES.md)).
+- **Plan de derechos y licencias** — un bloque de licencia y créditos en cada repositorio ([política](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md)).
 
 ## 🤝 Sobre los hombros de
 
@@ -131,14 +132,14 @@ Lista no exhaustiva de autores y proyectos upstream sobre los que construimos (c
 
 ## Cómo contribuir
 
-1. El desarrollo activo de los plugins consolidados ocurre en [`Drakes-Suites`](https://github.com/DrakesCraft-Labs/Drakes-Suites).
+1. El desarrollo activo de los plugins consolidados ocurre en [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites).
 2. **Nunca romper datos de jugadores**: ningún ítem, inventario ni historial de compras puede ponerse en riesgo; se conservan las claves PDC.
 3. Los forks y consolidaciones **conservan sus licencias originales** y acreditan a los autores originales.
-4. Los README públicos se escriben en inglés; la documentación en español vive al lado como `README_ES.md`.
+4. Los README públicos se escriben en inglés; la documentación en español vive al lado como [`README_ES.md`](https://github.com/SlimefunNewHorizons/.github/blob/main/profile/README_ES.md).
 
 <div align="center">
 
 **Slimefun: New Horizons** · hecho con ♥ por la comunidad de DrakesCraft Labs<br/>
-[Web](https://web.drakescraft.cl) · [Discord](https://discord.gg/rv3vtXZTk7) · [StarSuites](https://github.com/DrakesCraft-Labs/Drakes-Suites)
+[Web](https://web.drakescraft.cl) · [Discord](https://discord.gg/rv3vtXZTk7) · [StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites)
 
 </div>

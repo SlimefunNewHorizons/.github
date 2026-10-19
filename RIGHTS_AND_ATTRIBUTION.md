@@ -3,7 +3,7 @@
 > **Status: DRAFT for owner review.** This is an engineering policy, **not legal advice**. Before enforcing it against third parties or changing
 > any license in a published repository, have it reviewed by a qualified lawyer. 🇪🇸 [Versión en español](RIGHTS_AND_ATTRIBUTION_ES.md)
 
-Applies to every repository in the **DrakesCraft-Labs** organization (Slimefun: New Horizons / StarSuites / DrakesCraft) and to anything published from it
+Applies to every repository in the **SlimefunNewHorizons** organization (Slimefun: New Horizons / StarSuites / DrakesCraft) and to anything published from it
 (GitHub, Modrinth, Maven, releases).
 
 ## 1. Principles

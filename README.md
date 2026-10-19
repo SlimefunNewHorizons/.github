@@ -16,9 +16,9 @@
 [💬 Discord](https://discord.gg/rv3vtXZTk7) ·
 [🌌 StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites) ·
 [🧭 All repositories](https://github.com/orgs/SlimefunNewHorizons/repositories) ·
-[📊 Verified status](docs/status/ECOSYSTEM_STATUS_2026-10-02.md) ·
-[⚖️ Rights & attribution](RIGHTS_AND_ATTRIBUTION.md) ·
-[🇪🇸 Español](README_ES.md)
+[📊 Verified status](https://github.com/SlimefunNewHorizons/.github/blob/main/docs/status/README.md) ·
+[⚖️ Rights & attribution](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION.md) ·
+[🇪🇸 Español](https://github.com/SlimefunNewHorizons/.github/blob/main/profile/README_ES.md)
 
 </div>
 
@@ -40,7 +40,7 @@ before it is published.
 | 🌠 **Multiverse** | The independent plugin suite by **Chagui68**, interoperable with Slimefun but standalone. |
 
 > ℹ️ **Credit and independence.** Slimefun is created by **TheBusyBiscuit** and the Slimefun community (GPL-3.0). We are **not** its original authors and are **not affiliated
-> with or endorsed by** the official Slimefun team. We modernize and rescue; original licenses and credits are always preserved — see [Rights & attribution](RIGHTS_AND_ATTRIBUTION.md).
+> with or endorsed by** the official Slimefun team. We modernize and rescue; original licenses and credits are always preserved — see [Rights & attribution](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION.md).
 
 ---
 
@@ -129,7 +129,7 @@ Everything not yet absorbed keeps shipping as individual `-drake` ports, preserv
 - **Season 2 on Paper 26.x** — runtime validation of each suite on a real 26.x server, then an atomic rollout.
 - **DrakesID** — our own account identity (one account, many Java/Bedrock identities, per-mode scoping) to simplify purchases, rollbacks and ranks.
 - **Display-based 3D** — pipes and cables drawn with `ItemDisplay`/`BlockDisplay` entities, inspired by [PylonMC/Rebar](https://github.com/pylonmc/rebar) (LGPL-3.0, with attribution).
-- **Rights & licensing rollout** — a license and credit block in every repository ([policy](RIGHTS_AND_ATTRIBUTION.md)).
+- **Rights & licensing rollout** — a license and credit block in every repository ([policy](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION.md)).
 
 ## 🤝 Standing on the shoulders of
 
@@ -142,7 +142,7 @@ Non-exhaustive list of upstream authors and projects we build on (each repositor
 1. Active development of consolidated plugins happens in [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites).
 2. **Never break player data**: no item, inventory or purchase history may be put at risk; PDC keys are preserved.
 3. Forks and consolidations **keep their original licenses** and credit the original authors.
-4. Public READMEs are written in English; Spanish documentation lives alongside as `README_ES.md`.
+4. Public READMEs are written in English; Spanish documentation lives alongside as [`README_ES.md`](https://github.com/SlimefunNewHorizons/.github/blob/main/profile/README_ES.md).
 
 <div align="center">
 

@@ -3,7 +3,7 @@
 > **Estado: BORRADOR para revisión del dueño.** Es una política de ingeniería, **no asesoría legal**. Antes de hacerla valer frente a terceros o de cambiar la
 > licencia de un repositorio publicado, debe revisarla un abogado. 🇬🇧 [English version](RIGHTS_AND_ATTRIBUTION.md)
 
-Aplica a todos los repositorios de la organización **DrakesCraft-Labs** (Slimefun: New Horizons / StarSuites / DrakesCraft) y a todo lo publicado desde ella
+Aplica a todos los repositorios de la organización **SlimefunNewHorizons** (Slimefun: New Horizons / StarSuites / DrakesCraft) y a todo lo publicado desde ella
 (GitHub, Modrinth, Maven, releases).
 
 ## 1. Principios
