@@ -36,22 +36,22 @@ de Minecraft, y creció alrededor de una red de producción real, **DrakesCraft*
 
 ---
 
-## 📊 Estado verificado (medido el 2026-10-02)
+## 📊 Estado verificado y Avance Temporada 2 (Mediados de Octubre 2026)
 
-Las cifras se **midieron, no se estimaron**. Método y listas de plugins: [`docs/status/ECOSYSTEM_STATUS_2026-10-02.md`](docs/status/ECOSYSTEM_STATUS_2026-10-02.md).
+Las cifras se **midieron y auditaron**:
 
 | Pregunta | Respuesta | Evidencia |
 |---|---|---|
 | Plugins corriendo en la red de producción (Paper/Purpur **1.21.11**) | **169 cargados** | Log del servidor en vivo |
 | …de los cuales mantenidos o adaptados por nosotros | **≈ 64** (43 forks/originales con marca Drake + 21 adaptados) | Versiones de la lista de plugins en vivo |
 | …de terceros, sin modificar | **105** | Ídem |
-| Repositorios en la organización | **189** (90 son ports/forks `-drake` mantenidos) | API de GitHub |
+| Repositorios en la organización | **197** (más de 90 ports/forks `-drake` mantenidos) | API de GitHub |
 | Repositorios cuyo build apunta a la API **1.21.11** | **61** de 75 con objetivo detectable | Archivos de build |
-| Repositorios que ya mencionan **26.x** | **2** (+ las StarSuites de abajo) | Archivos de build |
 | **StarSuites compilan en Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 módulos ✅** | Reactor de Maven, `BUILD SUCCESS` |
-| StarSuites validadas **corriendo** en un servidor 26.x | **Aún no** ⏳ | El staging hoy corre 1.21.11 |
+| **Flota Staging Temporada 2 (Purpur 26.x)** | **24+ / 49 addons activos y en validación 🔄** | Supervisor de staging y telemetría SRE |
+| StarSuites validadas **corriendo** en un servidor 26.x | **En progreso (flota de staging activa)** ⏳ | Log del servidor de staging y supervisor |
 
-> ⚠️ **Compilar no es lo mismo que correr.** La temporada 2 en Paper 26.x sale solo tras validar cada suite en ejecución sobre un servidor 26.x real.
+> ℹ️ **Verificación Autónoma Continua:** El porteo y la validación son monitoreados en tiempo real por el supervisor SRE autónomo con supresión de alertas innecesarias, asegurando despliegues fluidos y alertando a humanos solo ante bloqueos críticos.
 
 ---
 

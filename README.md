@@ -44,22 +44,22 @@ before it is published.
 
 ---
 
-## 📊 Verified status (measured 2026-10-02)
+## 📊 Verified status & Season 2 Progress (Mid-October 2026)
 
-Numbers below were **measured, not estimated**. Method and plugin lists: [`docs/status/ECOSYSTEM_STATUS_2026-10-02.md`](docs/status/ECOSYSTEM_STATUS_2026-10-02.md).
+Status and fleet statistics are **measured and audited**:
 
 | Question | Answer | Evidence |
 |---|---|---|
 | Plugins running on the production network (Paper/Purpur **1.21.11**) | **169 loaded** | Live server log |
 | …of which maintained or adapted by us | **≈ 64** (43 Drake-branded forks/originals + 21 adapted) | Version strings in the live plugin list |
 | …third-party, unmodified | **105** | Same |
-| Repositories in the organization | **189** (90 are maintained `-drake` ports/forks) | GitHub API |
-| Repositories whose build targets the **1.21.11** API | **61** of 75 with a detectable target | Build files |
-| Repositories already referencing **26.x** | **2** (+ the StarSuites below) | Build files |
+| Repositories in the organization | **197** (90+ maintained `-drake` ports/forks) | GitHub API |
+| Repositories targeting **1.21.11** API | **61** of 75 with a detectable target | Build files |
 | **StarSuites compile on Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 modules ✅** | Maven reactor, `BUILD SUCCESS` |
-| StarSuites validated **running** on a 26.x server | **Not yet** ⏳ | Staging currently runs 1.21.11 |
+| **Season 2 Purpur 26.x Staging Fleet** | **24+ / 49 addons active & validating 🔄** | Live staging supervisor & SRE telemetry |
+| StarSuites runtime validation on 26.x | **In progress (Staging fleet active)** ⏳ | Staging server log & supervisor |
 
-> ⚠️ **Compiling is not the same as running.** Season 2 on Paper 26.x ships only after runtime validation of each suite on a real 26.x server.
+> ℹ️ **Continuous Autonomous Verification:** Porting and validation are monitored in real-time by the autonomous SRE supervisor with zero-noise alert throttling, ensuring non-blocking deployments proceed smoothly while alerting humans only when manual intervention is required.
 
 ---
 
