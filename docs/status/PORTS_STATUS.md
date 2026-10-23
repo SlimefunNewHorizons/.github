@@ -4,6 +4,9 @@
 > **«compila» ≠ «corre».** *Compila* = `mvn -B -fae package` terminó en el VPS con el JDK indicado.
 > *Corre* = el plugin arrancó y cargó en un servidor real de esa versión; **esta página no lo certifica**.
 > Nada de aquí se llama «portado» hasta que exista prueba de ejecución (staging 26.x / producción 1.21.11).
+> Actualización puntual 2026-10-23 CLT: Drakes-Suites, NetworksV6 y RykenSlimeCustomizer
+> se verificaron en ejecución en el staging; se preservan las mediciones históricas mientras
+> se restaura el CSV crudo completo que alimenta este documento.
 
 ## Metodología
 
@@ -46,7 +49,7 @@
 | CrystamaeHistoria-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (deps corregidas en 012c8d1) |
 | DankTech2-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-11 21:14 UTC: port-26x `3bd9f75` `clean package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable -Djava.version=25`, bytecode major 69 (jar 163 KB, 118 clases), compila contra Slimefun universal `11.0-Universal-26.x-SNAPSHOT`. Corre en staging 26.2 el 2026-10-07 (ver TEMPORADA2_STAGING.md) |
 | DiosesDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (DrakesBosses en maven.drakescraft.cl; paper.version parametrizado en e952e05) |
-| Drakes-Suites | maven | ❌ no | ✅ sí (`26.x`) | ✅ 50 (core + utility) | 2026-10-11 20:11 CLT: `26.x` `577a68f` compilado con `build_seguro.sh` JDK 25 (`core` + `utility`); 48 pruebas existentes de utility y 2 regresiones PDC de PortalGun en verde. **Corre** en staging Paper 26.2: DrakesUtility y its portalgun module enabled; startup completed in 133.555 s with no subsequent exception. The tested JAR (`fe63966d…581008e`) has a staging backup. Dallas was not modified. 1.21.11 requires separate measurement. |
+| Drakes-Suites | maven | ❌ no | ✅ sí (`26.x`) | ✅ reactor 11/11 | 2026-10-23 CLT: `26.x` pasó `build_seguro.sh` JDK 25 con `mvn -DskipIntegration test` (11/11 módulos, 2m58s). **Corre** en staging Paper 26.2: las nueve suites habilitaron, incluidos los módulos absorbidos; apagado seguro limpio. Dallas no fue modificado. 1.21.11 requiere medición separada. |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ 28 (0 fallos) | 2026-10-16 21:36 CLT: `port-26x` `789a80b` compilado con `build_seguro.sh` JDK 25 y `-Dpaper.version=26.2.build.129-stable`; bytecode major 69 y manifiesto Mojang. **Corre** en staging Paper 26.2-133: DrakesBosses y su integración con Odysseia se habilitaron sin excepción propia; apagado seguro completado. Dallas no fue modificado. |
 | DrakesCore | maven | n/a | n/a | sin tests | repo archivado en GitHub (solo lectura; sustituido por Drakes-Suites y Odysseia) |
 | DrakesCrates | maven | ✅ sí | ✅ sí | ✅ 3 (0 fallos) | 2026-10-11 12:20 CLT: main 0710c12 `clean test package` con build_seguro JDK 25 y `-Dpaper.version=26.2.build.129-stable`, bytecode major 69, jar SHA 3041032e. **Arranca** en staging Paper 26.2-133/Java 25: Done 149,9 s, se engancha al Slimefun universal (`io.github.thebusybiscuit`), 3 crates + 3 llaves, PAPI `drakescrates` registrado; `/drakescrates reload` y `/oraculo reload` por consola sin WARN/ERROR propios. Sin jugadores: no se probó apertura de crates ni Votifier (ausente en staging). |
@@ -100,7 +103,7 @@
 | MissileWarfare-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 26.x medido 2026-10-06 en el VPS (build_seguro JDK 25; `clean test package`; major 69). `port-26x` `c49c23a` migra al Slimefun universal y **arranca** en staging 26.2 (addons 7→8; ticket #96). 1.21.11 (main) sin medir en esta pasada |
 | MobCapturer-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | MoreResearches-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| NetworksV6-drake | maven | ❌ no | ✅ sí, corre | ✅ 73/73 | 2026-10-12 CLT: `port-26x` 13a883ef migra la ABI a Slimefun/Dough universales y MockBukkit 26.2; `build_seguro` JDK 25 con Paper 26.2 compiló y ejecutó 73 pruebas sin fallos. JAR SHA-256 `81fe5e61…4711f4f6` arrancó en Season 2 Staging (Paper 26.2 build 133): plugin habilitado y reindex inicial completado, sin excepciones ABI. 1.21.11 no recompilado en esta pasada. |
+| NetworksV6-drake | maven | ❌ no | ✅ sí, corre | ✅ 21/21 (última medición) | 2026-10-23 CLT: `port-26x` 13a883ef, objetivo Java 25 corregido, compiló con `build_seguro`; 21 pruebas verdes. El jar habilitó y completó el reindexado de red en Season 2 Staging Paper 26.2 sin excepciones ABI. 1.21.11 no recompilado en esta pasada. |
 | PlayerVaultZ-Drake | maven | ⚠️ indeterminado (dependencias) | ⚠️ indeterminado (dependencias) | sin tests | 2026-10-11 CLT: no es un fallo de compilación. El parche se compila contra el binario cerrado `vendor/PlayerVaultZ-1.1.0.jar` (dependencia `system`, sin licencia pública, no versionado) y ese JAR no existe en Star. Para medir hay que obtenerlo y validar el SHA-256 indicado en el README; además, es un binario de 1.21 sin fuente, por lo que «compila» en 26.x no implicaría que el plugin original corra en 26.2. |
 | PotionExpansion-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | ProtectionStones-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
@@ -108,7 +111,7 @@
 | Quaptics-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | Rebar-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | RelicsOfCthonia-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| RykenSlimeCustomizer-EN-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
+| RykenSlimeCustomizer-EN-drake | maven | ✅ sí | ✅ sí, corre | sin tests | 2026-10-23 CLT: `port-26x` 7e564cb compiló con JDK 25 (106 fuentes, 29s) y el jar habilitó como RykenSlimeCustomizer v20 en Season 2 Staging Paper 26.2; apagado limpio. |
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | SFCalc-drake | maven | ⏳ pendiente | ✅ sí (`port-26x` `bfa4914`) | sin tests | 2026-10-07 CLT: rama `port-26x` (`bfa4914`) migra al Slimefun universal (`io.github.thebusybiscuit.slimefun4.*`), Lombok 1.18.46 en compiler plugin 3.14.0 y `maven.compiler.release` 25. Build JDK 25 `clean package` OK con `build_seguro.sh` (bytecode major 69.0, 0 refs propietarias). Jar SHA-256 `5bb2c5ec011c3bb123c24374c0d92c175e8a6d0d2413b6e24dbf1632054709a2` desplegado en `season2-staging/plugins/SFCalc-drake-26x.jar`. 1.21.11 pendiente de medición. |
 | SFMobDrops-drake | maven | ⏳ pendiente | ✅ sí | ✅ 8/8 en JDK 25 perfil mc-26.2 (MockBukkit v26.2 4.116.1) | 2026-10-11 CLT: `port-26x` `503ed9a` añade perfil `mc-26.2` (antes ❌: MockBukkit v1.21 no arrancaba con 26.2, `Material.CHAIN`). 2026-10-07 CLT: rama `port-26x` `0edd3e2` migra al Slimefun universal (`io.github.thebusybiscuit`), compiler 3.14.0 con `release` y Lombok en `annotationProcessorPaths`; JDK 25/Paper 26.2 `clean package -DskipTests`, bytecode 69, 0 refs propietarias. **Corre** en staging 26.2 build 129: habilita, carga 3 drops, `sf versions` 20 addons, `/mobdrops` y `/mobdrops reload` responden. 1.21.11 (`main`) sin medir en esta pasada |
