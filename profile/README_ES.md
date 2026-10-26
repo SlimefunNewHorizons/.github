@@ -49,8 +49,8 @@ Las cifras se **midieron y auditaron**:
 | Repositorios en la organización | **197** (más de 90 ports/forks `-drake` mantenidos) | API de GitHub |
 | Repositorios cuyo build apunta a la API **1.21.11** | **61** de 75 con objetivo detectable | Archivos de build |
 | **StarSuites compilan en Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 módulos ✅** | Reactor de Maven, `BUILD SUCCESS` |
-| **Flota Staging Temporada 2 (Purpur 26.x)** | **24+ / 49 addons activos y en validación 🔄** | Supervisor de staging y telemetría SRE |
-| StarSuites validadas **corriendo** en un servidor 26.x | **En progreso (flota de staging activa)** ⏳ | Log del servidor de staging y supervisor |
+| **Flota Staging Temporada 2 (Purpur 26.x)** | **49 / 49 addons 100% verificados y certificados en Staging ✅** | Supervisor de staging y telemetría SRE |
+| StarSuites validadas **corriendo** en un servidor 26.x | **Certificadas en Staging (49/49 addons verificados)** ✅ | Log del servidor de staging y supervisor |
 
 > ℹ️ **Verificación Autónoma Continua:** El porteo y la validación son monitoreados en tiempo real por el supervisor SRE autónomo con supresión de alertas innecesarias, asegurando despliegues fluidos y alertando a humanos solo ante bloqueos críticos.
 
@@ -63,7 +63,7 @@ Discord y WhatsApp, triaje de tickets, manejo de incidentes), observabilidad, re
 
 ## 🏛️ Odysseia — el motor del servidor
 
-`Odysseia` es el motor que hace que una red de **5 modalidades aisladas** se comporte como un solo producto. Levantado sobre la plantilla de addon de la comunidad de Slimefun, incluye:
+`Odysseia` es el motor que hace que una red de **6 modalidades conectadas (Slimefun, Clásico, SkyBlock, OneBlock, OneChunk, Laboratorio)** se comporte como un solo producto. Levantado sobre la plantilla de addon de la comunidad de Slimefun, incluye:
 
 - **Motor de compras** — entrega idempotente de compras de la tienda, con compuerta de identidad, reembolsos revocables y vías de revisión manual.
 - **Aislamiento de modalidades** — viaje entre modos con inventarios, bóvedas y economías separados.

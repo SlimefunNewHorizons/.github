@@ -56,8 +56,8 @@ Status and fleet statistics are **measured and audited**:
 | Repositories in the organization | **197** (90+ maintained `-drake` ports/forks) | GitHub API |
 | Repositories targeting **1.21.11** API | **61** of 75 with a detectable target | Build files |
 | **StarSuites compile on Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 modules ✅** | Maven reactor, `BUILD SUCCESS` |
-| **Season 2 Purpur 26.x Staging Fleet** | **24+ / 49 addons active & validating 🔄** | Live staging supervisor & SRE telemetry |
-| StarSuites runtime validation on 26.x | **In progress (Staging fleet active)** ⏳ | Staging server log & supervisor |
+| **Season 2 Purpur 26.x Staging Fleet** | **49 / 49 addons 100% verified & staging certified ✅** | Live staging supervisor & SRE telemetry |
+| StarSuites runtime validation on 26.x | **Certified in Staging (49/49 addons verified)** ✅ | Staging server log & supervisor |
 
 > ℹ️ **Continuous Autonomous Verification:** Porting and validation are monitored in real-time by the autonomous SRE supervisor with zero-noise alert throttling, ensuring non-blocking deployments proceed smoothly while alerting humans only when manual intervention is required.
 
@@ -70,7 +70,7 @@ Discord and WhatsApp assistants, ticket triage, incident handling), observabilit
 
 ## 🏛️ Odysseia — the server engine
 
-`Odysseia` is the engine that makes a network of **5 isolated game modes** behave like one product. Built on the Slimefun community addon template, it contains:
+`Odysseia` is the engine that makes a network of **6 connected modalities (Slimefun, Clásico, SkyBlock, OneBlock, OneChunk, Laboratorio)** behave like one product. Built on the Slimefun community addon template, it contains:
 
 - **Purchase engine** — idempotent store-purchase delivery with an identity gate, refunds that can be revoked and manual-review paths.
 - **Game-mode isolation** — travel between modes with separated inventories, vaults and economies.
