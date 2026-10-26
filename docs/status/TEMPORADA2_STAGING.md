@@ -169,6 +169,18 @@ limpiamente. El servidor se apagó ordenadamente tras `save-all flush`; Dallas
 no fue alterado. Resultado: 24.0 sigue **no compatible**; 24.1-development
 solo acredita carga en staging y no autoriza un despliegue de producción.
 
+### Verificación de arranque — Paper 26.2 build 133 (2026-10-25 CLT)
+
+El servicio `saori-staging-s2.service` permaneció en marcha en Paper
+`26.2-133-ver/26.2@58e6e45` con JDK 25, `-Xms1G -Xmx4G`, `CPUQuota=200%` y
+`MemoryMax=6G`. El arranque alcanzó `Done (278.385s)` y una consulta de consola
+`plugins` confirmó **135** plugins (3 Paper y 132 Bukkit), incluidas las nueve
+StarSuites, Slimefun, NetworksV6-Drake, EquivalencyTech, Odysseia y BentoBox.
+El filtro de `WARN`, `ERROR`, `Exception`, `Could not` y `Failed` no devolvió
+líneas en `latest.log` de esta ejecución. Esta evidencia acredita únicamente
+**carga real en staging**; los smoke tests funcionales por módulo siguen
+pendientes. Dallas no fue modificado.
+
 ## 5. Próximos Pasos (Fase 2 de Temporada 2)
 1. Absorción y verificación de addons secundarios de Slimefun pendientes en las StarSuites (manteniendo invariantes de IDs y claves PDC).
 2. Sincronización de configuraciones de modalidades de juego (SkyBlock, OneBlock, Clásico, Survival) en solo-lectura desde producción.
