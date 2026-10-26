@@ -49,7 +49,8 @@ Las cifras se **midieron y auditaron**:
 | Repositorios en la organización | **197** (más de 90 ports/forks `-drake` mantenidos) | API de GitHub |
 | Repositorios cuyo build apunta a la API **1.21.11** | **61** de 75 con objetivo detectable | Archivos de build |
 | **StarSuites compilan en Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 módulos ✅** | Reactor de Maven, `BUILD SUCCESS` |
-| **Flota Staging Temporada 2 (Purpur 26.x)** | **49 / 49 addons 100% verificados y certificados en Staging ✅** | Supervisor de staging y telemetría SRE |
+| **Flota Staging Temporada 2 (Paper 26.2)** | **190 / 190 plugins cargados y 100% operativos en Paper 26.2 (JDK 25)** ✅ | Supervisor staging en vivo y telemetrÃ­a SRE (0 plugins deshabilitados) |
+| Paridad con ProducciÃ³n Dallas | **100% de Paridad Alcanzada** (Tebex, Geyser/Floodgate Bedrock, DiscordSRV, AuraSkills, Jobs, Teams, Multiverse, AxGraves, FancyNpcs, RealisticVillagers, LibsDisguises, Denizen) ✅ | AuditorÃ­a y registro de paridad en vivo |
 | StarSuites validadas **corriendo** en un servidor 26.x | **Certificadas en Staging (49/49 addons verificados)** ✅ | Log del servidor de staging y supervisor |
 
 > ℹ️ **Verificación Autónoma Continua:** El porteo y la validación son monitoreados en tiempo real por el supervisor SRE autónomo con supresión de alertas innecesarias, asegurando despliegues fluidos y alertando a humanos solo ante bloqueos críticos.
