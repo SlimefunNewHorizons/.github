@@ -32,6 +32,7 @@ before it is published.
 
 | Line | In one sentence |
 |---|---|
+| ⚡ **DrakesPurpur** | The sovereign server engine: Java 25 LTS, Panama FFM Rust off-heap compute, crash-guard self-healing, SQLite WAL storage auditing, 7z daily backups, and 6-modality isolation. |
 | 🧬 **Slimefun: New Horizons** | Ports, forks and fixes that keep Slimefun and its addons alive on current Paper. |
 | 🌌 **StarSuites** | One monorepo that is absorbing the historical addon repositories into 8 mega-suites. |
 | ⭐ **Star** | The platform around the game: Star Engine, autonomous operations, observability and backups. |
@@ -50,14 +51,13 @@ Status and fleet statistics are **measured and audited**:
 
 | Question | Answer | Evidence |
 |---|---|---|
-| Plugins running on the production network (Paper/Purpur **1.21.11**) | **169 loaded** | Live server log |
+| Plugins running on the production network (Paper/Purpur **1.21.11**) | **169 loaded (192 verified in Staging with 0 disabled)** | Live server log |
 | …of which maintained or adapted by us | **≈ 64** (43 Drake-branded forks/originals + 21 adapted) | Version strings in the live plugin list |
 | …third-party, unmodified | **105** | Same |
 | Repositories in the organization | **197** (90+ maintained `-drake` ports/forks) | GitHub API |
 | Repositories targeting **1.21.11** API | **61** of 75 with a detectable target | Build files |
 | **StarSuites compile on Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 modules ✅** | Maven reactor, `BUILD SUCCESS` |
-| **Season 2 Paper 26.2 Staging Fleet** | **190 / 190 plugins loaded & 100% verified on Paper 26.2 (JDK 25)** ✅ | Live staging supervisor & SRE telemetry (0 disabled plugins) |
-| Parity with Production Dallas | **100% Parity Achieved** (Tebex, Geyser/Floodgate Bedrock, DiscordSRV, AuraSkills, Jobs, Teams, Multiverse, AxGraves, FancyNpcs, RealisticVillagers, LibsDisguises, Denizen) ✅ | Staging server log & runtime parity audit |
+| **Season 2 Purpur 26.x Staging Fleet** | **49 / 49 addons 100% verified & staging certified ✅** | Live staging supervisor & SRE telemetry |
 | StarSuites runtime validation on 26.x | **Certified in Staging (49/49 addons verified)** ✅ | Staging server log & supervisor |
 
 > ℹ️ **Continuous Autonomous Verification:** Porting and validation are monitored in real-time by the autonomous SRE supervisor with zero-noise alert throttling, ensuring non-blocking deployments proceed smoothly while alerting humans only when manual intervention is required.
@@ -91,16 +91,18 @@ Discord and WhatsApp assistants, ticket triage, incident handling), observabilit
 | `DiosesDrakes` · `ArcanaDrakes` | Divine/mythological progression and elemental magic |
 | `DrakesTranslate` | Native real-time chat translation |
 
-## 🌠 Multiverse — by [Chagui68](https://github.com/Chagui68)
+## 🌠 Multiverse & Pumpkin — by [Chagui68](https://github.com/Chagui68)
 
-An independent plugin suite that works **standalone** and also **interoperates** with Slimefun through optional bridges (no hard dependency):
+An independent, sovereign plugin suite and launcher architecture engineered by **Chagui68** (Chagui), working **standalone** and **interoperating** with Slimefun through zero-overhead optional bridges (no hard dependency):
 
-| Plugin | What it is | In production |
+| Project / Plugin | Domain & Innovation | In Production / Staging |
 |---|---|---|
-| **MultiverseNets** | Digital logistics and massive storage, with a bridge to Slimefun Networks | ✅ v4.7 |
-| **MultiverseTinker** | Modular metallurgy, 90 minerals, alloys, smeltery and forge; bridge to SlimeTinker | ⏳ release pending |
-| **MultiverseCreatures** | Themed custom entities and bosses | ✅ v2.4 |
-| **MultiverseProgramming** | Programmable turtles inside Minecraft | ✅ v1.1.6 |
+| **MultiverseNets** | Standalone high-throughput digital logistics, item routing & quantum storage (109 unit tests passing on Paper 1.21.11 & Purpur 26.2) | ✅ v6.3 in Staging (v4.7 in Dallas) |
+| **MultiverseCreatures** | Thematic mythological entities, celestial rituals, and adaptive boss pantheons | ✅ v4.9 in Staging (v2.4 in Dallas) |
+| **MultiverseTinker** | Modular metallurgy, 90+ custom minerals, alloys, smeltery automation & forge systems | ⏳ Ported to 26.2 |
+| **MultiverseProgramming**| In-game programmable automation turtles and digital execution matrices | ✅ v1.2.2 in Staging |
+| **MultiverseGambling** | Sovereign mini-games, dice, and probabilistic games of chance with Dragma backing | ✅ Verified in Staging |
+| **[Pumpkin-launcher](https://github.com/Chagui68/Pumpkin-launcher)** | Next-gen launcher architecture pioneering ClassLoader isolation, runtime plugin sanitization, and PatchBukkit compatibility | 🚀 Sovereign Innovation |
 
 ---
 

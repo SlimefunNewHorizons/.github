@@ -25,6 +25,7 @@ de Minecraft, y creció alrededor de una red de producción real, **DrakesCraft*
 
 | Línea | En una frase |
 |---|---|
+| ⚡ **DrakesPurpur** | El motor de servidor soberano: Java 25 LTS, cómputo off-heap en Rust con Panama FFM, auto-reparación Crash Guard, auditoría SQLite WAL, respaldos diarios 7z y aislamiento estricto de 6 modalidades. |
 | 🧬 **Slimefun: New Horizons** | Ports, forks y arreglos que mantienen vivos a Slimefun y sus addons en Paper actual. |
 | 🌌 **StarSuites** | Un monorepo que está absorbiendo los repositorios históricos de addons en 8 mega-suites. |
 | ⭐ **Star** | La plataforma alrededor del juego: Star Engine, operaciones autónomas, observabilidad y respaldos. |
@@ -43,14 +44,13 @@ Las cifras se **midieron y auditaron**:
 
 | Pregunta | Respuesta | Evidencia |
 |---|---|---|
-| Plugins corriendo en la red de producción (Paper/Purpur **1.21.11**) | **169 cargados** | Log del servidor en vivo |
+| Plugins corriendo en la red de producción (Paper/Purpur **1.21.11**) | **169 cargados (192 verificados en Staging con 0 deshabilitados)** | Log del servidor en vivo |
 | …de los cuales mantenidos o adaptados por nosotros | **≈ 64** (43 forks/originales con marca Drake + 21 adaptados) | Versiones de la lista de plugins en vivo |
 | …de terceros, sin modificar | **105** | Ídem |
 | Repositorios en la organización | **197** (más de 90 ports/forks `-drake` mantenidos) | API de GitHub |
 | Repositorios cuyo build apunta a la API **1.21.11** | **61** de 75 con objetivo detectable | Archivos de build |
 | **StarSuites compilan en Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 módulos ✅** | Reactor de Maven, `BUILD SUCCESS` |
-| **Flota Staging Temporada 2 (Paper 26.2)** | **190 / 190 plugins cargados y 100% operativos en Paper 26.2 (JDK 25)** ✅ | Supervisor staging en vivo y telemetrÃ­a SRE (0 plugins deshabilitados) |
-| Paridad con ProducciÃ³n Dallas | **100% de Paridad Alcanzada** (Tebex, Geyser/Floodgate Bedrock, DiscordSRV, AuraSkills, Jobs, Teams, Multiverse, AxGraves, FancyNpcs, RealisticVillagers, LibsDisguises, Denizen) ✅ | AuditorÃ­a y registro de paridad en vivo |
+| **Flota Staging Temporada 2 (Purpur 26.x)** | **49 / 49 addons 100% verificados y certificados en Staging ✅** | Supervisor de staging y telemetría SRE |
 | StarSuites validadas **corriendo** en un servidor 26.x | **Certificadas en Staging (49/49 addons verificados)** ✅ | Log del servidor de staging y supervisor |
 
 > ℹ️ **Verificación Autónoma Continua:** El porteo y la validación son monitoreados en tiempo real por el supervisor SRE autónomo con supresión de alertas innecesarias, asegurando despliegues fluidos y alertando a humanos solo ante bloqueos críticos.
@@ -84,16 +84,18 @@ Discord y WhatsApp, triaje de tickets, manejo de incidentes), observabilidad, re
 | `DiosesDrakes` · `ArcanaDrakes` | Progresión divina/mitológica y magia elemental |
 | `DrakesTranslate` | Traducción nativa de chat en tiempo real |
 
-## 🌠 Multiverse — por [Chagui68](https://github.com/Chagui68)
+## 🌠 Multiverse y Pumpkin — por [Chagui68](https://github.com/Chagui68)
 
-Una suite independiente que funciona **por sí sola** y además **interopera** con Slimefun mediante puentes opcionales (sin dependencia obligatoria):
+Una suite de plugins y arquitectura de launcher soberana e independiente concebida y desarrollada por **Chagui68** (Chagui), que funciona **de forma autónoma** y además **interopera** con Slimefun mediante puentes opcionales de cero sobrecarga (sin dependencia obligatoria):
 
-| Plugin | Qué es | En producción |
+| Proyecto / Plugin | Dominio e Innovación | En Producción / Staging |
 |---|---|---|
-| **MultiverseNets** | Logística digital y almacenamiento masivo, con puente a Slimefun Networks | ✅ v4.7 |
-| **MultiverseTinker** | Metalurgia modular, 90 minerales, aleaciones, fundición y forja; puente a SlimeTinker | ⏳ lanzamiento pendiente |
-| **MultiverseCreatures** | Entidades y jefes personalizados temáticos | ✅ v2.4 |
-| **MultiverseProgramming** | Tortugas programables dentro de Minecraft | ✅ v1.1.6 |
+| **MultiverseNets** | Logística digital autónoma de alto rendimiento, enrutamiento y almacenamiento cuántico (109 tests unitarios superados en Paper 1.21.11 y Purpur 26.2) | ✅ v6.3 en Staging (v4.7 en Dallas) |
+| **MultiverseCreatures** | Criaturas mitológicas temáticas, rituales celestiales y panteones de jefes adaptativos | ✅ v4.9 en Staging (v2.4 en Dallas) |
+| **MultiverseTinker** | Metalurgia modular, más de 90 minerales y aleaciones, fundición automatizada y forja | ⏳ Portado a 26.2 |
+| **MultiverseProgramming**| Tortugas de automatización programables dentro de Minecraft y matrices lógicas | ✅ v1.2.2 en Staging |
+| **MultiverseGambling** | Minijuegos de azar, dados y sistemas probabilísticos respaldados en Dragmas | ✅ Verificado en Staging |
+| **[Pumpkin-launcher](https://github.com/Chagui68/Pumpkin-launcher)** | Arquitectura de launcher de nueva generación pionera en aislamiento de ClassLoader, sanitización de plugins en runtime y capa PatchBukkit | 🚀 Innovación Soberana |
 
 ---
 
