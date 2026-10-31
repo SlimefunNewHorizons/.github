@@ -1,6 +1,6 @@
 # Ports status — 1.21.11 y 26.x (medición en el VPS)
 
-> Generado por `~/ai-hub/scripts/gen_ports_status.sh` el 2026-10-23 desde `~/ai-hub/log/ports/ports_status_raw.csv`.
+> Generado por `~/ai-hub/scripts/gen_ports_status.sh` el 2026-10-31 desde `~/ai-hub/log/ports/ports_status_raw.csv`.
 > **«compila» ≠ «corre».** *Compila* = `mvn -B -fae package` terminó en el VPS con el JDK indicado.
 > *Corre* = el plugin arrancó y cargó en un servidor real de esa versión; **esta página no lo certifica**.
 > Nada de aquí se llama «portado» hasta que exista prueba de ejecución (staging 26.x / producción 1.21.11).
@@ -24,17 +24,17 @@
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 86 | 70 |
-| Gradle | 12 | 9 |
-| Sin código fuente en el repo | 15 | 14 |
-| **Total** | **113** | **93** |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 93 | 77 |
+| Gradle | 13 | 9 |
+| Sin código fuente en el repo | 9 | 8 |
+| **Total** | **115** | **94** |
 
 ## Tabla
 
 | repo | build | 1.21.11 compila | 26.x compila | tests | bloqueo / nota |
 |---|---|---|---|---|---|
 | AdvancedTech-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
-| AlchimiaVitae-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| AlchimiaVitae-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | ArcanaDrakes | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (paper.version parametrizado y shade 3.6.2 para clases Java 25 en c5c5f65) |
 | BentoBox-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Better-Nuclear-Generator-drake | maven | ⚠️ indeterminado (dependencias) | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project BetterNuclearReactor-drake |
@@ -54,6 +54,7 @@
 | DrakesLabPresence-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DrakesMotd | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en 4b2c0a6) |
 | DrakesNanotech | maven | ✅ sí | ✅ sí | ✅ ok | port-26x bbdcc92 compila contra core universal (tests 7/7) JDK 25/Paper 26.2 (bytecode 69); corre absorbido como NanotechModule de DrakesTech en staging 26.2 (jar standalone no se instala) |
+| DrakesPurpur | gradle | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | DrakesRanks | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en c718cfc) |
 | DrakesRankup | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesSlimeMarket | maven | ✅ sí | ✅ sí | ✅ ok | 2026-10-04 `3660685`: `paper.version` parametrizada (antes fija; el 26.x previo no era válido). JDK 25 `clean package` → bytecode 69. Solo compila; sin arranque en staging |
@@ -65,14 +66,14 @@
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DyedBackpacks-drake | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `371b062`: JDK 25/Paper 26.2 `clean test package`; bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: habilitado junto al núcleo Slimefun universal y servidor `Done` (115.540 s); no se midió 1.21.11 en esta pasada. |
 | DynaTech-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-11: port-26x 47f1cb9 cablea deps universales (ExtraUtils/ExoticGarden/Gastronomicon/InfinityExpansion/InfinityLib); BUILD SUCCESS JDK25 con flags 26.2.build.129 en log 2026-10-07 + bytecode major 69 verificado en target/ (SHA 930ec9b8); 0 refs propietarias y 86 ficheros al ABI io.github.thebusybiscuit; sin tests declarados. 1.21.11 pendiente de re-medicion (ultimo log 2026-10-02 FAILURE con pom antiguo). Sin arranque en staging: NO portado |
-| EMCTech-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| EMCTech-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | EcoPower-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | ElectricSpawners-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Element-Manipulation-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | EssentialsX-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | ExcellentEnchants-Drake | maven | ❌ no | ⚠️ indeterminado (dependencias) | sin tests | Failed to execute goal on project MC_1_21_8: Could not resolve dependencies for project su.nightexpress.excellentenchants:MC_1_21_8:jar:5.4. |
 | ExoticGarden-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
-| ExtraGear-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| ExtraGear-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | ExtraHeads-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | ExtraTools-drake | maven | ✅ sí | ✅ sí | sin tests | port-26x abb04c9: desacoplar API Slimefun propietaria hacia núcleo universal 26.x; bytecode major 69; verificado y habilitado en staging Paper 26.2 (Done 150s) |
 | ExtraUtils-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
@@ -108,7 +109,7 @@
 | PotionExpansion-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | ProtectionStones-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | Pylon-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| Quaptics-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| Quaptics-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Rebar-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | RelicsOfCthonia-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | RykenSlimeCustomizer-EN-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
@@ -131,12 +132,13 @@
 | Slimefun4-Drake | maven | ⏳ pendiente | ✅ sí | ❌ fallan | Rama `feat/universal-slimefun-abi` a08023b2: JAR universal compila y carga en staging Paper 26.2; MockBukkit falla al inicializar `org.bukkit.Registry` en Java 25. |
 | SlimefunTranslation-drake | gradle | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | SlimefunWarfare-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SlimyBees | maven | ✅ sí | ✅ sí | ✅ ok | JDK 21 main y JDK 25 port-26x recompilados con clean test; 1 prueba BeeHive verde en cada linea; sin prueba de arranque |
 | SlimyRepair-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
-| SlimyTreeTaps-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| SlimyTreeTaps-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | SmallSpace-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | SoulJars-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-03: `port-26x` migra imports al Slimefun universal (`11.0-Universal-26.x-SNAPSHOT`). **Corre** en staging Paper 26.2: habilita sin excepciones y aparece en `/sf versions`. |
 | SoundMuffler-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| SpiritsUnchained-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
+| SpiritsUnchained-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Supreme-Drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | TranscEndence-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
 | UltimateGenerators2-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
