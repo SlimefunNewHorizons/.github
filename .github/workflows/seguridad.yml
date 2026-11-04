@@ -45,6 +45,18 @@ jobs:
       - name: Dependencias de la org para Kotlin
         if: ${{ hashFiles('**/*.kt') != '' }}
         run: bash _org/.github/scripts/bootstrap-maven-repo.sh
+      - name: Memoria acotada para la extraccion de Kotlin
+        if: ${{ hashFiles('**/*.kt') != '' && hashFiles('**/gradlew') != '' }}
+        run: |
+          # La instrumentacion de CodeQL necesita mas heap que el build normal.
+          # Configuracion efimera del runner; no modifica el repositorio analizado.
+          mkdir -p "$HOME/.gradle"
+          cat >> "$HOME/.gradle/gradle.properties" <<'EOF'
+          org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m
+          kotlin.daemon.jvmargs=-Xmx2g
+          org.gradle.workers.max=2
+          org.gradle.parallel=false
+          EOF
       - uses: github/codeql-action/init@9f759ee644a3e7c15c1390abf49868036c00067b # v3
         with:
           languages: java-kotlin
