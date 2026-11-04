@@ -70,6 +70,19 @@ class DescriptorTests(unittest.TestCase):
         self.assertEqual(1, result.returncode)
         self.assertFalse(created)
 
+    def test_shared_reader_preserves_version_for_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            jar = Path(directory) / "fixture.jar"
+            metadata = 'name: PaperPlugin\nversion: "1.1-SNAPSHOT"\n'
+            with zipfile.ZipFile(jar, "w") as archive:
+                archive.writestr("paper-plugin.yml", metadata)
+            result = subprocess.run(
+                ["bash", str(SCRIPT.with_name("plugin-descriptor.sh")), str(jar)],
+                capture_output=True, text=True, timeout=5,
+            )
+            self.assertEqual(0, result.returncode, result.stderr)
+            self.assertEqual(metadata, result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

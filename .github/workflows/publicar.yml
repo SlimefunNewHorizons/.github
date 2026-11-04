@@ -126,7 +126,8 @@ jobs:
         run: |
           set -euo pipefail
           JAR="$(ls dist/*.jar | head -n1)"
-          VER="$(unzip -p "$JAR" plugin.yml | sed -n "s/^version:[[:space:]]*['\"]\{0,1\}\([^'\"[:space:]]*\).*/\1/p" | head -n1)"
+          YAML="$(bash _org/.github/scripts/plugin-descriptor.sh "$JAR")"
+          VER="$(printf '%s\n' "$YAML" | sed -n "s/^version:[[:space:]]*['\"]\{0,1\}\([^'\"[:space:]]*\).*/\1/p" | head -n1)"
           case "$VER" in ''|*'$'*) VER="0.0.0";; esac
           SHA256="$(sha256sum "$JAR" | awk '{print $1}')"
           if echo "$VER" | grep -qi snapshot; then

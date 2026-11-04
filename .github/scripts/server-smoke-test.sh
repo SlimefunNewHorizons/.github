@@ -22,15 +22,9 @@ WORK="server-$VERSION"
 START_TIMEOUT="${START_TIMEOUT:-600}"
 SETTLE_SECONDS="${SETTLE_SECONDS:-30}"
 
-DESCRIPTOR=""
-for CANDIDATO in paper-plugin.yml plugin.yml; do
-    if YAML="$(unzip -p "$PLUGIN_JAR" "$CANDIDATO" 2>/dev/null)"; then
-        DESCRIPTOR="$CANDIDATO"
-        break
-    fi
-done
+YAML="$(bash "$(dirname "${BASH_SOURCE[0]}")/plugin-descriptor.sh" "$PLUGIN_JAR")"
 NOMBRE="$(printf '%s\n' "${YAML:-}" | sed -n 's/^name:[[:space:]]*["'\'']\{0,1\}\([^"'\''[:space:]]*\).*/\1/p' | head -n1)"
-if [ -z "$DESCRIPTOR" ] || [ -z "$NOMBRE" ]; then
+if [ -z "$NOMBRE" ]; then
     echo "::error::El jar requiere paper-plugin.yml o plugin.yml con name:" >&2
     exit 1
 fi
