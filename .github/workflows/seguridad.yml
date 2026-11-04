@@ -1,7 +1,7 @@
 # Seguridad automatica de un repo (workflow reutilizable de la org).
 #
 # QUE HACE
-#   - CodeQL para Java (sin compilar: build-mode none), con consultas de seguridad y calidad.
+#   - CodeQL para Java (none) y Kotlin (autobuild), con consultas de seguridad y calidad.
 #   - dependency-review en PRs: bloquea dependencias nuevas con vulnerabilidades altas.
 #   - gitleaks sobre todo el historial: avisa de secretos subidos por error.
 #
@@ -27,10 +27,28 @@ jobs:
       security-events: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Helpers para compilar Kotlin
+        if: ${{ hashFiles('**/*.kt') != '' }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: SlimefunNewHorizons/.github
+          path: _org
+      - name: Detectar Java para Kotlin
+        if: ${{ hashFiles('**/*.kt') != '' }}
+        id: jv
+        run: echo "version=$(python3 _org/.github/scripts/detectar-java.py)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6
+        if: ${{ hashFiles('**/*.kt') != '' }}
+        with:
+          distribution: temurin
+          java-version: ${{ steps.jv.outputs.version }}
+      - name: Dependencias de la org para Kotlin
+        if: ${{ hashFiles('**/*.kt') != '' }}
+        run: bash _org/.github/scripts/bootstrap-maven-repo.sh
       - uses: github/codeql-action/init@9f759ee644a3e7c15c1390abf49868036c00067b # v3
         with:
           languages: java-kotlin
-          build-mode: none
+          build-mode: ${{ hashFiles('**/*.kt') != '' && 'autobuild' || 'none' }}
           queries: security-extended
       - uses: github/codeql-action/analyze@9f759ee644a3e7c15c1390abf49868036c00067b # v3
         with:
