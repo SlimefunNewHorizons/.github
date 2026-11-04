@@ -6,7 +6,7 @@
 #   server-smoke-test.sh <version-de-minecraft> <jar-del-plugin> [jar-dependencia ...]
 #
 # CREDITO: idea y primera implementacion de Chagui68 (MultiverseCreatures/.github/scripts/server-smoke-test.sh).
-# Esta version es generica: lee el nombre del plugin de su plugin.yml y acepta jars de dependencia (p. ej. el core
+# Esta version es generica: lee paper-plugin.yml o plugin.yml y acepta jars de dependencia (p. ej. el core
 # Slimefun4-Drake) que se copian a plugins/ antes de arrancar.
 #
 # POR QUE: el MISMO jar (compilado una vez) se prueba en todas las versiones. Un metodo que falte o haya cambiado
@@ -22,8 +22,18 @@ WORK="server-$VERSION"
 START_TIMEOUT="${START_TIMEOUT:-600}"
 SETTLE_SECONDS="${SETTLE_SECONDS:-30}"
 
-NOMBRE="$(unzip -p "$PLUGIN_JAR" plugin.yml | sed -n 's/^name:[[:space:]]*["'\'']\{0,1\}\([^"'\''[:space:]]*\).*/\1/p' | head -n1)"
-if [ -z "$NOMBRE" ]; then echo "::error::El jar no tiene plugin.yml con name:" >&2; exit 1; fi
+DESCRIPTOR=""
+for CANDIDATO in paper-plugin.yml plugin.yml; do
+    if YAML="$(unzip -p "$PLUGIN_JAR" "$CANDIDATO" 2>/dev/null)"; then
+        DESCRIPTOR="$CANDIDATO"
+        break
+    fi
+done
+NOMBRE="$(printf '%s\n' "${YAML:-}" | sed -n 's/^name:[[:space:]]*["'\'']\{0,1\}\([^"'\''[:space:]]*\).*/\1/p' | head -n1)"
+if [ -z "$DESCRIPTOR" ] || [ -z "$NOMBRE" ]; then
+    echo "::error::El jar requiere paper-plugin.yml o plugin.yml con name:" >&2
+    exit 1
+fi
 echo "Plugin a probar: $NOMBRE"
 
 rm -rf "$WORK"
