@@ -1,148 +1,135 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/SlimefunNewHorizons/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons — Modernizando Slimefun para la próxima generación de Minecraft" width="100%" />
+<img src="https://raw.githubusercontent.com/SlimefunNewHorizons/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons & DrakesCraft Labs — Motores Híbridos, Launchers, Plugins Open-Source, Rust FFM y Sistemas Linux" width="100%" />
 
-# Slimefun: New Horizons
+# Slimefun: New Horizons · DrakesCraft Labs
 
-### Modernizando Slimefun para la próxima generación de Minecraft
+### Motores de Servidor Soberanos · Launchers Híbridos Java × Rust · Plugins Open-Source Autónomos · Ingeniería en Linux y Sistemas
+
+[![DrakesPurpur](https://img.shields.io/badge/DrakesPurpur-Java_25_×_Rust_FFM-0EA5E9?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
+[![DrakeStar Launcher](https://img.shields.io/badge/DrakeStar-Tauri_2_×_Svelte_5_Launcher-8B3DFF?style=for-the-badge&logo=tauri&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher)
+[![Multiverse](https://img.shields.io/badge/Multiverse_Suite-Plugins_Autónomos-EC4899?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SlimefunNewHorizons/MultiverseNets)
+[![StarSuites](https://img.shields.io/badge/StarSuites-Paper_26.2_JDK_25-8B5CF6?style=for-the-badge&logo=openjdk&logoColor=white)](https://github.com/SlimefunNewHorizons/Drakes-Suites)
+[![Linux Division](https://img.shields.io/badge/Linux_&_HUDs-Próximamente-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/DrgX89)
+[![Discord](https://img.shields.io/badge/Discord-Comunidad-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/rv3vtXZTk7)
 
 [🌐 Web](https://web.drakescraft.cl) ·
-[💬 Discord](https://discord.gg/rv3vtXZTk7) ·
+[🚀 DrakeStar Launcher](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) ·
+[⚡ Motor DrakesPurpur](https://github.com/SlimefunNewHorizons/DrakesPurpur) ·
 [🌌 StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites) ·
-[🧭 Todos los repositorios](https://github.com/orgs/SlimefunNewHorizons/repositories) ·
-[📊 Estado verificado](https://github.com/SlimefunNewHorizons/.github/blob/main/docs/status/README.md) ·
-[⚖️ Derechos y atribución](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md) ·
+[🧭 Más de 200 Repositorios](https://github.com/orgs/SlimefunNewHorizons/repositories) ·
+[📊 Estado Verificado](https://github.com/SlimefunNewHorizons/.github/blob/main/docs/status/README.md) ·
+[⚖️ Derechos y Atribución](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md) ·
 [🇬🇧 English](https://github.com/SlimefunNewHorizons)
 
 </div>
 
 ---
 
-## ¿Qué es esto?
+## 🌍 Mucho Más Que Slimefun: ¿Qué es esta organización?
 
-Esta organización es la casa de un **ecosistema**, no de un solo plugin. Nació para llevar [Slimefun](https://github.com/Slimefun/Slimefun4) y sus addons a la próxima generación de servidores
-de Minecraft, y creció alrededor de una red de producción real, **DrakesCraft** (`mc.drakescraft.cl`, Java y Bedrock). Todo se prueba ahí antes de publicarse.
+Aunque el nombre de la organización rinde homenaje a su origen —llevar [Slimefun](https://github.com/Slimefun/Slimefun4) a la nueva generación de Minecraft—, **DrakesCraft Labs (`SlimefunNewHorizons`) ha crecido hasta convertirse en una organización de ingeniería de software, motores y sistemas open-source** con **más de 200 repositorios**.
 
-| Línea | En una frase |
-|---|---|
-| ⚡ **DrakesPurpur** | El motor de servidor soberano: Java 25 LTS, cómputo off-heap en Rust con Panama FFM, auto-reparación Crash Guard, auditoría SQLite WAL, respaldos diarios 7z y aislamiento estricto de 6 modalidades. |
-| 🧬 **Slimefun: New Horizons** | Ports, forks y arreglos que mantienen vivos a Slimefun y sus addons en Paper actual. |
-| 🌌 **StarSuites** | Un monorepo que está absorbiendo los repositorios históricos de addons en 8 mega-suites. |
-| ⭐ **Star** | La plataforma alrededor del juego: Star Engine, operaciones autónomas, observabilidad y respaldos. |
-| 🏛️ **Odysseia** | El motor del servidor: comercio, modalidades, salvaguardas de economía, eventos y jefes. |
-| 🐉 **Drakes** | Los plugins de juego originales de la red DrakesCraft. |
-| 🌠 **Multiverse** | La suite independiente de **Chagui68**, interoperable con Slimefun pero autónoma. |
+Hoy desarrollamos y mantenemos **motores de servidor híbridos Java 25 × Rust**, **launchers de escritorio multiplataforma (Tauri 2 + Rust + Svelte 5)**, **suites de plugins 100% autónomas (`Multiverse`)**, **forks oficiales endurecidos de grandes plugins open-source de Minecraft**, **infraestructura SRE autónoma con IA**, y una nueva división en expansión de **personalización de escritorio Linux, HUDs y herramientas de sistema**. Todo se valida sobre nuestra red en producción (**DrakesCraft**, `mc.drakescraft.cl`, Java y Bedrock).
 
-> ℹ️ **Crédito e independencia.** Slimefun es obra de **TheBusyBiscuit** y la comunidad de Slimefun (GPL-3.0). **No somos sus autores originales** ni estamos **afiliados ni respaldados** por el equipo oficial.
-> Modernizamos y rescatamos; las licencias y créditos originales siempre se conservan — ver [Derechos y atribución](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md).
-
----
-
-## 📊 Estado verificado y Avance Temporada 2 (Mediados de Octubre 2026)
-
-Las cifras se **midieron y auditaron**:
-
-| Pregunta | Respuesta | Evidencia |
+| División de Ingeniería | Repositorios Insignia | Qué Construye |
 |---|---|---|
-| Plugins corriendo en la red de producción (Paper/Purpur **1.21.11**) | **169 cargados (192 verificados en Staging con 0 deshabilitados)** | Log del servidor en vivo |
-| …de los cuales mantenidos o adaptados por nosotros | **≈ 64** (43 forks/originales con marca Drake + 21 adaptados) | Versiones de la lista de plugins en vivo |
-| …de terceros, sin modificar | **105** | Ídem |
-| Repositorios en la organización | **197** (más de 90 ports/forks `-drake` mantenidos) | API de GitHub |
-| Repositorios cuyo build apunta a la API **1.21.11** | **61** de 75 con objetivo detectable | Archivos de build |
-| **StarSuites compilan en Paper 26.2** (`26.2.build.129-stable`, JDK 25) | **9 / 9 módulos ✅** | Reactor de Maven, `BUILD SUCCESS` |
-| **Flota Staging Temporada 2 (Purpur 26.x)** | **49 / 49 addons 100% verificados y certificados en Staging ✅** | Supervisor de staging y telemetría SRE |
-| StarSuites validadas **corriendo** en un servidor 26.x | **Certificadas en Staging (49/49 addons verificados)** ✅ | Log del servidor de staging y supervisor |
-
-> ℹ️ **Verificación Autónoma Continua:** El porteo y la validación son monitoreados en tiempo real por el supervisor SRE autónomo con supresión de alertas innecesarias, asegurando despliegues fluidos y alertando a humanos solo ante bloqueos críticos.
+| 🟣 **Project Purple (Motores y Launchers)** | [`DrakesPurpur`](https://github.com/SlimefunNewHorizons/DrakesPurpur) · [`DrakeStar-Launcher`](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) · [`Slimefun-Rust`](https://github.com/SlimefunNewHorizons/Slimefun-Rust) | Motor de servidor soberano basado en Purpur 26.2 (Java 25) + biblioteca nativa en Rust vía Panama FFM (`native/drakes-hybrid`, prefetch direccional de chunks en dos niveles `P-promovido`, protocolo `horizon:lod` v1 y caché LRU $O(1)$) junto con nuestro launcher nativo de escritorio en Tauri 2 + Rust + Svelte 5. |
+| 🌠 **Multiverse y Pumpkin (Autónomos)** | [`MultiverseNets`](https://github.com/SlimefunNewHorizons/MultiverseNets) · [`MultiverseCreatures`](https://github.com/SlimefunNewHorizons/MultiverseCreatures) · [`MultiverseTinker`](https://github.com/SlimefunNewHorizons/MultiverseTinker) · [`Pumpkin-launcher`](https://github.com/Chagui68/Pumpkin-launcher) | Obra de **[Chagui68](https://github.com/Chagui68)**. Suite de plugins 100% independiente (logística digital, jefes mitológicos, metalurgia, tortugas programables, casino) y arquitectura de launcher con aislamiento de ClassLoader. **No depende de Slimefun** e interopera opcionalmente con cero sobrecarga. |
+| 🛡️ **Forks Open-Source Endurecidos (Más allá de Slimefun)** | [`BentoBox-Drake`](https://github.com/SlimefunNewHorizons/BentoBox-Drake) · [`PlayerVaultZ-Drake`](https://github.com/SlimefunNewHorizons/PlayerVaultZ-Drake) · [`CrazyAuctions`](https://github.com/SlimefunNewHorizons/CrazyAuctions) · [`InvSwitcher-Drake`](https://github.com/SlimefunNewHorizons/InvSwitcher-Drake) · [`LevelledMobs-Drake`](https://github.com/SlimefunNewHorizons/LevelledMobs-Drake) · [`WorldwideChat`](https://github.com/SlimefunNewHorizons/WorldwideChat) · [`sbank`](https://github.com/SlimefunNewHorizons/sbank) | Forks oficiales mantenidos por la organización de plugins open-source generales de servidores (SkyBlock/OneBlock, subastas, bóvedas, bancos, escalado RPG de mobs, traducción de chat en vivo), portados a Paper 1.21.11 y Purpur 26.2 con parches anti-duplicación y serialización segura. |
+| 🐧 **Escritorio Linux, HUDs y Sistemas** | *División en expansión* junto a **[DrgX89 (Nixcobt)](https://github.com/DrgX89)** | Expansión hacia ingeniería en Linux: entornos y temas cyberpunk en QML para KDE Plasma / Debian / Kubuntu (`Blackwall-Kubuntu`), bootloaders GRUB personalizados, HUDs de telemetría en Python (`Hud-Linux`) y herramientas multiplataforma. |
+| 🏛️ **Odysseia y Originales Drakes** | [`Odysseia`](https://github.com/SlimefunNewHorizons/Odysseia) · [`Odysseia-Rust`](https://github.com/SlimefunNewHorizons/Odysseia-Rust) · `DrakesRankup` · `DrakesBosses` · `DrakesVIPPlusPlus` | El kernel de red para 6 modalidades (entrega idempotente de compras, aislamiento de inventarios/economías entre modos, guardián macroeconómico) + plugins originales RPG, rangos, cajas y jefes. |
+| 🌌 **StarSuites y Slimefun: New Horizons** | [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites) · [`Slimefun4-Drake`](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) · 112+ Ports de Addons | Port universal a JDK 25 de Slimefun 4, 8 Mega-Suites consolidadas por dominio y matriz CI automatizada en 8 shards para 112 addons. |
+| ⭐ **Plataforma Star y SRE Autónomo** | `SAORI 3.0` · `OmniAST / Graphify` · `Star Engine` | Infraestructura 24/7, orquestación SRE multi-agente con IA (Antigravity, Codex, Claude, NVIDIA NIM), grafos AST de código y respaldos automáticos Restic/7z. |
 
 ---
 
-## ⭐ Star — la plataforma
+## 🟣 Project Purple — Motor Unificado Java × Rust y Launcher de Escritorio
 
-**Star** agrupa todo lo que corre *alrededor* del juego: el **Star Engine** (la evolución del kernel de servidor de Odysseia, entregado en la Suite 7), **SAORI** (operaciones autónomas: asistentes de
-Discord y WhatsApp, triaje de tickets, manejo de incidentes), observabilidad, respaldos automáticos y un entorno en la nube 24/7. Es lo que permite que un equipo pequeño opere una red grande con mods.
+**Project Purple** une el ecosistema masivo de plugins/mods de Java con el rendimiento nativo de Rust en una misma plataforma, sin obligar a elegir entre dos mundos incompatibles:
 
-## 🏛️ Odysseia — el motor del servidor
+### 1. [`DrakesPurpur`](https://github.com/SlimefunNewHorizons/DrakesPurpur) — Motor de Servidor Híbrido Soberano
+- **Java 25 LTS + Rust Panama FFM (`native/drakes-hybrid`):** Biblioteca nativa con ABI versionado empaquetada dentro del propio JAR del servidor, verificada con SHA-256 y con fallback automático a Java (`hybrid.engine.enabled`). Paridad bit a bit demostrada sobre **13 872 contenedores NBT de chunks** y **600 000 evaluaciones de `NormalNoise`** (0 diferencias).
+- **Prefetch Direccional de Chunks en Dos Niveles (`P-promovido`):** Abanico predictivo asíncrono según rumbo y velocidad que pre-solicita chunks lejanos con prioridad normal y promueve a urgentes (`urgent = true`) los chunks que entran al borde inmediato de visión (`step == viewR + 1`) bajo presupuesto acotado, reduciendo las columnas tardías en vuelo rápido del **28% al 18%** y bajando la latencia `p95` de **1689 ms a 1301 ms**.
+- **`DrakesLOD` (Protocolo `horizon:lod` v1 + `HorizonLodCache`):** Codec de terreno lejano inspirado en [Horizon](https://github.com/horizon-rust/horizon) (MIT) acompañado de una caché LRU acotada y segura entre hilos con **invalidación $O(1)$ por chunk modificado** a través de las 7 escalas (`stride = 1..64`).
+- **Endurecimiento en Producción:** Kernel Crash Guard (`drakes_faults.db`), auditoría SQLite WAL (`drakes_storage_audit.db`), comandos `/drakes hybrid` + GUI in-game de 27 slots y aislamiento de 6 modalidades.
 
-`Odysseia` es el motor que hace que una red de **6 modalidades conectadas (Slimefun, Clásico, SkyBlock, OneBlock, OneChunk, Laboratorio)** se comporte como un solo producto. Levantado sobre la plantilla de addon de la comunidad de Slimefun, incluye:
+### 2. [`DrakeStar-Launcher`](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) — Launcher de Escritorio Híbrido Java × Rust
+- **Tauri 2 + Workspace Rust (`core`, `net`, `app`, `cli`) + UI en Svelte 5 / TypeScript:**
+  - **4 Modos Operativos:** `DrakesRust` (perfiles de cliente estilo Horizon), `DrakesJava` (perfiles Vanilla/Fabric/Forge/NeoForge), `Local Forge` (supervisor de servidor `DrakesPurpur` local con consola en vivo stdout/stderr, entrada por stdin, editor de EULA y `server.properties`, gestor de plugins, **instalador de preset Slimefun** y **copias de seguridad de mundos**), y `Online` (**Server List Ping `0x00` de Minecraft** con MOTD, versión, jugadores y latencia TCP).
+  - **Compatibilidad Estricta y Seguridad:** Fuente única de verdad (`compat.rs`), descargas HTTPS en streaming con verificación SHA-256 obligatoria y **51/51 tests en Rust** pasando en Linux y Windows.
 
-- **Motor de compras** — entrega idempotente de compras de la tienda, con compuerta de identidad, reembolsos revocables y vías de revisión manual.
-- **Aislamiento de modalidades** — viaje entre modos con inventarios, bóvedas y economías separados.
-- **Vigilante de economía** — salvaguarda dentro del juego contra ganancias anormalmente rápidas.
-- **Eventos, jefes, juegos de chat, cosméticos, kits, cheques, sistema de renacimiento, coordinación de reinicios** y un **puente nativo en Rust** (`Odysseia-Rust`) para rutas críticas.
+---
 
-## 🐉 Drakes — los plugins de juego de DrakesCraft
+## 🛡️ Forks Open-Source Endurecidos (Independientes de Slimefun)
 
-| Plugin | Qué hace |
-|---|---|
-| `DrakesRankup` | 50 rangos anime/shōnen, transformaciones, auras y un sumidero de economía por mantenimiento de rango |
-| `DrakesVIPPlusPlus` | 15 rangos VIP con habilidades activas únicas, cosméticos y boosters automáticos de fin de semana |
-| `DrakesBosses` | Arenas, jefes adaptativos, recompensas y economía de entradas (anti-AFK, daño verdadero adaptativo) |
-| `DrakesCrates` | Cajas virtuales y físicas con soporte Slimefun y guarda para el modo Clásico |
-| `DrakesSlimeMarket` | Mercado dinámico de materiales de Slimefun con control de inflación |
-| `DrakesNanotech` | Materia programable de ultra-endgame y tecnología cósmica para Slimefun |
-| `DiosesDrakes` · `ArcanaDrakes` | Progresión divina/mitológica y magia elemental |
-| `DrakesTranslate` | Traducción nativa de chat en tiempo real |
+Mantenemos y publicamos forks open-source de plugins esenciales para servidores de Minecraft —totalmente independientes de Slimefun—, modernizados para **Paper 1.21.11** y **Purpur 26.2 (JDK 21 / JDK 25)**:
+
+| Repositorio | Categoría | Mejoras de Ingeniería |
+|---|---|---|
+| **[`BentoBox-Drake`](https://github.com/SlimefunNewHorizons/BentoBox-Drake)** | Núcleo SkyBlock / OneBlock / AcidIsland | Deserialización segura de Paper Data Components (`ItemStack`), soporte JDK 25 e integración multi-modalidad. |
+| **[`InvSwitcher-Drake`](https://github.com/SlimefunNewHorizons/InvSwitcher-Drake)** | Aislamiento de Inventarios entre Mundos | Serialización endurecida por mundo que garantiza cero fugas de inventario entre modalidades. |
+| **[`PlayerVaultZ-Drake`](https://github.com/SlimefunNewHorizons/PlayerVaultZ-Drake)** | Bóvedas Virtuales de Jugadores | Candados transaccionales anti-duplicación, port a API moderna de Paper y alta concurrencia. |
+| **[`CrazyAuctions`](https://github.com/SlimefunNewHorizons/CrazyAuctions)** | Casa de Subastas y Economía | Ciclo de pujas endurecido, compatibilidad con Paper 1.21.11+ y salvaguardas de divisas. |
+| **[`sbank`](https://github.com/SlimefunNewHorizons/sbank)** | Banca e Intereses de Servidor | Backend de almacenamiento modernizado y prevención de exploits económicos. |
+| **[`LevelledMobs-Drake`](https://github.com/SlimefunNewHorizons/LevelledMobs-Drake)** | Escalado Dinámico RPG de Mobs | Adaptado a atributos de entidades de Purpur 26.x y exclusión de arenas de jefes. |
+| **[`WorldwideChat`](https://github.com/SlimefunNewHorizons/WorldwideChat)** | Traducción de Chat en Tiempo Real | Pipeline asíncrono modernizado para componentes Adventure y eventos actuales de Paper. |
+| **[`InteractiveChat-DiscordSRV-Addon`](https://github.com/SlimefunNewHorizons/InteractiveChat-DiscordSRV-Addon)** | Puente Visual Discord ↔ Minecraft | Renderizado actualizado de componentes, inventarios y modelos de ítems modernos. |
+
+---
 
 ## 🌠 Multiverse y Pumpkin — por [Chagui68](https://github.com/Chagui68)
 
-Una suite de plugins y arquitectura de launcher soberana e independiente concebida y desarrollada por **Chagui68** (Chagui), que funciona **de forma autónoma** y además **interopera** con Slimefun mediante puentes opcionales de cero sobrecarga (sin dependencia obligatoria):
+Suite de plugins y arquitectura de launcher soberana e independiente desarrollada por **[Chagui68](https://github.com/Chagui68)**, que funciona **de forma 100% autónoma** en cualquier servidor Paper/Purpur y además interopera opcionalmente con Slimefun sin sobrecarga:
 
-| Proyecto / Plugin | Dominio e Innovación | En Producción / Staging |
+| Proyecto / Plugin | Dominio e Innovación | Estado |
 |---|---|---|
-| **MultiverseNets** | Logística digital autónoma de alto rendimiento, enrutamiento y almacenamiento cuántico (109 tests unitarios superados en Paper 1.21.11 y Purpur 26.2) | ✅ v6.3 en Staging (v4.7 en Dallas) |
-| **MultiverseCreatures** | Criaturas mitológicas temáticas, rituales celestiales y panteones de jefes adaptativos | ✅ v4.9 en Staging (v2.4 en Dallas) |
-| **MultiverseTinker** | Metalurgia modular, más de 90 minerales y aleaciones, fundición automatizada y forja | ⏳ Portado a 26.2 |
-| **MultiverseProgramming**| Tortugas de automatización programables dentro de Minecraft y matrices lógicas | ✅ v1.2.2 en Staging |
-| **MultiverseGambling** | Minijuegos de azar, dados y sistemas probabilísticos respaldados en Dragmas | ✅ Verificado en Staging |
-| **[Pumpkin-launcher](https://github.com/Chagui68/Pumpkin-launcher)** | Arquitectura de launcher de nueva generación pionera en aislamiento de ClassLoader, sanitización de plugins en runtime y capa PatchBukkit | 🚀 Innovación Soberana |
+| **[`MultiverseNets`](https://github.com/SlimefunNewHorizons/MultiverseNets)** | Logística digital autónoma de alto rendimiento, enrutamiento y almacenamiento cuántico (**109 tests unitarios en verde** en Paper 1.21.11 y Purpur 26.2) | ✅ v6.3 en Staging (v4.7 en Producción) |
+| **[`MultiverseCreatures`](https://github.com/SlimefunNewHorizons/MultiverseCreatures)** | Criaturas mitológicas temáticas, rituales celestiales y panteones de jefes adaptativos | ✅ v4.9 en Staging (v2.4 en Producción) |
+| **[`MultiverseTinker`](https://github.com/SlimefunNewHorizons/MultiverseTinker)** | Metalurgia modular, más de 90 minerales y aleaciones, fundición automatizada y forja | ✅ Portado a Paper 26.2 |
+| **[`MultiverseProgramming`](https://github.com/SlimefunNewHorizons/MultiverseProgramming)** | Tortugas de automatización programables dentro de Minecraft y matrices lógicas | ✅ v1.2.2 en Staging |
+| **[`MultiverseGambling`](https://github.com/SlimefunNewHorizons/MultiverseGambling)** | Minijuegos de azar, dados y sistemas probabilísticos respaldados en Dragmas | ✅ Verificado en Staging |
+| **[`Pumpkin-launcher`](https://github.com/Chagui68/Pumpkin-launcher)** | Arquitectura de launcher pionera en aislamiento de ClassLoader, sanitización en runtime y capa PatchBukkit | 🚀 Innovación Soberana |
 
 ---
 
-## 🌌 StarSuites
+## 🐧 Escritorio Linux, HUDs Cyberpunk y Sistemas (Próxima División)
 
-El monorepo `Drakes-Suites` está **absorbiendo los más de 180 repositorios históricos de addons en 8 mega-suites más Multiverse**, con un solo motor de ticker y un sistema de configuración modular
-(`modules/<módulo>.yml`, recargable en caliente). **La fase 1 está completa; la fase 2 (absorción) sigue en curso: hoy hay 44 módulos de addons dentro.**
+DrakesCraft Labs se expande hacia **personalización de escritorio Linux, temas de sistema y HUDs para desarrolladores**, sumando próximamente al nuevo miembro **[DrgX89 (Nixcobt)](https://github.com/DrgX89)**:
 
-| Suite | Artefacto | Módulos absorbidos | Enfoque |
-|---|---|---:|---|
-| 0 · Core | `drakes-core.jar` | 1 | Kernel, Dough integrado, ticker centralizado, SQLite WAL, registros de auditoría |
-| 1 · Tech | `drakes-tech.jar` | 6 | Logística tipo Networks, DynaTech, FoxyMachines, Supreme, FluffyMachines, InfinityExpansion |
-| 2 · Bio | `drakes-bio.jar` | 7 | Cultivation, GeneticChickengineering, FlowerPower, TreeTaps, MobCapturer, ExoticGarden, SlimyBees |
-| 3 · Magic | `drakes-magic.jar` | 4 | RelicsOfCthonia, Crystamae, AlchimiaVitae, SoulJars |
-| 4 · Generators | `drakes-generators.jar` | 6 | LiteXpansion, reactores, SMG, EcoPower, ore chunks, generadores definitivos |
-| 5 · Utility | `drakes-utility.jar` | 13 | Mochilas, SlimeHUD, ChestTerminal, SFCalc, pistola de portales, silenciador y más |
-| 6 · Combat | `drakes-combat.jar` | 6 | Warfare, ObsidianExpansion, ExtraGear, drops de mobs, SlimeTinker |
-| 7 · Server | `drakes-server.jar` | 1 | Star Engine, módulo de economía |
-| Multiverse | `drakes-multiverse.jar` | — | Obra de Chagui68 (ver arriba) |
-
-Lo que aún no se absorbe sigue publicándose como ports `-drake` individuales, conservando cada ID de ítem para no poner en riesgo datos de jugadores.
+- **Entornos Cyberpunk para Linux (`Blackwall-Kubuntu`):** Temas en QML para KDE Plasma / Debian / Kubuntu y bootloaders GRUB personalizados.
+- **HUDs de Sistema en Linux (`Hud-Linux`):** Overlays de telemetría en Python, monitores de recursos y widgets de escritorio.
+- **Tooling Multiplataforma:** Flujos nativos entre Linux, WSL2 y Windows (`omniast`, `graphify` y builds de `DrakeStar-Launcher`).
 
 ---
 
-## 🧭 Hoja de ruta (en exploración)
+## 📊 Métricas Verificadas del Ecosistema (Noviembre 2026)
 
-- **Temporada 2 en Paper 26.x** — validación en ejecución de cada suite sobre un servidor 26.x real y luego despliegue atómico.
-- **DrakesID** — identidad de cuenta propia (una cuenta, varias identidades Java/Bedrock, alcance por modalidad) para simplificar compras, rollbacks y rangos.
-- **3D basado en displays** — tuberías y cables dibujados con entidades `ItemDisplay`/`BlockDisplay`, inspirado en [PylonMC/Rebar](https://github.com/pylonmc/rebar) (LGPL-3.0, con atribución).
-- **Plan de derechos y licencias** — un bloque de licencia y créditos en cada repositorio ([política](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION_ES.md)).
+| Métrica | Valor Medido | Fuente de Verificación |
+|---|---|---|
+| Plugins corriendo en Producción (**Paper/Purpur 1.21.11**) | **169 cargados (192 verificados en Staging con 0 deshabilitados)** | Telemetría en vivo de producción y staging |
+| Repositorios totales en la organización | **200+** (motores, launcher, suites autónomas, forks open-source y ports de Slimefun) | API de GitHub |
+| **CI de `DrakesPurpur` Hybrid Engine (`26.2`, JDK 25 + Rust)** | **10/10 tests Rust · 13 872 contenedores NBT · 600k puntos de ruido (0 diffs) · TPS 20.00 ✅** | GitHub Actions (`Hybrid Engine CI` y `Hybrid compat`) |
+| **Suite de Tests de `DrakeStar-Launcher` (Rust + Svelte 5)** | **51/51 tests Rust + `svelte-check` 0 errores + build Vite de producción ✅** | GitHub Actions y verificación local en Nexus |
+| **`StarSuites` (`Drakes-Suites`) en Paper 26.2 (JDK 25)** | **9 / 9 módulos compilan y pasan 156+123 pruebas de humo ✅** | Reactor Maven y CI `Hybrid compat` |
+| **Flota Staging Temporada 2 (Purpur 26.x)** | **49 / 49 addons base + 70+ addons construidos por shards verificados ✅** | Supervisor de staging y `hybrid-ecosystem.yml` |
 
-## 🤝 Sobre los hombros de
+---
 
-Lista no exhaustiva de autores y proyectos upstream sobre los que construimos (cada repositorio trae sus propios créditos y licencia):
-**TheBusyBiscuit y la comunidad de Slimefun** (Slimefun 4) · **Sefiraat** (Networks, SlimeTinker y otros addons) · **Seggan** · **balugaq** y **ytdd9527** (NetworksExpansion / JustEnoughGuide) ·
-**J3fftw** (WorldEditSlimefun) · **tastybento y el equipo de BentoBox** (BentoBox, InvSwitcher) · **Dominic Feliton** (WorldwideChat) · **Rugzy** (PlayerVaultZ) · **spearforge** (sBank) · **PylonMC** (inspiración).
+## 👥 Equipo Principal y Colaboradores
 
-## Cómo contribuir
+- **[JackStar6677-1 (JackStar)](https://github.com/JackStar6677-1)** — Fundador, Arquitecto de Sistemas y Motores (`DrakesPurpur`, `DrakeStar-Launcher`, `StarSuites`, `Odysseia`, `SAORI`, `OmniAST`).
+- **[Chagui68 (Chagui)](https://github.com/Chagui68)** — Creador Soberano de la **Suite Multiverse** (`MultiverseNets`, `MultiverseCreatures`, `MultiverseTinker`, `MultiverseProgramming`, `MultiverseGambling`) y **Pumpkin-Launcher**.
+- **[DrgX89 (Nixcobt)](https://github.com/DrgX89)** — Nuevo Miembro (próxima incorporación), **Ingeniería de Escritorio Linux, Temas Cyberpunk y HUDs** (`Blackwall-Kubuntu`, `Hud-Linux`).
 
-1. El desarrollo activo de los plugins consolidados ocurre en [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites).
-2. **Nunca romper datos de jugadores**: ningún ítem, inventario ni historial de compras puede ponerse en riesgo; se conservan las claves PDC.
-3. Los forks y consolidaciones **conservan sus licencias originales** y acreditan a los autores originales.
-4. Los README públicos se escriben en inglés; la documentación en español vive al lado como [`README_ES.md`](https://github.com/SlimefunNewHorizons/.github/blob/main/profile/README_ES.md).
+## 🤝 Sobre los Hombros del Open Source
+
+Lista no exhaustiva de autores y proyectos upstream sobre los que construimos (cada repositorio conserva su licencia y créditos):
+**[Horizon Rust Edition](https://github.com/horizon-rust/horizon)** (MIT, inspiración arquitectónica y protocolo LOD) · **[PaperMC](https://github.com/PaperMC/Paper)** y **[PurpurMC](https://github.com/PurpurMC/Purpur)** · **TheBusyBiscuit y la comunidad de Slimefun** (Slimefun 4) · **Sefiraat** · **Seggan** · **balugaq y ytdd9527** · **J3fftw** · **tastybento y el equipo de BentoBox** (BentoBox, InvSwitcher) · **Dominic Feliton** (WorldwideChat) · **Rugzy** (PlayerVaultZ) · **BadBones69 / CrazyCrew** (CrazyAuctions) · **spearforge** (sBank) · **Arcaniax / Lokka30** (LevelledMobs) · **LOOHP** (InteractiveChat) · **PylonMC**.
 
 <div align="center">
 
-**Slimefun: New Horizons** · hecho con ♥ por la comunidad de DrakesCraft Labs<br/>
-[Web](https://web.drakescraft.cl) · [Discord](https://discord.gg/rv3vtXZTk7) · [StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites)
+**Slimefun: New Horizons · DrakesCraft Labs** · construido con ♥ en Java, Rust, TypeScript y Linux<br/>
+[Web](https://web.drakescraft.cl) · [Discord](https://discord.gg/rv3vtXZTk7) · [DrakesPurpur](https://github.com/SlimefunNewHorizons/DrakesPurpur) · [DrakeStar Launcher](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) · [StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites)
 
 </div>
