@@ -43,8 +43,9 @@ Today we build and maintain **hybrid Java 25 × Rust server engines**, **cross-p
 | 🛡️ **Hardened Open-Source Server Forks** | [`BentoBox-Drake`](https://github.com/SlimefunNewHorizons/BentoBox-Drake) · [`PlayerVaultZ-Drake`](https://github.com/SlimefunNewHorizons/PlayerVaultZ-Drake) · [`CrazyAuctions`](https://github.com/SlimefunNewHorizons/CrazyAuctions) · [`InvSwitcher-Drake`](https://github.com/SlimefunNewHorizons/InvSwitcher-Drake) · [`LevelledMobs-Drake`](https://github.com/SlimefunNewHorizons/LevelledMobs-Drake) · [`WorldwideChat`](https://github.com/SlimefunNewHorizons/WorldwideChat) · [`sbank`](https://github.com/SlimefunNewHorizons/sbank) | Official organization forks of general-purpose open-source Minecraft plugins (SkyBlock/OneBlock cores, auctions, player vaults, banking, mob scaling, real-time chat translation) ported to Paper 1.21.11 & Purpur 26.2 with exploit patches and safe Data Component serialization. |
 | 🐧 **Linux Desktop, HUDs & System Themes** | *Upcoming division* with **[DrgX89 (Nixcobt)](https://github.com/DrgX89)** | Expanding our open-source footprint to Linux desktop engineering: KDE Plasma / Kubuntu cyberpunk themes (`Blackwall-Kubuntu`), custom GRUB bootloaders, QML/Python desktop HUDs (`Hud-Linux`), and developer workstation tooling. |
 | 🏛️ **Odysseia & Drakes Originals** | [`Odysseia`](https://github.com/SlimefunNewHorizons/Odysseia) · [`Odysseia-Rust`](https://github.com/SlimefunNewHorizons/Odysseia-Rust) · `DrakesRankup` · `DrakesBosses` · `DrakesVIPPlusPlus` | The 6-modality network kernel (idempotent store delivery, cross-mode inventory/economy isolation, economy watchdog) + original RPG, rankup, crate, and boss plugins. |
-| 🌌 **StarSuites & Slimefun: New Horizons** | [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites) · [`Slimefun4-Drake`](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) · 112+ Addon Ports | Universal JDK 25 port of Slimefun 4, 8 consolidated domain Mega-Suites, and automated 8-shard CI verification across 112 community addons. |
+| 🌌 **StarSuites & Slimefun: New Horizons** | [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites) · [`Slimefun4-Drake`](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) · 90+ Ported Addons | Universal JDK 25 port of Slimefun 4, 8 consolidated domain Mega-Suites on Purpur 26.2, and automated multi-shard CI verification across 90+ community addons. |
 | ⭐ **Star Platform & Autonomous SRE** | `SAORI 3.0` · `OmniAST / Graphify` · `Star Engine` | 24/7 cloud infrastructure, multi-agent AI SRE orchestration (Antigravity, Codex, Claude, NVIDIA NIM), AST knowledge graphs, and automated Restic/7z backups. |
+| 📡 **Sovereign Defense & Tactical Systems** | [`saori-tactical`](https://github.com/SlimefunNewHorizons/saori-tactical) | Air-gapped emergency response, RF spectrum analyzer, Morse studio, P2P mesh Store-and-Forward DTN, and Zero-VRAM local AI fleet for civil protection & off-grid survival. |
 
 ---
 
@@ -111,12 +112,12 @@ DrakesCraft Labs is expanding into **Linux desktop customization, system themes,
 
 | Metric | Measured Value | Verification Source |
 |---|---|---|
-| Plugins running on Production (**Paper/Purpur 1.21.11**) | **169 loaded (192 verified in Staging with 0 disabled)** | Live server & staging telemetry |
-| Total repositories in the organization | **200+** (engines, launcher, standalone suites, open-source forks & Slimefun ports) | GitHub API |
+| Plugins running on Production (**Purpur 26.2 / Paper 1.21.11**) | **202 loaded · 20.0 TPS / 1.7 ms MSPT (192 verified in Staging with 0 disabled)** | Live server & staging telemetry |
+| Total repositories in the organization | **203+** (engines, launcher, standalone suites, open-source forks, Slimefun ports & defense systems) + personal ecosystem | GitHub API |
 | **`DrakesPurpur` Hybrid Engine CI (`26.2`, JDK 25 + Rust)** | **10/10 Rust tests · 13,872 NBT containers · 600k noise points (0 diffs) · TPS 20.00 ✅** | GitHub Actions (`Hybrid Engine CI` & `Hybrid compat`) |
 | **`DrakeStar-Launcher` Test Suite (Rust + Svelte 5)** | **51/51 Rust tests + `svelte-check` 0 errors + Vite production build ✅** | GitHub Actions & Nexus local verification |
-| **`StarSuites` (`Drakes-Suites`) on Paper 26.2 (JDK 25)** | **9 / 9 modules compile & pass 156+123 smoke assertions ✅** | Maven reactor & `Hybrid compat` CI |
-| **Season 2 Purpur 26.x Staging Fleet** | **49 / 49 core addons + 70+ shard-built addons verified ✅** | Live staging supervisor & `hybrid-ecosystem.yml` |
+| **`StarSuites` (`Drakes-Suites`) on Paper 26.2 (JDK 25)** | **10 / 10 modules compile & pass 156+123 smoke assertions ✅** | Maven reactor & `Hybrid compat` CI |
+| **Slimefun Addons Ported & Running on 26.2** | **90+ Slimefun addons loaded across Star Suites and standalone shards ✅** | Dallas live audit & staging supervisor |
 
 ---
 
@@ -130,9 +131,42 @@ DrakesCraft Labs is expanding into **Linux desktop customization, system themes,
 
 ## 🌌 StarSuites & Slimefun: New Horizons
 
-The [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites) monorepo consolidates historical Slimefun addons into **8 domain Mega-Suites (`Core`, `Tech`, `Bio`, `Magic`, `Generators`, `Utility`, `Combat`, `Server`) + `Multiverse`** on top of [`Slimefun4-Drake`](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) (`Universal-26.x`, JDK 25), with SQLite WAL persistence and hot-reloadable `modules/<module>.yml` configs. Addons not yet absorbed continue shipping as individual `-drake` repositories, preserving every item ID and PDC key.
+The [`Drakes-Suites`](https://github.com/SlimefunNewHorizons/Drakes-Suites) monorepo consolidates **90+ community Slimefun addons** into **8 domain Mega-Suites (`Core`, `Tech`, `Bio`, `Magic`, `Generators`, `Utility`, `Combat`, `Server`) + `Multiverse`** on top of [`Slimefun4-Drake`](https://github.com/SlimefunNewHorizons/Slimefun4-Drake) (`Universal-26.x`, JDK 25), with unified SQLite WAL persistence and hot-reloadable `modules/<module>.yml` configs. Addons not yet absorbed continue shipping as individual `-drake` repositories, preserving every legacy item ID and PDC key.
+
+### 🏛️ The Categorized Architecture: Why Not 90+ Loose JARs?
+Historically, running a server with dozens of Slimefun extensions required scattering 80–100 individual `.jar` files in the `/plugins` directory. In modern enterprise environments, this architecture causes severe bottlenecks:
+1. **ClassLoader Fragmentation & Memory Bloat**: Every independent JAR instantiates its own ClassLoader hierarchy, duplicating dependencies and fragmenting JVM Metaspace.
+2. **Circular Dependency Hell**: Uncoordinated addon initialization orders frequently trigger `NoClassDefFoundError` and race conditions during boot.
+3. **Severe Boot Latency & Disk I/O Penalties**: Scanning, unpacking, and verifying 90+ separate JAR manifests stalls server initialization.
+4. **Scattered State**: 90+ independent flat files and SQLite connections lead to write lock contention and backup fragmentation.
+
+**StarSuites solves this at the architectural layer**: by grouping the 90+ addons into categorized domain suites (`Core`, `Tech`, `Bio`, `Magic`, `Generators`, `Utility`, `Combat`, `Server`, `Multiverse`), the server loads a clean, ordered set of consolidated JARs. All modules share:
+- A single centralized **SQLite WAL** database engine with batched writes.
+- A unified **Persistent Data Container (PDC) Item Bridge** preventing key collisions.
+- A centralized **Ticker Engine** that distributes tick evaluations without thread starvation.
+
+### 🎯 The Bedrock Choice: Why Purpur 26.2 Over 26.3 / 26.4?
+The DrakesCraft ecosystem deliberately pinned **Purpur 26.2 (1.21.x)** as its sovereign foundation:
+- **Rock-Solid Stability**: Purpur 26.2 is the most stable and battle-tested release in the 26.x series. Revisions 26.3 and 26.4 introduced substantial upstream API churn, breaking changes in event pipelines, and experimental quirks that introduce unpredictability in large multi-modality production environments.
+- **Deterministic 20.00 TPS**: 26.2 delivers flawless performance (consistently 20.0 TPS / ~1.7 ms MSPT in live production with 202 plugins).
+- **Native Panama FFM Bridge Reliability**: High-frequency memory-mapped interactions between Java 25 (Bytecode 69) and our Rust engine (`native/drakes-hybrid`) are verified with 0 defects on 26.2.
+
+### 🧭 Long-Term Roadmap: Evolution Toward 27.x (2027)
+We engineer for longevity, not ephemeral version-chasing:
+- **Production Horizon**: Purpur 26.2 remains our active, production-hardened platform for Season 2 throughout 2026 and early 2027.
+- **Next-Gen Migration (Mid/Late 2027)**: As the upstream ecosystem matures, community documentation stabilizes, and next-generation hybrid runtime tooling (advancements in Java 25+, Rust Panama FFM, and emerging systems languages) solidifies, a planned, systematic port of Slimefun and our engine fleet toward **27.x** will be initiated around mid to late 2027.
 
 > ℹ️ **Credit and independence.** Slimefun is created by **TheBusyBiscuit** and the Slimefun community (GPL-3.0). We are **not** its original authors and are **not affiliated with or endorsed by** the official Slimefun team. All upstream licenses and credits across Slimefun, BentoBox, Horizon, and every open-source fork are strictly preserved — see [Rights & Attribution](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION.md).
+
+---
+
+## 📡 Sovereign Defense & Tactical Systems — SAORI Tactical
+
+Beyond gaming infrastructure, DrakesCraft Labs engineers sovereign, air-gapped emergency software:
+* [`SlimefunNewHorizons/saori-tactical`](https://github.com/SlimefunNewHorizons/saori-tactical): **Sovereign Emergency Response, RF Spectrum & Off-Grid Survival Operating System**.
+* **Zero-VRAM GPU Fleet**: Local AI models (`llama3.2:3b`, `qwen2.5-coder:3b`, `deepseek-r1:1.5b`) on NVIDIA RTX 4060 with strict auto-unload (`keep_alive: 1m`) and forced 0 MB purge.
+* **Store-and-Forward P2P Mesh**: UDP broadcast/multicast local mesh network and delay-tolerant messaging across PCs, laptops, and smartphones.
+* **Engineering Blueprints**: 13 field-engineering guides (Kia Morning 2014 12V alternator to 220V AC household lighting injection, twin-bucket odor-free dry toilets, scrap metal +12 dBi antennas, and bio-sand filters).
 
 ---
 
