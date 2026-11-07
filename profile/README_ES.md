@@ -26,6 +26,10 @@
 
 ---
 
+> [!IMPORTANT]
+> **🚀 APERTURA OFICIAL TEMPORADA 2: 18 DE NOVIEMBRE DE 2026**
+> La Temporada 2 corre sobre nuestro motor híbrido soberano [**DrakesPurpur v26.2.140-stable**](https://github.com/SlimefunNewHorizons/DrakesPurpur/releases/tag/v26.2.140-stable) (Java 25 + Rust Panama FFM, 202 plugins, 20.0 TPS) y el launcher oficial [**DrakeStar-Launcher v0.3.0-alpha**](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/tag/v0.3.0-alpha) (sincronización delta de mods SHA-256 y escáner pre-lanzamiento en Rust). Manifiesto oficial disponible en [**maven.drakescraft.cl**](https://maven.drakescraft.cl/manifest.json).
+
 ## 🌍 Mucho Más Que Slimefun: ¿Qué es esta organización?
 
 Aunque el nombre de la organización rinde homenaje a su origen —llevar [Slimefun](https://github.com/Slimefun/Slimefun4) a la nueva generación de Minecraft—, **DrakesCraft Labs (`SlimefunNewHorizons`) ha crecido hasta convertirse en una organización de ingeniería de software, motores y sistemas open-source** con **más de 200 repositorios**.
