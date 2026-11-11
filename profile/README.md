@@ -7,7 +7,8 @@
 ### Sovereign Server Engines · Hybrid Java × Rust Launchers · Standalone Open-Source Plugins · Linux & Systems Engineering
 
 [![DrakesPurpur](https://img.shields.io/badge/DrakesPurpur-Java_25_×_Rust_FFM-0EA5E9?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
-[![DrakeStar Launcher](https://img.shields.io/badge/DrakeStar-Tauri_2_×_Svelte_5_Launcher-8B3DFF?style=for-the-badge&logo=tauri&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher)
+[![DrakeStar Launcher](https://img.shields.io/badge/DrakeStar-v0.5.0_Launcher-8B3DFF?style=for-the-badge&logo=tauri&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher)
+[![DrakeStar Fused](https://img.shields.io/badge/DrakeStar_Fused-Multi--Loader_Bridge_Mod-10B981?style=for-the-badge&logo=fabric&logoColor=white)](https://github.com/SlimefunNewHorizons/drakestar-fused)
 [![Multiverse](https://img.shields.io/badge/Multiverse_Suite-Standalone_Plugins-EC4899?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SlimefunNewHorizons/MultiverseNets)
 [![StarSuites](https://img.shields.io/badge/StarSuites-Paper_26.2_JDK_25-8B5CF6?style=for-the-badge&logo=openjdk&logoColor=white)](https://github.com/SlimefunNewHorizons/Drakes-Suites)
 [![Linux Division](https://img.shields.io/badge/Linux_&_HUDs-Coming_Soon-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/DrgX89)
@@ -15,6 +16,7 @@
 
 [🌐 Website](https://web.drakescraft.cl) ·
 [🚀 DrakeStar Launcher](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) ·
+[⚡ DrakeStar Fused](https://github.com/SlimefunNewHorizons/drakestar-fused) ·
 [⚡ DrakesPurpur Engine](https://github.com/SlimefunNewHorizons/DrakesPurpur) ·
 [🌌 StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites) ·
 [🧭 All 200+ Repositories](https://github.com/orgs/SlimefunNewHorizons/repositories) ·
@@ -28,17 +30,17 @@
 
 > [!IMPORTANT]
 > **🚀 SEASON 2 OFFICIAL LAUNCH: NOVEMBER 18, 2026**
-> Season 2 runs on our verified sovereign hybrid engine [**DrakesPurpur v26.2.140-stable**](https://github.com/SlimefunNewHorizons/DrakesPurpur/releases/tag/v26.2.140-stable) (Java 25 + Rust Panama FFM, 202 plugins, 20.0 TPS) and the official [**DrakeStar-Launcher v0.3.0-alpha**](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/tag/v0.3.0-alpha) (delta modpack sync & pre-launch Fabric/Mixin conflict analyzer). Official releases manifest is live at [**maven.drakescraft.cl**](https://maven.drakescraft.cl/manifest.json).
+> Season 2 runs on our verified sovereign hybrid engine [**DrakesPurpur v26.2.140-stable**](https://github.com/SlimefunNewHorizons/DrakesPurpur/releases/tag/v26.2.140-stable) (Java 25 + Rust Panama FFM, 202 plugins, 20.0 TPS), the official [**DrakeStar-Launcher v0.5.0**](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/tag/v0.5.0) (Slimefun Solitario / LAN Hero View, live Dallas SLP, and direct Minecraft execution), and the [**DrakeStar Fused**](https://github.com/SlimefunNewHorizons/drakestar-fused) multi-loader bridge mod (Fabric, NeoForge, Forge). Official releases manifest is live at [**maven.drakescraft.cl**](https://maven.drakescraft.cl/manifest.json).
 
 ## 🌍 Much More Than Slimefun: What Is This Organization?
 
 While our organization name pays homage to where we started—modernizing [Slimefun](https://github.com/Slimefun/Slimefun4) for next-generation Minecraft—**DrakesCraft Labs (`SlimefunNewHorizons`) has evolved into a full-spectrum open-source software and systems engineering organization** spanning **200+ repositories**.
 
-Today we build and maintain **hybrid Java 25 × Rust server engines**, **cross-platform desktop launchers (Tauri 2 + Rust + Svelte 5)**, **standalone open-source plugin suites (`Multiverse`)**, **hardened forks of major open-source server plugins**, **autonomous AI/SRE infrastructure**, and an upcoming **Linux desktop customization & HUD division**. Everything we engineer is battle-tested on our live multi-modality network (**DrakesCraft**, `mc.drakescraft.cl`, Java & Bedrock).
+Today we build and maintain **hybrid Java 25 × Rust server engines**, **cross-platform desktop launchers (Tauri 2 + Rust + Svelte 5)**, **multi-loader bridge mods (Fabric, NeoForge, Forge)**, **standalone open-source plugin suites (`Multiverse`)**, **hardened forks of major open-source server plugins**, **autonomous AI/SRE infrastructure**, and an upcoming **Linux desktop customization & HUD division**. Everything we engineer is battle-tested on our live multi-modality network (**DrakesCraft**, `mc.drakescraft.cl`, Java & Bedrock).
 
 | Engineering Division | Flagship Repositories | What It Delivers |
 |---|---|---|
-| 🟣 **Project Purple (Engines & Launchers)** | [`DrakesPurpur`](https://github.com/SlimefunNewHorizons/DrakesPurpur) · [`DrakeStar-Launcher`](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) · [`Slimefun-Rust`](https://github.com/SlimefunNewHorizons/Slimefun-Rust) | Sovereign Purpur 26.2 (Java 25) + Rust Panama FFM hybrid server engine (`native/drakes-hybrid`, two-tier `P-promovido` chunk prefetch, `horizon:lod` v1 protocol & $O(1)$ LRU cache) paired with a native Rust/Tauri 2 desktop launcher. |
+| 🟣 **Project Purple (Engines, Launchers & Bridges)** | [`DrakesPurpur`](https://github.com/SlimefunNewHorizons/DrakesPurpur) · [`DrakeStar-Launcher`](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) · [`drakestar-fused`](https://github.com/SlimefunNewHorizons/drakestar-fused) · [`Slimefun-Rust`](https://github.com/SlimefunNewHorizons/Slimefun-Rust) | Sovereign Purpur 26.2 (Java 25) + Rust Panama FFM hybrid server engine (`native/drakes-hybrid`), paired with a native Rust/Tauri 2 desktop launcher and the **DrakeStar Fused** single-instance bridge mod injecting Bukkit/Purpur into Minecraft's `IntegratedServer`. |
 | 🌠 **Multiverse & Pumpkin (Standalone)** | [`MultiverseNets`](https://github.com/SlimefunNewHorizons/MultiverseNets) · [`MultiverseCreatures`](https://github.com/SlimefunNewHorizons/MultiverseCreatures) · [`MultiverseTinker`](https://github.com/SlimefunNewHorizons/MultiverseTinker) · [`Pumpkin-launcher`](https://github.com/Chagui68/Pumpkin-launcher) | Engineered by **[Chagui68](https://github.com/Chagui68)**. A 100% standalone plugin suite (digital logistics, mythological bosses, metallurgy, programmable turtles, gambling) and ClassLoader-isolating launcher layer—requires **zero** Slimefun dependency, with optional bridges. |
 | 🛡️ **Hardened Open-Source Server Forks** | [`BentoBox-Drake`](https://github.com/SlimefunNewHorizons/BentoBox-Drake) · [`PlayerVaultZ-Drake`](https://github.com/SlimefunNewHorizons/PlayerVaultZ-Drake) · [`CrazyAuctions`](https://github.com/SlimefunNewHorizons/CrazyAuctions) · [`InvSwitcher-Drake`](https://github.com/SlimefunNewHorizons/InvSwitcher-Drake) · [`LevelledMobs-Drake`](https://github.com/SlimefunNewHorizons/LevelledMobs-Drake) · [`WorldwideChat`](https://github.com/SlimefunNewHorizons/WorldwideChat) · [`sbank`](https://github.com/SlimefunNewHorizons/sbank) | Official organization forks of general-purpose open-source Minecraft plugins (SkyBlock/OneBlock cores, auctions, player vaults, banking, mob scaling, real-time chat translation) ported to Paper 1.21.11 & Purpur 26.2 with exploit patches and safe Data Component serialization. |
 | 🐧 **Linux Desktop, HUDs & System Themes** | *Upcoming division* with **[DrgX89 (Nixcobt)](https://github.com/DrgX89)** | Expanding our open-source footprint to Linux desktop engineering: KDE Plasma / Kubuntu cyberpunk themes (`Blackwall-Kubuntu`), custom GRUB bootloaders, QML/Python desktop HUDs (`Hud-Linux`), and developer workstation tooling. |
