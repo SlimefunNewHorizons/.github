@@ -18,6 +18,7 @@
 [⚡ DrakesPurpur Engine](https://github.com/SlimefunNewHorizons/DrakesPurpur) ·
 [🌌 StarSuites](https://github.com/SlimefunNewHorizons/Drakes-Suites) ·
 [🧬 OmniAST](https://github.com/JackStar6677-1/omniast) ·
+[📦 Maven Repo](https://maven.drakescraft.cl) ·
 [⚖️ Rights & Attribution](https://github.com/SlimefunNewHorizons/.github/blob/main/RIGHTS_AND_ATTRIBUTION.md) ·
 [💬 Discord](https://discord.gg/rv3vtXZTk7) ·
 [🇪🇸 Español](https://github.com/SlimefunNewHorizons/.github/blob/main/profile/README_ES.md)
