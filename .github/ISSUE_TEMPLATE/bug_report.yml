@@ -1,0 +1,52 @@
+name: 🐛 Bug Report
+description: Report a reproducible bug or defect with verified logs and steps
+title: "fix: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please ensure you have read our [Code of Conduct](../CODE_OF_CONDUCT.md) and [Contributing Guidelines](../CONTRIBUTING.md).
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS version, runtime/compiler version (e.g., Rust 1.93, Java 21, Python 3.12, Ubuntu 26.04).
+      placeholder: "e.g., Linux x86_64 / Rust 1.93 / commit abc1234"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description & Expected Behavior
+      description: A clear and concise description of what the bug is and what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce & Minimal Reproduction
+      description: Exact steps, commands, or code sample to reproduce the issue.
+      placeholder: |
+        1. Run command '...'
+        2. Provide payload '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Stack Traces
+      description: Paste relevant compiler output, runtime logs, or backtraces (clean, no unnecessary noise).
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have verified this bug exists on the latest commit of the default branch.
+          required: true
+        - label: I have provided real, un-hallucinated logs and minimal reproduction steps.
+          required: true
+        - label: I agree to follow this project's Code of Conduct and maintain professional respect.
+          required: true

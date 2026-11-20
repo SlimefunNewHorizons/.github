@@ -1,0 +1,37 @@
+name: 💡 Feature or Architecture Proposal
+description: Propose a well-grounded feature, optimization, or architectural change
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please discuss architectural changes and new features here **before** writing code or opening a Pull Request. Review our [Contributing Guidelines](../CONTRIBUTING.md).
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement / Motivation
+      description: Is your feature request related to a specific limitation or bottleneck? Explain clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution & Technical Design
+      description: Detailed architectural design of how this should be implemented without breaking existing stability.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative designs, existing libraries, or workarounds you considered.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I understand that unsolicited massive PRs without prior issue discussion may be closed.
+          required: true
+        - label: I agree to follow this project's Code of Conduct and maintain professional respect.
+          required: true

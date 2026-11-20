@@ -42,7 +42,29 @@ Documento normativo para cualquier agente autónomo que opere repositorios dentr
    * Cero reseteo o pérdida de datos de jugadores (`BlockStorage`, inventarios, bóvedas, economías, islas).
    * Ante cualquier duda de migración de datos, siempre se utiliza respaldo preventivo y aislamiento reversible.
 
-## 🌐 Idioma de las GUI y mensajes al jugador (decision de Jack, 2026-10-14)
+## 🌐 3. Idioma de las GUI y mensajes al jugador (decision de Jack, 2026-10-14)
 Todas las GUI (titulos, nombres y lore de items, botones) y los mensajes que ven los jugadores se escriben en **ingles**, en
 todos los plugins y addons nuevos y al tocar los existentes. El codigo, los comentarios internos y la documentacion pueden
 seguir en espanol. Los nombres de comandos no se renombran para no romper a los jugadores.
+
+---
+
+## 🤖 4. Estándares de Ingeniería para Contribuciones por IA / Agentes Externos (Anti-Slop & Anti-Alucinaciones)
+
+Este estándar aplica tanto a desarrolladores que usen asistentes de IA (Cursor, Claude, Copilot, ChatGPT) como a agentes autónomos externos que abran Pull Requests o Issues:
+
+1. **Responsabilidad Humana Absoluta (100% Ownership)**:
+   * Toda persona o bot que envíe un Pull Request asume total responsabilidad del código. Decir *"la IA lo generó"* no exime de errores, vulnerabilidades ni fallas de compilación.
+2. **Divulgación Transparente de Asistencia de IA**:
+   * Todo PR generado con asistencia de modelos de IA debe declararlo en la descripción del PR (`AI Disclosure`), listando las herramientas y confirmando verificación local manual.
+3. **Cero Tolerancia a Alucinaciones y Slop (Cierre Inmediato)**:
+   * **Se cerrará de inmediato como spam cualquier PR que contenga**:
+     - Métodos o APIs inexistentes o inventadas de Spigot, Paper, Purpur, Slimefun, Java o Rust.
+     - Scaffolding o boilerplate vacío ("plumbing without water").
+     - Reescrituras arbitrarias de código funcional sin justificación de rendimiento o bug medible.
+     - Fallos de compilación en Maven o Cargo.
+4. **Evidencia Obligatoria de Verificación**:
+   * El autor debe adjuntar logs de compilación exitosa (`mvn clean package -DskipTests=false`) y verificación en un entorno de pruebas.
+5. **Cumplimiento del Código de Conducta**:
+   * Respuestas automatizadas circulares, comentarios spam o actitudes exigentes resultarán en bloqueo inmediato del usuario/agente en toda la organización SlimefunNewHorizons conforme a [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+
