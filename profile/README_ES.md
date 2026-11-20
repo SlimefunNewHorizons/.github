@@ -6,7 +6,7 @@
 
 > **«La primera arquitectura soberana de alto rendimiento para Minecraft y sistemas distribuidos: 180+ plugins consolidados en suites nativas en Rust FFM sin romper el ecosistema de Java, orquestado con OmniAST y lanzado con DrakeStar.»**
 
-[![Paper LTS](https://img.shields.io/badge/Paper_LTS-1.21.11_Prod-0EA5E9?style=for-the-badge&logo=openjdk&logoColor=white)](https://github.com/SlimefunNewHorizons/Drakes-Suites)
+[![Slimefun 6](https://img.shields.io/badge/Slimefun_6-1.21_%E2%86%92_26.2-0EA5E9?style=for-the-badge&logo=openjdk&logoColor=white)](https://github.com/SlimefunNewHorizons/Slimefun6)
 [![Purpur 26.2](https://img.shields.io/badge/DrakesPurpur-26.2_JDK_25-6366F1?style=for-the-badge&logo=java&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
 [![Rust FFM](https://img.shields.io/badge/Rust_FFM-SIMD_Off--Heap-EA580C?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
 [![DrakeStar Launcher](https://img.shields.io/badge/DrakeStar-v0.7.0_Feature--Complete-8B3DFF?style=for-the-badge&logo=tauri&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest)
@@ -72,13 +72,19 @@ Consolidación soberana de **180+ micro-plugins y 94 addons históricos** en **9
 | 8 | **`drakes-utility`** | Herramientas QoL, `EnderCarryOn` blindado, mochilas, transporte y utilidades de inventario | **Producción** |
 | 9 | **`drakes-server`** | Telemetría (`DrakesPerf`), moderación, economía dinámica y gobierno de TPS | **Producción** |
 
-> **Ramas canónicas:** `main` (Paper 1.21.11 LTS) · `26.x` (Purpur 26.2 + Java 25 en Dallas Temporada 2).
+> **Ramas canónicas:** `26.x` es la línea en producción (Purpur 26.2 + Java 25, Dallas Temporada 2). `main` es la línea anterior (Paper 1.21.11 LTS, Temporada 1).
+
+---
+
+## 🟢 Slimefun 6 — nuestra continuación de Slimefun
+
+El Slimefun original terminó su desarrollo en octubre (1.21 fue su última versión oficial, el repositorio se archiva y los forks son bienvenidos). **[Slimefun6](https://github.com/SlimefunNewHorizons/Slimefun6)** es nuestro core mantenido: una sola base de código para Minecraft **1.21 → 26.2**, en producción en la Temporada 2 junto a **110 addons de la comunidad** (lista con versiones en su README, tomada de `/sf versions`), aceleración Rust por la API FFM de Java y releases con checksums SHA-256. La historia de nuestro core anterior está en su rama `legacy/slimefun4-drake-1.21`.
 
 ---
 
 ## 📊 Clasificación de Repositorios (Zero-Assumptions)
 
-- **🟢 Producción Activa:** `DrakeStar-Launcher` (`v0.7.0` Feature-Complete), `Drakes-Suites` (9 StarSuites), `DrakesPurpur` (motor 26.2 Java 25 + Rust FFM), `Odysseia`, `Slimefun4-Drake`, `NetworksV6-drake` (Cloud-Link + rendimiento), `MultiverseNets` (59 bloques + guía SF), `MultiverseGambling`, `drakescraft-web`, `drakescraft-texture-pack` (`t2-v28.zip`), `ai-hub` / SAORI SRE en Star VPS.
+- **🟢 Producción Activa:** `DrakeStar-Launcher` (`v0.7.0` Feature-Complete), `Drakes-Suites` (9 StarSuites), `DrakesPurpur` (motor 26.2 Java 25 + Rust FFM), `Odysseia`, `Slimefun6`, `NetworksV6-drake` (Cloud-Link + rendimiento), `MultiverseNets` (59 bloques + guía SF), `MultiverseGambling`, `drakescraft-web`, `drakescraft-texture-pack` (`t2-v28.zip`), `ai-hub` / SAORI SRE en Star VPS.
 - **🔵 Soporte & Núcleo Transversal:** `OmniAST` (GraphLang + `tree-sitter-omniast` + `mcp_server`), `star-server-backup` (Zero-Secrets diario), `drakes-hq`, `maven-repo`, `slimefun-porting-tools`.
 - **🧪 Sandbox / Experimental:** `drakestar-fused` (bridge mod single-JVM Fabric/NeoForge/Forge v1.0.0-alpha.2), `Slimefun-Rust` / `Odysseia-Rust`, ramas `feat/slimefun-native-engine` (motor híbrido Rust permanente).
 
