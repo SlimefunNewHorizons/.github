@@ -44,6 +44,7 @@ for ruta in list(pathlib.Path(".").glob("pom.xml")) + list(pathlib.Path(".").glo
         t = ruta.read_text(encoding="utf-8", errors="replace")
     except OSError:
         continue
-    if re.search(r"paper-api</artifactId>\s*<version>\s*2[6-9]\.", t) or re.search(r"paper-api:2[6-9]\.", t)             or re.search(r"<paper\.version>\s*[\[(]?\s*2[6-9]\.", t):
+    if re.search(r"paper-api</artifactId>\s*<version>\s*2[6-9]\.", t) or re.search(r"paper-api:2[6-9]\.", t)             or re.search(r"<paper\.version>\s*[\[(]?\s*2[6-9]\.", t) \
+            or re.search(r"-Universal-26\.?x", t, re.I):  # slimefun-core/libs Universal 26.x: tambien bytecode 69
         pedidas.append(25)
 print(max([MIN] + [n for n in pedidas if n <= MAX]))
