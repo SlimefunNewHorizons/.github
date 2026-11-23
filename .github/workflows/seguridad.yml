@@ -58,11 +58,13 @@ jobs:
           org.gradle.parallel=false
           EOF
       - uses: github/codeql-action/init@9f759ee644a3e7c15c1390abf49868036c00067b # v3
+        if: ${{ hashFiles('**/*.java', '**/*.kt') != '' }}
         with:
           languages: java-kotlin
           build-mode: ${{ hashFiles('**/*.kt') != '' && 'autobuild' || 'none' }}
           queries: security-extended
       - uses: github/codeql-action/analyze@9f759ee644a3e7c15c1390abf49868036c00067b # v3
+        if: ${{ hashFiles('**/*.java', '**/*.kt') != '' }}
         with:
           category: /language:java-kotlin
 
