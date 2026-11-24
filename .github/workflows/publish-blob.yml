@@ -57,6 +57,27 @@ jobs:
           distribution: temurin
           java-version: ${{ inputs.java-version }}
           cache: ${{ hashFiles('pom.xml') != '' && 'maven' || 'gradle' }}
+      - name: Configure Drake Maven repository
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<'XML'
+          <settings>
+            <profiles>
+              <profile>
+                <id>drakes</id>
+                <repositories>
+                  <repository>
+                    <id>drakes-portal</id>
+                    <url>https://pack.drakescraft.cl/builds/maven</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled><updatePolicy>always</updatePolicy></snapshots>
+                  </repository>
+                </repositories>
+              </profile>
+            </profiles>
+            <activeProfiles><activeProfile>drakes</activeProfile></activeProfiles>
+          </settings>
+          XML
       - name: Build
         run: |
           if [ -f pom.xml ]; then mvn -B -DskipTests package
