@@ -78,6 +78,16 @@ jobs:
             <activeProfiles><activeProfile>drakes</activeProfile></activeProfiles>
           </settings>
           XML
+      - name: Configure Drake Maven repository for Gradle
+        run: |
+          mkdir -p ~/.gradle/init.d
+          cat > ~/.gradle/init.d/drakes.gradle <<'GRADLE'
+          allprojects {
+            repositories {
+              maven { url 'https://pack.drakescraft.cl/builds/maven' }
+            }
+          }
+          GRADLE
       - name: Build
         run: |
           if [ -f pom.xml ]; then mvn -B -DskipTests package
