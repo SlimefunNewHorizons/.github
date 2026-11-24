@@ -68,3 +68,6 @@ Este estándar aplica tanto a desarrolladores que usen asistentes de IA (Cursor,
 5. **Cumplimiento del Código de Conducta**:
    * Respuestas automatizadas circulares, comentarios spam o actitudes exigentes resultarán en bloqueo inmediato del usuario/agente en toda la organización SlimefunNewHorizons conforme a [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
+## Attribution / Atribución
+
+Every repository must keep the credits block (`<!-- credits:start -->`) at the top of its README and `docs/UPSTREAM_ATTRIBUTION.md` with the original authors linked, plus the upstream LICENSE unchanged. Never invent authors: if unknown, write "in verification". Index: [CREDITS.md](CREDITS.md). Policy: [RIGHTS_AND_ATTRIBUTION.md](RIGHTS_AND_ATTRIBUTION.md).

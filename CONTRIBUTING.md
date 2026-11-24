@@ -53,3 +53,7 @@ We enforce a strict **Zero-Slop Policy**:
 * The human contributor assumes **100% engineering responsibility** for every line.
 * Fabricated Bukkit/Spigot/Paper methods, hallucinated Slimefun APIs, non-compiling boilerplate, or unchecked AI diffs will be closed immediately as spam.
 * See [AGENTS.md](AGENTS.md) for full automated contributor specifications.
+
+## Attribution / Atribución
+
+Every repository must keep the credits block (`<!-- credits:start -->`) at the top of its README and `docs/UPSTREAM_ATTRIBUTION.md` with the original authors linked, plus the upstream LICENSE unchanged. Never invent authors: if unknown, write "in verification". Index: [CREDITS.md](CREDITS.md). Policy: [RIGHTS_AND_ATTRIBUTION.md](RIGHTS_AND_ATTRIBUTION.md).
