@@ -91,7 +91,7 @@ jobs:
       - name: Build
         run: |
           if [ -f pom.xml ]; then mvn -B -DskipTests package
-          elif [ -x ./gradlew ]; then ./gradlew build -x test --no-daemon
+          elif [ -f ./gradlew ]; then chmod +x ./gradlew && ./gradlew build -x test --no-daemon
           else echo "No pom.xml or gradlew found" && exit 1; fi
       - name: Find jar
         id: jar
