@@ -103,7 +103,7 @@ jobs:
           [ -f "$J" ] || { echo "Jar not found"; exit 1; }
           echo "path=$J" >> "$GITHUB_OUTPUT"
       - name: Upload to Blob Builds
-        if: ${{ inputs.blob && vars.BLOB_UPLOAD == 'true' }}
+        if: ${{ inputs.blob && vars.BLOB_UPLOAD == 'true' && !contains(format(',{0},', vars.BLOB_EXCLUDE), format(',{0},', inputs.project)) }}
         uses: WalshyDev/blob-builds/gh-action@main
         with:
           project: ${{ inputs.project }}
