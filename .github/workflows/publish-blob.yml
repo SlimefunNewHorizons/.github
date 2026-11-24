@@ -29,7 +29,7 @@ on:
         type: string
         default: '25'
       blob:
-        description: 'Upload to blob.build (false = only the DrakesCraft portal)'
+        description: 'Upload to blob.build (also needs the org variable BLOB_UPLOAD=true; off by default since blob.build asked us not to flood their homepage)'
         type: boolean
         default: true
       mirror:
@@ -103,7 +103,7 @@ jobs:
           [ -f "$J" ] || { echo "Jar not found"; exit 1; }
           echo "path=$J" >> "$GITHUB_OUTPUT"
       - name: Upload to Blob Builds
-        if: ${{ inputs.blob }}
+        if: ${{ inputs.blob && vars.BLOB_UPLOAD == 'true' }}
         uses: WalshyDev/blob-builds/gh-action@main
         with:
           project: ${{ inputs.project }}
