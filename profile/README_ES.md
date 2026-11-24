@@ -1,3 +1,11 @@
+<!-- credits:start -->
+> **What is DrakesCraft? / ¿Qué es DrakesCraft?**
+> **EN:** DrakesCraft is a community Minecraft server (Chile) built around Slimefun. The **DrakesCraft Labs** organization keeps the open-source side: ports of Slimefun and its addons to current Minecraft/Paper (26.2, Java 25), a custom server fork (DrakesPurpur), the DrakeStar launcher and the tooling that tests all of it daily on the live server. Each addon is its own repository, built from its original author's code and published under that author's license.
+> **ES:** DrakesCraft es un servidor de Minecraft comunitario (Chile) centrado en Slimefun. **DrakesCraft Labs** es la parte de código abierto: ports de Slimefun y sus addons a Minecraft/Paper actual (26.2, Java 25), un fork propio del servidor (DrakesPurpur), el launcher DrakeStar y las herramientas que lo prueban a diario en el servidor real. Cada addon es un repositorio propio, construido sobre el código de su autor original y publicado bajo la licencia de ese autor.
+>
+> **Credits / Créditos.** Creator and maintainer of the DrakesCraft system and ports: [JackStar6677-1](https://github.com/JackStar6677-1). Every repository credits its original authors with links at the top of its README and in `docs/UPSTREAM_ATTRIBUTION.md`; the full index is in [CREDITS.md](https://github.com/SlimefunNewHorizons/.github/blob/main/CREDITS.md). Highlights: Slimefun by [TheBusyBiscuit](https://github.com/TheBusyBiscuit) and the [Slimefun community](https://github.com/Slimefun); the Multiverse* addons by [Chagui68](https://github.com/Chagui68); launcher contributions by [DrgX89 (Nix)](https://github.com/DrgX89). Independent community project, not affiliated with or endorsed by the original authors or the official Slimefun team. Corrections: open an issue or mention [@JackStar6677-1](https://github.com/JackStar6677-1).
+<!-- credits:end -->
+
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/SlimefunNewHorizons/.github/main/profile/assets/new-horizons-banner.svg" alt="Slimefun: New Horizons & DrakesCraft Labs — Sovereign Architecture" width="100%" />

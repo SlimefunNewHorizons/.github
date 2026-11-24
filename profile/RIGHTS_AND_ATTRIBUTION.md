@@ -1,7 +1,6 @@
 # Rights, Licensing & Attribution Policy
 
-> **Status: DRAFT for owner review.** This is an engineering policy, **not legal advice**. Before enforcing it against third parties or changing
-> any license in a published repository, have it reviewed by a qualified lawyer. 🇪🇸 [Versión en español](RIGHTS_AND_ATTRIBUTION_ES.md)
+> **Status: in force.** Engineering policy, **not legal advice**; for disputes with third parties or license changes, consult a lawyer. 🇪🇸 [Versión en español](RIGHTS_AND_ATTRIBUTION_ES.md)
 
 Applies to every repository in the **SlimefunNewHorizons** organization (Slimefun: New Horizons / StarSuites / DrakesCraft) and to anything published from it
 (GitHub, Modrinth, Maven, releases).
