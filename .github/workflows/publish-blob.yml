@@ -28,6 +28,10 @@ on:
       java-version:
         type: string
         default: '25'
+      blob:
+        description: 'Upload to blob.build (false = only the DrakesCraft portal)'
+        type: boolean
+        default: true
       mirror:
         description: 'Also upload to https://pack.drakescraft.cl/builds/'
         type: boolean
@@ -68,6 +72,7 @@ jobs:
           [ -f "$J" ] || { echo "Jar not found"; exit 1; }
           echo "path=$J" >> "$GITHUB_OUTPUT"
       - name: Upload to Blob Builds
+        if: ${{ inputs.blob }}
         uses: WalshyDev/blob-builds/gh-action@main
         with:
           project: ${{ inputs.project }}
