@@ -1,0 +1,97 @@
+# Build an addon and publish the jar to Blob Builds and to the DrakesCraft Builds mirror (reusable workflow).
+#
+# Usage in an addon repository:
+#   jobs:
+#     publish:
+#       uses: SlimefunNewHorizons/.github/.github/workflows/publish-blob.yml@main
+#       with:
+#         project: MyAddon-Drake
+#       secrets: inherit
+#
+# The project must already exist on https://blob.build (one project per addon, channel "Release").
+name: Publish to Blob Builds (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      project:
+        description: 'Blob Builds project name'
+        type: string
+        required: true
+      channel:
+        type: string
+        default: 'Release'
+      file:
+        description: 'Jar to upload (glob). Empty = first non-original jar under target/ or build/libs/'
+        type: string
+        default: ''
+      java-version:
+        type: string
+        default: '25'
+      mirror:
+        description: 'Also upload to https://pack.drakescraft.cl/builds/'
+        type: boolean
+        default: true
+    secrets:
+      BLOB_BUILDS_API_TOKEN:
+        required: true
+      SAORI_BUILDS_TOKEN:
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    # Never publish from pull requests or forks.
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ inputs.java-version }}
+          cache: ${{ hashFiles('pom.xml') != '' && 'maven' || 'gradle' }}
+      - name: Build
+        run: |
+          if [ -f pom.xml ]; then mvn -B -DskipTests package
+          elif [ -x ./gradlew ]; then ./gradlew build -x test --no-daemon
+          else echo "No pom.xml or gradlew found" && exit 1; fi
+      - name: Find jar
+        id: jar
+        env:
+          WANTED: ${{ inputs.file }}
+        run: |
+          if [ -n "$WANTED" ]; then J=$(ls $WANTED | head -1)
+          else J=$(ls target/*.jar build/libs/*.jar 2>/dev/null | grep -v -E 'original-|-sources|-javadoc|-plain' | head -1); fi
+          [ -f "$J" ] || { echo "Jar not found"; exit 1; }
+          echo "path=$J" >> "$GITHUB_OUTPUT"
+      - name: Upload to Blob Builds
+        uses: WalshyDev/blob-builds/gh-action@main
+        with:
+          project: ${{ inputs.project }}
+          releaseChannel: ${{ inputs.channel }}
+          apiToken: ${{ secrets.BLOB_BUILDS_API_TOKEN }}
+          file: ${{ steps.jar.outputs.path }}
+          releaseNotes: ${{ github.event.head_commit.message }}
+      - name: Upload to the DrakesCraft Builds mirror
+        if: ${{ inputs.mirror }}
+        env:
+          TOKEN: ${{ secrets.SAORI_BUILDS_TOKEN }}
+          JAR: ${{ steps.jar.outputs.path }}
+          MSG: ${{ github.event.head_commit.message }}
+          PROJECT: ${{ inputs.project }}
+        run: |
+          [ -n "$TOKEN" ] || { echo "SAORI_BUILDS_TOKEN not set, skipping mirror"; exit 0; }
+          curl -fsS -X POST "https://pack.drakescraft.cl/builds/api/upload" \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "X-Build-Project: ${PROJECT%-Drake}" \
+            -H "X-Build-Channel: release" \
+            -H "X-Build-Repo: ${GITHUB_REPOSITORY}" \
+            -H "X-Build-Commit: ${GITHUB_SHA}" \
+            -H "X-Build-Message: ${MSG%%$'\n'*}" \
+            -H "X-Build-Filename: $(basename "$JAR")" \
+            -H "X-Build-Source: github-actions" \
+            -H "Content-Type: application/java-archive" \
+            --data-binary "@$JAR"
