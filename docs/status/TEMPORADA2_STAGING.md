@@ -185,3 +185,4 @@ pendientes. Dallas no fue modificado.
 1. Absorción y verificación de addons secundarios de Slimefun pendientes en las StarSuites (manteniendo invariantes de IDs y claves PDC).
 2. Sincronización de configuraciones de modalidades de juego (SkyBlock, OneBlock, Clásico, Survival) en solo-lectura desde producción.
 3. Smoke test exhaustivo in-game y preparación del plan atómico de despliegue a Dallas con escalado a Jack.
+4. Triage de ruido de arranque: la última ejecución (2026-11-24 13:12–13:17 CLT, `logs/latest.log`) registró 20 `ERROR` de Multiverse-Core (`WORLD_FOLDER_INVALID`) al autoloadear entradas de `worlds.yml` cuya carpeta no existe en staging (`clasico`/`world_clasico*`, `galactifun_space`, `laboratorio`, `spawnwarps`, `world_svm_ep_*`, `world_lab_flat`, `world_yggdrasil_runic`). No se cambió nada: falta decidir entre generar esos mundos o marcar `auto-load: false` en las entradas sin carpeta.
