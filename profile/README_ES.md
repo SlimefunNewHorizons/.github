@@ -12,12 +12,12 @@
 
 # Slimefun: New Horizons · DrakesCraft Labs
 
-> **«La primera arquitectura soberana de alto rendimiento para Minecraft y sistemas distribuidos: 180+ plugins consolidados en suites nativas en Rust FFM sin romper el ecosistema de Java, orquestado con OmniAST y lanzado con DrakeStar.»**
+> **«Un servidor de Minecraft comunitario construido alrededor de Slimefun: Purpur 26.2 con Java 25 y un puente Rust experimental, 9 StarSuites, más de 100 addons de Slimefun y un launcher de código abierto. Los resultados medidos y los límites conocidos están documentados en cada repositorio.»**
 
 [![Slimefun 6](https://img.shields.io/badge/Slimefun_6-1.21_%E2%86%92_26.2-0EA5E9?style=for-the-badge&logo=openjdk&logoColor=white)](https://github.com/SlimefunNewHorizons/Slimefun6)
 [![Purpur 26.2](https://img.shields.io/badge/DrakesPurpur-26.2_JDK_25-6366F1?style=for-the-badge&logo=java&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
-[![Rust FFM](https://img.shields.io/badge/Rust_FFM-SIMD_Off--Heap-EA580C?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
-[![DrakeStar Launcher](https://img.shields.io/badge/DrakeStar-v0.7.0_Feature--Complete-8B3DFF?style=for-the-badge&logo=tauri&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest)
+[![Rust FFM](https://img.shields.io/badge/Rust_FFM-experimental-EA580C?style=for-the-badge&logo=rust&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakesPurpur)
+[![DrakeStar Launcher](https://img.shields.io/badge/DrakeStar-v0.7.0-8B3DFF?style=for-the-badge&logo=tauri&logoColor=white)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest)
 [![OmniAST](https://img.shields.io/badge/OmniAST-GraphLang_MCP-10B981?style=for-the-badge&logo=graphql&logoColor=white)](https://github.com/JackStar6677-1/omniast)
 [![SRE Triad](https://img.shields.io/badge/SAORI_SRE-Star_VPS_24%2F7-EC4899?style=for-the-badge&logo=linux&logoColor=white)](https://web.drakescraft.cl)
 
@@ -32,6 +32,13 @@
 </div>
 
 ---
+
+## ⚖️ Estado y licencias
+
+- Muchos repositorios son **ports de addons de Slimefun de terceros**. Algunos quedaron sin terminar por sus autores originales y son **experimentales**: que estén publicados aquí no significa que estén completos, sean seguros ni tengan soporte.
+- Cada repositorio indica sus autores originales y su licencia (ver su README y `docs/UPSTREAM_ATTRIBUTION.md`). Cuando un upstream no declara licencia (por ejemplo Automation y WorldwideChat) no distribuimos builds: el repositorio es privado o sus workflows de publicación están desactivados.
+- El puente Rust FFM de DrakesPurpur es **experimental**; nuestras mediciones aún no muestran una mejora de extremo a extremo (ver los [resultados](https://github.com/SlimefunNewHorizons/DrakesPurpur/blob/feat/slimefun-native-engine/docs/hybrid/RESULTADOS.md)).
+- Autores originales: si falta algo o hay un error, abre un issue o avísanos en [Discord](https://discord.gg/rv3vtXZTk7) y lo corregimos.
 
 ## 🧭 Arquitectura Global del Ecosistema
 
@@ -52,7 +59,7 @@ flowchart LR
 
 ---
 
-## 🚀 Matriz de Descarga Directa — DrakeStar-Launcher (`v0.7.0` Feature-Complete)
+## 🚀 Matriz de Descarga Directa — DrakeStar-Launcher (`v0.7.0`)
 
 **1-Click Play** con **Modo Dual** (**Java Aikar G1GC** + **DrakesRust / Horizon 26.3**) y **Monolito Local** (*Slimefun en solitario / LAN* arrancando `DrakesPurpur 26.2` en ~22 s en `127.0.0.1` sin configuración manual). Todas las builds son compiladas con `--locked` y firmadas criptográficamente con **minisign**.
 
@@ -60,13 +67,13 @@ flowchart LR
 | :--- | :--- | :--- | :--- |
 | **Windows** (x64) | `.exe` (recomendado, sin admin) · `.msi` | Minisign + Auto-Update | [Descargar Windows (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
 | **Linux** (x64) | `.AppImage` · `.deb` · `.rpm` | Minisign + Auto-Update | [Descargar Linux (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
-| **macOS** (Universal) | `.dmg` (Apple Silicon + Intel) | Minisign + Auto-Update | [Descargar macOS (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
+\1Minisign · **sin probar en macOS aún** | [Descargar macOS (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
 
 ---
 
 ## 🌌 Índice Canónico de StarSuites (`Drakes-Suites` Monorepo)
 
-Consolidación soberana de **180+ micro-plugins y 94 addons históricos** en **9 suites modulares** impulsadas por **Rust SIMD Off-Heap FFM + SQLite WAL** (sacando el estado pesado fuera del Garbage Collector de la JVM):
+Consolidación de **180+ micro-plugins y 94 addons históricos** en **9 suites modulares** respaldadas por **SQLite WAL**; el puente Rust FFM es experimental y aún no tiene una mejora de extremo a extremo demostrada:
 
 | # | Suite | Dominio Consolidado | Estado |
 | :-: | :--- | :--- | :--- |
@@ -92,7 +99,7 @@ El Slimefun original terminó su desarrollo en octubre (1.21 fue su última vers
 
 ## 📊 Clasificación de Repositorios (Zero-Assumptions)
 
-- **🟢 Producción Activa:** `DrakeStar-Launcher` (`v0.7.0` Feature-Complete), `Drakes-Suites` (9 StarSuites), `DrakesPurpur` (motor 26.2 Java 25 + Rust FFM), `Odysseia`, `Slimefun6`, `NetworksV6-drake` (Cloud-Link + rendimiento), `MultiverseNets` (59 bloques + guía SF), `MultiverseGambling`, `drakescraft-web`, `drakescraft-texture-pack` (`t2-v28.zip`), `ai-hub` / SAORI SRE en Star VPS.
+- **🟢 Producción Activa:** `DrakeStar-Launcher` (`v0.7.0`), `Drakes-Suites` (9 StarSuites), `DrakesPurpur` (motor 26.2 Java 25 + Rust FFM), `Odysseia`, `Slimefun6`, `NetworksV6-drake` (Cloud-Link + rendimiento), `MultiverseNets` (59 bloques + guía SF), `MultiverseGambling`, `drakescraft-web`, `drakescraft-texture-pack` (`t2-v28.zip`), `ai-hub` / SAORI SRE en Star VPS.
 - **🔵 Soporte & Núcleo Transversal:** `OmniAST` (GraphLang + `tree-sitter-omniast` + `mcp_server`), `star-server-backup` (Zero-Secrets diario), `drakes-hq`, `maven-repo`, `slimefun-porting-tools`.
 - **🧪 Sandbox / Experimental:** `drakestar-fused` (bridge mod single-JVM Fabric/NeoForge/Forge v1.0.0-alpha.2), `Slimefun-Rust` / `Odysseia-Rust`, ramas `feat/slimefun-native-engine` (motor híbrido Rust permanente).
 
