@@ -110,7 +110,7 @@ jobs:
           releaseChannel: ${{ inputs.channel }}
           apiToken: ${{ secrets.BLOB_BUILDS_API_TOKEN }}
           file: ${{ steps.jar.outputs.path }}
-          releaseNotes: ${{ github.event.head_commit.message }}
+          releaseNotes: 'Automated build from ${{ github.repository }} at commit ${{ github.sha }}. Details: https://github.com/${{ github.repository }}/commit/${{ github.sha }}'
       - name: Upload to the DrakesCraft Builds mirror
         if: ${{ inputs.mirror }}
         env:
