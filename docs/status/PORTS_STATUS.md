@@ -19,15 +19,16 @@
 * Siempre vía `build_seguro.sh` (un solo build a la vez en todo el VPS, `nice`/`ionice`, espera si la carga ≥ 5). Máximo ~450 s de presupuesto por pasada.
 * `indeterminado` = el build falló sin llegar a compilar (p. ej. no resolvió dependencias): **no es un no-compila**, hay que repetirlo.
 * Los cambios propios de 26.x van a la rama `port-26x` de cada repo, nunca directo a `main`.
+* Si un build 1.21.11 falla con `package com.github.drakescraft_labs… does not exist`, revisa `~/.m2`: un JAR universal instalado a mano bajo las coordenadas `11.0-Drake-1.21.11-SNAPSHOT` envenena todos los builds 1.21.11 del VPS (detectado y retirado el 2026-11-25).
 
 ## Resumen
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 93 | 77 |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 93 | 78 |
 | Gradle | 13 | 9 |
 | Sin código fuente en el repo | 9 | 8 |
-| **Total** | **115** | **94** |
+| **Total** | **115** | **95** |
 
 ## Tabla
 
@@ -89,8 +90,8 @@
 | Geyser-Slimefun-Heads-drake | maven | ✅ sí | ✅ sí | sin tests | port-26x cc623cb: 2 imports a Slimefun universal |
 | HeadLimiter-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | HotbarPets-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
-| InfinityExpansion-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| InfinityLib-Drake | maven | ❌ no | ❌ no | ❌ fallan | /home/jack/workspace/drakescraft/InfinityLib-Drake/src/main/java/io/github/mooy1/infinitylib/common/PersistentType.java:[60;87] constructor  |
+| InfinityExpansion-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-25: `main` `clean package` JDK 21 BUILD SUCCESS (bytecode 65, SHA-256 `71c1cb41…b98582`) y `port-26x` JDK 25/Paper 26.2 BUILD SUCCESS (bytecode 69, SHA-256 `2756999a…ca073`); sin arranque en staging: no portado |
+| InfinityLib-Drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-25: 1.21.11 `clean package` + 14 pruebas (0 fallos, 3 omitidas) y 26.x JDK 25 bytecode 69, ambos BUILD SUCCESS. El fallo anterior (constructor en `PersistentType`) era un JAR universal instalado a mano en `~/.m2` bajo las coordenadas 1.21.11; retirado. Sin arranque en staging: no portado |
 | InvSwitcher-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | Inventory-Rollback-Plus-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | KinematicCore-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
