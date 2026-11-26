@@ -40,6 +40,17 @@
 - El puente Rust FFM de DrakesPurpur es **experimental**; nuestras mediciones aún no muestran una mejora de extremo a extremo (ver los [resultados](https://github.com/SlimefunNewHorizons/DrakesPurpur/blob/feat/slimefun-native-engine/docs/hybrid/RESULTADOS.md)).
 - Autores originales: si falta algo o hay un error, abre un issue o avísanos en [Discord](https://discord.gg/rv3vtXZTk7) y lo corregimos.
 
+<!-- pillars:start -->
+## 🏛️ Los 4 Pilares Principales
+
+| Pilar | Rol | Línea activa | Repositorio |
+| :--- | :--- | :--- | :--- |
+| **DrakesPurpur** | Motor propio Purpur 26.2 + Java 25 (puente Rust FFM experimental y `DrakesEntityGuard`) | `26.2` / `feat/slimefun-native-engine` | [SlimefunNewHorizons/DrakesPurpur](https://github.com/SlimefunNewHorizons/DrakesPurpur) |
+| **Drakes-Suites** | 9 StarSuites modulares que consolidan 180+ micro-plugins y 94 addons de Slimefun sobre SQLite WAL | `26.x` (producción) | [SlimefunNewHorizons/Drakes-Suites](https://github.com/SlimefunNewHorizons/Drakes-Suites) |
+| **Slimefun6** | Continuación mantenida de Slimefun para Minecraft `1.21 → 26.2` con 110+ addons en producción | `main` (`26.2`) | [SlimefunNewHorizons/Slimefun6](https://github.com/SlimefunNewHorizons/Slimefun6) |
+| **DrakeStar-Launcher** | Launcher multiplataforma Tauri 2 + Rust + Svelte 5 (`1-Click Play`, minisign y Modo Monolito Local) | `main` (`v0.7.0`) | [SlimefunNewHorizons/DrakeStar-Launcher](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher) |
+<!-- pillars:end -->
+
 ## 🧭 Arquitectura Global del Ecosistema
 
 ```mermaid
@@ -67,7 +78,7 @@ flowchart LR
 | :--- | :--- | :--- | :--- |
 | **Windows** (x64) | `.exe` (recomendado, sin admin) · `.msi` | Minisign + Auto-Update | [Descargar Windows (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
 | **Linux** (x64) | `.AppImage` · `.deb` · `.rpm` | Minisign + Auto-Update | [Descargar Linux (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
-\1Minisign · **sin probar en macOS aún** | [Descargar macOS (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
+| **macOS** (Apple Silicon / Intel) | `.dmg` · `.app` | Minisign · **sin probar en macOS aún** | [Descargar macOS (latest)](https://github.com/SlimefunNewHorizons/DrakeStar-Launcher/releases/latest) |
 
 ---
 
@@ -102,6 +113,7 @@ El Slimefun original terminó su desarrollo en octubre (1.21 fue su última vers
 - **🟢 Producción Activa:** `DrakeStar-Launcher` (`v0.7.0`), `Drakes-Suites` (9 StarSuites), `DrakesPurpur` (motor 26.2 Java 25 + Rust FFM), `Odysseia`, `Slimefun6`, `NetworksV6-drake` (Cloud-Link + rendimiento), `MultiverseNets` (59 bloques + guía SF), `MultiverseGambling`, `drakescraft-web`, `drakescraft-texture-pack` (`t2-v28.zip`), `ai-hub` / SAORI SRE en Star VPS.
 - **🔵 Soporte & Núcleo Transversal:** `OmniAST` (GraphLang + `tree-sitter-omniast` + `mcp_server`), `star-server-backup` (Zero-Secrets diario), `drakes-hq`, `maven-repo`, `slimefun-porting-tools`.
 - **🧪 Sandbox / Experimental:** `drakestar-fused` (bridge mod single-JVM Fabric/NeoForge/Forge v1.0.0-alpha.2), `Slimefun-Rust` / `Odysseia-Rust`, ramas `feat/slimefun-native-engine` (motor híbrido Rust permanente).
+- **📦 Legado / Reemplazados (mantenidos sin archivar como referencia e historial):** `Slimefun4-Igdrassil`, `NetworksExpansion-Igdrassil`, `Bump-Igdrassil`, `SlimefunAdvancements-Igdrassil`, `JustEnoughGuide-Igdrassil`, `Igdrassil`, `Slimefun4-1.20.6-Port`, `Slimefun4-Drake`, `Rebar-Drake` — reemplazados por `Slimefun6`, `Drakes-Suites`, `DrakesPurpur` y `NetworksV6-drake`. Cada repo indica su reemplazo al inicio de su README.
 
 ---
 
