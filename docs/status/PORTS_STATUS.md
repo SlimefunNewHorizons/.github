@@ -18,6 +18,8 @@
 * El build 26.x lleva `clean`: sin él, el compilador incremental reutiliza las clases del build JDK 21 («Nothing to compile») y el resultado no prueba nada. `check_ports.sh` marca `NO_MEDIDO` si no recompiló.
 * Siempre vía `build_seguro.sh` (un solo build a la vez en todo el VPS, `nice`/`ionice`, espera si la carga ≥ 5). Máximo ~450 s de presupuesto por pasada.
 * `indeterminado` = el build falló sin llegar a compilar (p. ej. no resolvió dependencias): **no es un no-compila**, hay que repetirlo.
+* Ojo con los repos que fijan `<skipTests>false</skipTests>` en el `pom` de un módulo: ahí `-DskipTests` **no hace nada**, porque el `pom` pisa la propiedad. Para medir solo compilación usa `-Dmaven.test.skip=true` (verificado en `WorldwideChat-Drake`).
+* Los módulos `folia` dependen de `dev.folia:folia-api`; `26.1.2.build.8-stable` es bytecode 25 y **no se puede consumir con JDK 21**. Para la línea 1.21.11 añade `-Dfolia.api.version=1.21.11-R0.1-SNAPSHOT`.
 * Los cambios propios de 26.x van a la rama `port-26x` de cada repo, nunca directo a `main`.
 * Si un build 1.21.11 falla con `package com.github.drakescraft_labs… does not exist`, revisa `~/.m2`: un JAR universal instalado a mano bajo las coordenadas `11.0-Drake-1.21.11-SNAPSHOT` envenena todos los builds 1.21.11 del VPS (detectado y retirado el 2026-11-25).
 
@@ -147,7 +149,7 @@
 | VillagerUtil-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Wildernether-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | WorldEditSlimefun-drake | maven | PENDIENTE | ✅ sí | sin tests | sin bloqueo (rama port-26x d69bc35 bytecode 69) |
-| WorldwideChat-Drake | maven | ❌ no | ❌ no | ✅ ok | Failed to execute goal org.codehaus.mojo:exec-maven-plugin:3.6.3:java (default) on project WorldwideChat-bukkit-core: An exception occurred  (1.21.11 en main; 26.x en main) |
+| WorldwideChat-Drake | maven | ✅ sí | ✅ sí | 65 unitarios OK; 14 de integración piden Docker MySQL/Mongo/Postgres | sin bloqueo (`e63fa350`, rama main): el `exec:java` de YAMLTranslator se omite por defecto (`-Ptranslate` para ejecutarlo) y `folia` fija `maven-compiler-plugin` 3.15.0. 1.21.11 con `-Dfolia.api.version=1.21.11-R0.1-SNAPSHOT`; bytecode 65 y 69. Los 14 `StorageMigrationTest` requieren `dev/setup-dev-env.sh` (no se midieron aquí); con JDK 25 MockBukkit no instancia su `RegistryAccess`, por eso 26.x se mide con `-Dmaven.test.skip=true`. |
 | luckyblocks-sf-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 
 ## Fuente de las mediciones
