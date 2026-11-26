@@ -3,7 +3,7 @@
 ## 1. Topología y Entorno de Ejecución
 - **Host**: Star VPS (migración completada)
 - **Ruta de Trabajo**: `/home/jack/workspace/season2-staging`
-- **Motor**: Paper 26.2 (`26.2-129-9240f58`)
+- **Motor**: Purpur 26.2 (`26.2-138-ver/26.2@bf21a39`, API `26.2.build.138-stable`), JAR `drakespurpur-26.2-paperclip.jar` (2026-10-29, 68.855.945 bytes). Los JAR `paper-26.2-129.jar` y `paper-26.2-133.jar` siguen en disco solo como respaldo; la unidad **no** los arranca.
 - **Runtime Java**: OpenJDK 25.0.4.1 LTS (`/usr/lib/jvm/java-25-openjdk-amd64`)
 - **Configuración de Red**:
   - `server-ip=127.0.0.1` (Aislamiento total, solo accesible localmente / Tailscale)
@@ -14,7 +14,7 @@
   - Unidad de usuario: `saori-staging-s2.service`
   - Slice: `Slice=saori-agentes.slice`
   - Cuotas: `CPUQuota=200%`, `MemoryMax=6G`
-  - Parámetros JVM: `-Xms1G -Xmx4G -XX:+UseG1GC -jar paper-26.2-129.jar --nogui`
+  - Parámetros JVM: `-Xms1G -Xmx4G -XX:+UseG1GC -jar drakespurpur-26.2-paperclip.jar --nogui` (según `systemctl --user cat`, 2026-11-26)
   - Política de ciclo de vida: Se levanta exclusivamente para pruebas y se apaga al finalizar (`1 servidor de pruebas a la vez`).
   - Parada ordenada: la unidad inyecta `save-all flush` y `stop` por una FIFO privada de runtime; la FIFO se elimina al completar el apagado.
 
@@ -180,6 +180,28 @@ El filtro de `WARN`, `ERROR`, `Exception`, `Could not` y `Failed` no devolvió
 líneas en `latest.log` de esta ejecución. Esta evidencia acredita únicamente
 **carga real en staging**; los smoke tests funcionales por módulo siguen
 pendientes. Dallas no fue modificado.
+
+### Verificación de arranque — Purpur 26.2 build 138 (2026-11-26 CLT)
+
+Estado medido con `saori_audit_staging.py` sobre el servicio real (no una copia):
+
+- Arranque `Done (469.885s)` con **195 plugins**; 0 `Could not load` ni `Could not enable`.
+- 20 líneas `ERROR` de `Multiverse-Core` `WORLD_FOLDER_INVALID` (las mismas entradas de
+  `worlds.yml` sin carpeta que ya documenta el punto 4 de §5); fuera de eso, el arranque
+  no registra excepciones fatales.
+- Ruido posterior al arranque, no fatal: `Geyser-Spigot` no pudo refrescar el servicio de
+  señalización (`Invalid JSON: api.geysermc.org`, `IOException: Provider transport
+  unavailable`) y `DiscordSRV` acumuló timeouts de JDA rate-limit. Se comprobó el egreso
+  del host durante esta pasada (`api.geysermc.org` responde y `discord.com/api/v10/gateway`
+  devuelve 200), así que se registra como fallo transitorio de red, no de compatibilidad.
+- El servidor llevaba 8 h 38 min en marcha sin jugadores conectados y se detuvo de forma
+  ordenada con `systemctl --user stop` (el `ExecStop` inyecta `save-all flush` y `stop`):
+  log `All dimensions are saved`, servicio `inactive`, sin procesos `java` huérfanos.
+- Correctitud de la ficha: la unidad arranca `drakespurpur-26.2-paperclip.jar` (Purpur
+  `26.2-138`), no `paper-26.2-129.jar` como decía §1; corregido en esta pasada.
+
+Esto acredita **carga y arranque real**, no smoke funcional por módulo; sigue sin
+certificarse el juego in-game. Dallas no se modificó.
 
 ## 5. Próximos Pasos (Fase 2 de Temporada 2)
 1. Absorción y verificación de addons secundarios de Slimefun pendientes en las StarSuites (manteniendo invariantes de IDs y claves PDC).

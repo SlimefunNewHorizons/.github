@@ -27,10 +27,10 @@
 
 | Alcance | Repos | Medidos |
 |---|---:|---:|
-| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 93 | 78 |
+| Maven (`*-drake`, `Drakes*`, `DiosesDrakes`, `ArcanaDrakes`) | 93 | 92 |
 | Gradle | 13 | 9 |
 | Sin código fuente en el repo | 9 | 8 |
-| **Total** | **115** | **95** |
+| **Total** | **115** | **109** |
 
 ## Tabla
 
@@ -53,7 +53,7 @@
 | Drakes-Suites | maven | ❌ no | ✅ sí | sin tests | Failed to execute goal org.apache.maven.plugins:maven-jar-plugin:2.4:jar (default-jar) on project drakes-core: Error assembling JAR: /home/j (1.21.11 en main; 26.x en 26.x) |
 | DrakesBosses | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo |
 | DrakesCore | maven | n/a | n/a | sin tests | repo archivado en GitHub (solo lectura; sustituido por Drakes-Suites y Odysseia) |
-| DrakesCrates | maven | ✅ sí | ⚠️ no medido (paper-api fija) | ✅ ok | pom ya parametrizado (paper.version en 536ecc4 en main); pendiente re-medicion 26.x con check_ports.sh |
+| DrakesCrates | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21, tests OK) y 26.x en `port-26x` (JDK 25, bytecode 69), ambos BUILD SUCCESS |
 | DrakesLabPresence-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | DrakesMotd | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (paper.version parametrizado en 4b2c0a6) |
 | DrakesNanotech | maven | ✅ sí | ✅ sí | ✅ ok | port-26x bbdcc92 compila contra core universal (tests 7/7) JDK 25/Paper 26.2 (bytecode 69); corre absorbido como NanotechModule de DrakesTech en staging 26.2 (jar standalone no se instala) |
@@ -67,8 +67,8 @@
 | DrakesVIPPlusPlus | maven | ✅ sí | ✅ sí | sin tests | 2026-10-05 `7e66cba`: JSR-305 provided para Paper 26.2. Compila en JDK 21 y JDK 25; **corre** en staging Paper 26.2 build 129/Java 25 y alcanza `Done` (121.417 s); con DrakesVIP++ habilitado y 15 tiers cargados. |
 | DrakesWorlds | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (Biome como registro + jsr305; corregido en 003529d; carga y genera mundo en staging 26.2) |
 | DyeBench-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| DyedBackpacks-drake | maven | ⏳ pendiente | ✅ sí | sin tests | `port-26x` `371b062`: JDK 25/Paper 26.2 `clean test package`; bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: habilitado junto al núcleo Slimefun universal y servidor `Done` (115.540 s); no se midió 1.21.11 en esta pasada. |
-| DynaTech-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 2026-10-11: port-26x 47f1cb9 cablea deps universales (ExtraUtils/ExoticGarden/Gastronomicon/InfinityExpansion/InfinityLib); BUILD SUCCESS JDK25 con flags 26.2.build.129 en log 2026-10-07 + bytecode major 69 verificado en target/ (SHA 930ec9b8); 0 refs propietarias y 86 ficheros al ABI io.github.thebusybiscuit; sin tests declarados. 1.21.11 pendiente de re-medicion (ultimo log 2026-10-02 FAILURE con pom antiguo). Sin arranque en staging: NO portado |
+| DyedBackpacks-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `main` JDK 21 BUILD SUCCESS; `port-26x` `371b062`: JDK 25/Paper 26.2 `clean test package`; bytecode 69. **Corre** en staging Paper 26.2 build 129/Java 25: habilitado junto al núcleo Slimefun universal y servidor `Done` (115.540 s). |
+| DynaTech-drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-10-26 (#438): `main` JDK 21 (bytecode 65, `70a6027`) y `port-26x` JDK 25 (`bcea631`, bytecode 69) BUILD SUCCESS + JUnit 5 `AbstractMachineRefundTest` en verde; desplegado en Dallas 1.21.11. |
 | EMCTech-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | EcoPower-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo |
 | ElectricSpawners-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
@@ -87,8 +87,8 @@
 | FoxyMachines-drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (26.x en rama port-26x commit 7139fb5) |
 | Galactifun2-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Galaxyfun-drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| Gastronomicon-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| GeneticChickengineering-Reborn-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Gastronomicon-drake | maven | ❌ no | ✅ sí | sin tests | 2026-11-26: `port-26x` JDK 25 BUILD SUCCESS (bytecode 69); `main` JDK 21 falla porque `SlimeHUD` provisto en el repo Maven está compilado en bytecode 69 (Java 25) y Lombok no estaba en `annotationProcessorPaths` en `main` |
+| GeneticChickengineering-Reborn-drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS + tests OK; sin arranque en staging: no portado |
 | Geyser-Slimefun-Heads-drake | maven | ✅ sí | ✅ sí | sin tests | port-26x cc623cb: 2 imports a Slimefun universal |
 | HeadLimiter-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | HotbarPets-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
@@ -98,19 +98,19 @@
 | Inventory-Rollback-Plus-Drake | maven | ✅ sí | ✅ sí | ✅ ok | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | KinematicCore-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | LevelledMobs-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
-| Liquid-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| LiteXpansion-drake | maven | ⏳ pendiente | ✅ sí | ✅ ok | 2026-10-07 CLT: rama port-26x dd4ca3a migra 36 archivos al Slimefun universal sin dough-core release 25 y ExtraUtils-drake universal sombreado (1.20.6-Drake-UNIVERSAL-26x-SNAPSHOT ExtraUtils 6067bff); JDK 25 / Paper 26.2 bytecode major 69 0 refs propietarias; arrancado en staging Purpur 26.2 (34 recetas UU-Matter 66/76 IDs como main). 1.21.11 sin recompilar en esta pasada |
+| Liquid-drake | maven | ❌ no | ✅ sí | sin tests | 2026-11-26: `main` apunta a `11.0-Universal-26.x-SNAPSHOT` (bytecode 69); compila en 26.x (JDK 25 BUILD SUCCESS, bytecode 69) y falla en JDK 21 por `class file has wrong version 69.0` |
+| LiteXpansion-drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-26: `main` JDK 21 BUILD SUCCESS + tests OK; `port-26x` `dd4ca3a` JDK 25 / Paper 26.2 bytecode major 69, 0 refs propietarias, arrancado en staging Purpur 26.2 (34 recetas UU-Matter 66/76 IDs como main) |
 | Magic-8-Ball-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | MapJammers-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 | MiniBlocks-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
-| MissileWarfare-drake | maven | ⏳ pendiente | ✅ sí | sin tests | 26.x medido 2026-10-06 en el VPS (build_seguro JDK 25; `clean test package`; major 69). `port-26x` `c49c23a` migra al Slimefun universal y **arranca** en staging 26.2 (addons 7→8; ticket #96). 1.21.11 (main) sin medir en esta pasada |
-| MobCapturer-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| MissileWarfare-drake | maven | ❌ no | ✅ sí | sin tests | 2026-11-26: `port-26x` `c49c23a` JDK 25 BUILD SUCCESS (major 69, arranca en staging 26.2, ticket #96); `main` JDK 21 falla porque `worldguard-bukkit:7.0.20` es bytecode 69 (`port-26x` fija `7.0.18`) |
+| MobCapturer-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS; sin arranque en staging: no portado |
 | MoreResearches-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | NetworksV6-drake | maven | ❌ no | ✅ sí | ❌ fallan | Tests run: 13; Failures: 0; Errors: 13; Skipped: 0; Time elapsed: 0.782 s <<< FAILURE! -- in io.github.sefiraat.networks.slimefun.network.Ne |
-| OneChunk-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| OneChunk-drake | maven | ❌ no | ✅ sí | ✅ ok | `port-26x` (`fcdedaa`): suite 629/629 tests verdes en JDK 25 y desplegado en staging/monolito T2 (#401); `check_ports.sh` marca `NO_MEDIDO` en 26.x porque `pom.xml` fija `paper-api 1.21.11-R0.1-SNAPSHOT` para compatibilidad BentoBox |
 | PlayerVaultZ-Drake | maven | ⚠️ indeterminado (dependencias) | ⚠️ indeterminado (dependencias) | sin tests | Failed to execute goal on project playervaultz-drake-patch: Could not resolve dependencies for project cl.drakescraft:playervaultz-drake-pat |
 | PotionExpansion-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
-| ProtectionStones-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| ProtectionStones-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `drake` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS |
 | Pylon-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | Quaptics-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Rebar-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
@@ -119,36 +119,36 @@
 | S-PlayerWarps-Drake | gradle | n/a | ⏳ pendiente (gradle) | sin tests | gradle: medir con wrapper |
 | SFCalc-drake | maven | ❌ no | ✅ sí | sin tests | COMPILATION ERROR :  |
 | SFMobDrops-drake | maven | ❌ no | ✅ sí | ❌ fallan | Tests run: 1; Failures: 0; Errors: 1; Skipped: 0; Time elapsed: 0.902 s <<< FAILURE! -- in dev.walshy.sfmobdrops.TestConfig (1.21.11 en main; 26.x en port-26x) |
-| SMG-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SMG-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS; sin arranque en staging: no portado |
 | SaneCrafting-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | SensibleToolbox-drake | maven | ✅ sí | ✅ sí | ✅ ok | **corre** en staging Paper 26.2 build 129 (2026-10-03 00:16 CLT): habilita sin excepciones con Slimefun universal; antes fallaba por `ClassNotFoundException` del wrapper propietario |
 | SfBetterChests-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | SfChunkInfo-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Simple-Storage-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
-| SimpleUtils-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| SlimeChem-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| SlimeFrame-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SimpleUtils-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS; sin arranque en staging: no portado |
+| SlimeChem-drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS + tests OK; sin arranque en staging: no portado |
+| SlimeFrame-drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), BUILD SUCCESS y pruebas en verde; sin arranque en staging: no portado |
 | SlimeHUD-drake | maven | ✅ sí | ✅ sí | sin tests | **No corre** en staging Paper 26.2: `NoClassDefFoundError` `com/github/drakescraft_labs/slimefun4/api/SlimefunAddon` (core universal usa `io.github.thebusybiscuit`). En 26.x la función ya vive como módulo `slimehud` de DrakesUtility; que sí carga. |
 | SlimeTinker-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-08 rama fix/attribute-max-health-1211 d9e6af6 (Attribute.MAX_HEALTH para 1.21.11); jdk21 BUILD SUCCESS sin tests; jdk25 clean package release 25 BUILD SUCCESS 107 fuentes recompiladas y bytecode major 69 verificado en target/; paper.version parametrizada. Solo compila; sin arranque en staging 26.x |
-| Slimefun-Disc-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| Slimefun-Disc-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS; sin arranque en staging: no portado |
 | Slimefun-Texture-Drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | solo README/docs en el repo |
-| Slimefun4-Drake | maven | ⏳ pendiente | ✅ sí | ❌ fallan | Rama `feat/universal-slimefun-abi` a08023b2: JAR universal compila y carga en staging Paper 26.2; MockBukkit falla al inicializar `org.bukkit.Registry` en Java 25. |
+| Slimefun4-Drake | maven | ✅ sí | ✅ sí | ✅ ok | `main` JDK 21 y `port-26x` (`b959021bf`) JDK 25 (1871 tests verdes en reactor completo; corre en staging Purpur 26.2). |
 | SlimefunTranslation-drake | gradle | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| SlimefunWarfare-Drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SlimefunWarfare-Drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS; sin arranque en staging: no portado |
 | SlimyBees | maven | ✅ sí | ✅ sí | ✅ ok | JDK 21 main y JDK 25 port-26x recompilados con clean test; 1 prueba BeeHive verde en cada linea; sin prueba de arranque |
 | SlimyRepair-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | SlimyTreeTaps-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | SmallSpace-drake | maven | ✅ sí | ✅ sí | sin tests | sin bloqueo (1.21.11 en main; 26.x en port-26x) |
 | SoulJars-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-10-03: `port-26x` migra imports al Slimefun universal (`11.0-Universal-26.x-SNAPSHOT`). **Corre** en staging Paper 26.2: habilita sin excepciones y aparece en `/sf versions`. |
-| SoundMuffler-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| SoundMuffler-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS; sin arranque en staging: no portado |
 | SpiritsUnchained-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Supreme-Drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
-| TranscEndence-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
-| UltimateGenerators2-drake | maven | ⏳ pendiente | ⏳ pendiente | ⏳ pendiente |  |
+| TranscEndence-drake | maven | ✅ sí | ✅ sí | ✅ ok | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (JDK 25), ambos BUILD SUCCESS + tests OK; sin arranque en staging: no portado |
+| UltimateGenerators2-drake | maven | ✅ sí | ⚠️ no medido | sin tests | 2026-11-26: 1.21.11 en `main` (JDK 21) BUILD SUCCESS; 26.x en `main` clasificado `NO_MEDIDO` por `check_ports.sh` (compilador Kotlin no emite marcador javac y target conserva bytecode previo) |
 | VillagerTrade-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | VillagerUtil-drake | maven | n/a | n/a | sin tests | sin codigo fuente en el repo (solo README/docs) |
 | Wildernether-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
-| WorldEditSlimefun-drake | maven | PENDIENTE | ✅ sí | sin tests | sin bloqueo (rama port-26x d69bc35 bytecode 69) |
+| WorldEditSlimefun-drake | maven | ✅ sí | ✅ sí | sin tests | 2026-11-26: `check_ports.sh` midió 1.21.11 en `main` (JDK 21) y 26.x en `port-26x` (`d69bc35`, JDK 25, bytecode 69), ambos BUILD SUCCESS |
 | WorldwideChat-Drake | maven | ✅ sí | ✅ sí | 65 unitarios OK; 14 de integración piden Docker MySQL/Mongo/Postgres | sin bloqueo (`e63fa350`, rama main): el `exec:java` de YAMLTranslator se omite por defecto (`-Ptranslate` para ejecutarlo) y `folia` fija `maven-compiler-plugin` 3.15.0. 1.21.11 con `-Dfolia.api.version=1.21.11-R0.1-SNAPSHOT`; bytecode 65 y 69. Los 14 `StorageMigrationTest` requieren `dev/setup-dev-env.sh` (no se midieron aquí); con JDK 25 MockBukkit no instancia su `RegistryAccess`, por eso 26.x se mide con `-Dmaven.test.skip=true`. |
 | luckyblocks-sf-drake | sin-codigo | n/a (sin fuente) | n/a (sin fuente) | n/a | sin codigo fuente en el repo (solo README/docs) |
 
